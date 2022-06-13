@@ -63,7 +63,7 @@ const Navbar = () => {
     return (
 
 
-        <div className="navbar bg-[#ffff]  flex justify-center items-center py-6 shadow-lg " >
+        <div className="navbar bg-[#a0d2a14b]  flex justify-center items-center py-4 shadow-lg " >
 
             <div className="navbar-start">
                 <div className="dropdown">
@@ -75,7 +75,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to='/' className="">
-                    <img src="https://i.ibb.co/Z8NGwSC/Little-Leaf-logo.png" alt="" className=' ' />
+                    <img src="https://i.ibb.co/zx10Tpq/icons8-leaf-100.png" alt="" className=' ' />
                 </Link>
             </div>
 
