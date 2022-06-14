@@ -3,6 +3,7 @@ import React from 'react';
 const Banner = () => {
     return (
         <div className='mb-24'>
+            <h1>Banner</h1>
             <div
                 id="carouselDarkVariant"
                 className="carousel slide carousel-fade carousel-dark relative"
