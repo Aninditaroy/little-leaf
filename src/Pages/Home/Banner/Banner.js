@@ -55,7 +55,7 @@ const Banner = () => {
                                 <img src='https://i.ibb.co/9qmf0g0/Zamioculcas-zamiifolia-ZZ-Plant-Charlie-Plant-Pot-Low-Stand-Grey-Washed-9287300c-e6ca-4a6d-abb0-4d8a.png' alt="" className='' style={{ height: '436px', width: '436px' }} />
                                 <div className='flex items-center'>
                                     <div className='lg:mt-24'>
-                                        <h1 className='lg:px-10 text-5xl md:text-4xl lg:text-5xl lg:ml-11  font-bold' style={{ paddingLeft: '15px' }}>Go the green way</h1>
+                                        <h1 className='lg:px-10 text-5xl md:text-4xl lg:text-5xl lg:ml-11  font-bold' style={{ paddingLeft: '15px' }}>Grow more and Feel plants</h1>
                                         <h4 className='lg:pl-48 text-xl lg:ml-12 font-regular mt-5 pr-0 mb-10' style={{ paddingLeft: '15px' }}>It is time to switch to the green revolution.Green would be your new favorite color soon.</h4>
                                     </div>
                                 </div>
