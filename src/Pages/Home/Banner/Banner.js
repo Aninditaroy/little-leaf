@@ -84,14 +84,14 @@ const Banner = () => {
 
                 {/* <!-- Controls --> */}
                 <button
-                    className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0 invisible md:visible lg:visible xl:visible"
+                    className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0 invisible md:visible lg:visible xl:visible "
                     type="button"
                     data-bs-target="#carouselDarkVariant"
                     data-bs-slide="prev"
                 >
 
-                    <span className=" bg-white  rounded-full p-1.5  inline-block bg-no-repeat text-black hover:bg-[#79a206]" aria-hidden="true">
-                        <i class="uil uil-angle-left text-4xl "></i></span>
+                    <span className="bg-white rounded-full p-2  inline-block bg-no-repeat text-black hover:bg-[#3E701C] hover:text-white" aria-hidden="true">
+                        <i class="uil uil-angle-left text-4xl"></i></span>
 
                     <span className="visually-hidden ">Previous</span>
                 </button>
@@ -101,7 +101,7 @@ const Banner = () => {
                     data-bs-target="#carouselDarkVariant"
                     data-bs-slide="next"
                 >
-                    <span className=" bg-white  rounded-full p-1.5   inline-block bg-no-repeat text-black hover:bg-[#79a206]" aria-hidden="true"><i class="uil uil-angle-right text-4xl "></i></span>
+                    <span className=" bg-white  rounded-full p-2  inline-block bg-no-repeat text-black hover:bg-[#3E701C] hover:text-white" aria-hidden="true"><i class="uil uil-angle-right text-4xl "></i></span>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>

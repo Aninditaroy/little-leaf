@@ -188,10 +188,10 @@ const Login = () => {
 
 
                     <p className='flex justify-between'>
-                        <small>New to The Little Leaf?
+                        <small>New to Little Leaf?
                         </small>
                         <Link to='/signup'
-                            className='text-blue-700 hover:underline'
+                            className='text-[#89B849] hover:underline'
                         >Create new account</Link>
                     </p>
 

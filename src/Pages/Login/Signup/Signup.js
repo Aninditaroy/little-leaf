@@ -173,8 +173,6 @@ const Signup = () => {
 
                                 })}
                             />
-
-
                         </div>
                         <label className="label">
                             {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
@@ -184,12 +182,9 @@ const Signup = () => {
 
                         </label>
                     </div>
-
-
-
                     <input
 
-                        className='btn w-full max-w-xs text-white font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 border-none  bg-[#79A206] hover:bg-[#56720b]' type="submit"
+                        className='btn w-full max-w-xs text-white font-medium p-2 md:p-4 uppercase  rounded-2xl mb-6 border-none  bg-[#79A206] hover:bg-[#56720b] hover:text-black' type="submit"
                         value='SIGNUP' />
 
 
@@ -199,7 +194,7 @@ const Signup = () => {
                         <small>Already have an account?
                         </small>
                         <Link to='/login'
-                            className='text-blue-700 hover:underline'
+                            className='text-[#89B849] hover:underline'
                         >Please LogIn</Link>
                     </p>
 
