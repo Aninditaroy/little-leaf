@@ -90,7 +90,7 @@ const Banner = () => {
                     data-bs-slide="prev"
                 >
 
-                    <span className=" bg-slate-700  rounded-full p-1.5  inline-block bg-no-repeat text-white" aria-hidden="true">
+                    <span className=" bg-white  rounded-full p-1.5  inline-block bg-no-repeat text-black hover:bg-[#79a206]" aria-hidden="true">
                         <i class="uil uil-angle-left text-4xl "></i></span>
 
                     <span className="visually-hidden ">Previous</span>
@@ -101,7 +101,7 @@ const Banner = () => {
                     data-bs-target="#carouselDarkVariant"
                     data-bs-slide="next"
                 >
-                    <span className=" bg-slate-700  rounded-full p-1.5   inline-block bg-no-repeat" aria-hidden="true"><i class="uil uil-angle-right text-4xl"></i></span>
+                    <span className=" bg-white  rounded-full p-1.5   inline-block bg-no-repeat text-black hover:bg-[#79a206]" aria-hidden="true"><i class="uil uil-angle-right text-4xl "></i></span>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>

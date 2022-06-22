@@ -1,20 +1,19 @@
-// import { signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
-// import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
-// import auth from './../../../firebase.init';
-// import logo from '../../../assets/icons/logo.png'
 import './Navbar.css'
+import auth from './../../firebase.init';
 
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    // const [user, loading, error] = useAuthState(auth);
-    // const logout = () => {
-    //     signOut(auth);
-    //     localStorage.removeItem('accessToken')
+    const [user, loading, error] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken')
 
-    // };
+    };
 
     const menuItems = <>
         <li tabindex="0" className='p-0 h-1/4 hover:bg[#81B441]'>
@@ -58,18 +57,39 @@ const Navbar = () => {
                 }
             </></li>
             : */
-                <div>
-                    <Link to='/login' className='p-0 h-1/4 mx-1.5'>Login</Link>
-                    /
-                    <Link to='/signup' className='p-0 h-1/4 mx-1.5'>Signup</Link>
-                </div>
+
+
+                <>
+                    {
+                        user ? <div className='p-0 h-1/4'>
+                            <button onClick={logout} className="btn btn-ghost ">Sign Out</button>
+
+
+                        </div>
+
+                            :
+
+                            <div className='flex justify-center items-center'>
+
+                                <Link to='/login' className='p-0 h-1/4 '><button className="btn btn-ghost ">Login</button> </Link>
+                                <>/</>
+                                <Link to='/signup' className='p-0 h-1/4 '><button className="btn btn-ghost ">Signup</button></Link>
+
+                            </div>
+
+                    }
+                </>
+
+
+
+
             }
         </>
     </>
     return (
 
 
-        <div className="navbar bg-[#a0d2a185] sticky top-0 z-50 flex justify-center items-center py-4 shadow-lg " >
+        <div className="navbar bg-[#a0d2a185] bg-[#ecf6ecd9] sticky top-0 z-50 flex justify-center items-center py-4 shadow-lg " >
 
             <div className="navbar-start">
                 <div className="dropdown">
