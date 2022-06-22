@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 // import auth from './../../../firebase.init';
 // import logo from '../../../assets/icons/logo.png'
+import './Navbar.css'
 
 
 const Navbar = () => {
@@ -17,9 +18,9 @@ const Navbar = () => {
 
     const menuItems = <>
         <li tabindex="0" className='p-0 h-1/4 hover:bg[#81B441]'>
-            <Link to='/' className='pr-1 h-1/4 py-3 hover:bg[#81B441]'>
+            <Link to='/home'>
                 Home
-                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+
             </Link>
             {/* <ul className="p-1 bg-base-100 z-50	">
                 <li><Link to='/'>Summary</Link></li>
@@ -28,9 +29,10 @@ const Navbar = () => {
                 <li><Link to='/'>Footer</Link></li>
             </ul> */}
         </li>
-        <li className='p-0 h-1/4'><Link to='/allTool'>Tools</Link></li>
-        <li className='p-0 h-1/4'><Link to='/portfolio'>Portfolio</Link></li>
-        <li className='p-0 h-1/4'><Link to='/blog'>Blogs</Link></li>
+        <li className='p-0 h-1/4 mx-1.5'><Link to='/shop'>Shop</Link></li>
+        <li className='p-0 h-1/4 mx-1.5'><Link to='/products'>Products</Link></li>
+        <li className='p-0 h-1/4 mx-1.5'><Link to='/blog'>Blog</Link></li>
+        <li className='p-0 h-1/4 mx-1.5'><Link to='/aboutUs'>About Us</Link></li>
 
         <>
             {/* {
@@ -56,7 +58,11 @@ const Navbar = () => {
                 }
             </></li>
             : */
-                <Link to='/login'>Login</Link>
+                <div>
+                    <Link to='/login' className='p-0 h-1/4 mx-1.5'>Login</Link>
+                    /
+                    <Link to='/signup' className='p-0 h-1/4 mx-1.5'>Signup</Link>
+                </div>
             }
         </>
     </>
@@ -76,12 +82,12 @@ const Navbar = () => {
                 </div>
                 <Link to='/' className='flex justify-center items-center'>
                     <img src="https://i.ibb.co/zx10Tpq/icons8-leaf-100.png" alt="" className=" w-14" />
-                    <span className='text-4xl font-semibold'>Little Leaf</span>
+                    <span className='text-4xl font-semibold logo-font'>Little Leaf</span>
                 </Link>
             </div>
 
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+                <ul className="menu menu-horizontal p-0 flex items-center justify-center navbar-font">
                     {menuItems}
                 </ul>
             </div>
