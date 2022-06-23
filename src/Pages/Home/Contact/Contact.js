@@ -58,19 +58,19 @@ const Contact = () => {
                     </div>
                     <form onSubmit={sendEmail} className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid">
                         <label className="block">
-                            <span className="mb-1 text-white text-lg">Full name</span>
-                            <input type="text" name='name' placeholder="Leroy Jenkins" className="block w-full rounded-md shadow-sm   dark:bg-gray-800 border-slate-300 border-2 p-2.5 outline-none focus:border-[#3C7116] focus:border-2 focus:px-4" />
+                            <span className="mb-1 text-white font-semibold text-lg">Full name</span>
+                            <input type="text" name='name' placeholder="Your name" className="block w-full rounded-md shadow-sm   dark:bg-gray-800   p-2.5 outline-none focus:border-[#3C7116] focus:border-2 focus:px-4" />
                         </label>
                         <label className="block">
-                            <span className="mb-1 text-white text-lg">Email address</span>
-                            <input type="email" name='email' placeholder="leroy@jenkins.com" className="block w-full rounded-md shadow-sm  dark:bg-gray-800 border-slate-300 border-2 p-2.5 outline-none focus:border-[#3C7116] focus:border-2 focus:px-4" />
+                            <span className="mb-1 text-white font-semibold text-lg">Email address</span>
+                            <input type="email" name='email' placeholder="name@xxx.com" className="block w-full rounded-md shadow-sm  dark:bg-gray-800  p-2.5 outline-none focus:border-[#3C7116] focus:border-2 focus:px-4" />
                         </label>
                         <label className="block">
-                            <span className="mb-1 text-white text-lg">Message</span>
-                            <textarea rows="3" name='message' className="block w-full rounded-md dark:bg-gray-800 border-slate-300 border-2 p-2.5 outline-none focus:border-[#3C7116] focus:border-2 focus:px-4" placeholder='Write a message'></textarea>
+                            <span className="mb-1 text-white font-semibold text-lg">Message</span>
+                            <textarea rows="3" name='message' className="block w-full rounded-md dark:bg-gray-800  p-2.5 outline-none focus:border-[#3C7116] focus:border-2 focus:px-4" placeholder='Write a message'></textarea>
                         </label>
                         <div class="mt-3 rounded-lg sm:mt-0">
-                            <button type="submit" class="items-center block px-10 py-3.5 text-base font-medium text-center text- hover:bg-[#3c7116a0] hover:text-white hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl bg-white border-white  rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Submit</button>
+                            <button type="submit" class="items-center block px-10 py-3.5 text-base font-medium text-center text- hover:bg-[#3c7116a0] hover:text-white hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl bg-white border-white  rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 uppercase">Submit</button>
                         </div>
                     </form>
                 </div>
