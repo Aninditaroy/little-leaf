@@ -1,21 +1,21 @@
 
 import React from 'react';
-// import { emailjs } from 'emailjs-com';
+import { emailjs } from 'emailjs-com';
 
 
 // http://themes.g5plus.net/spring/wp-content/uploads/2018/01/background-02.jpg
 //http://themes.g5plus.net/spring/wp-content/uploads/revslider/slider05/slider-15.jpg
 const Contact = () => {
-    // function sendEmail(e) {
-    //     e.preventDefault();
-    //     emailjs.sendForm.sendForm('little-leaf', 'template_ttumyuu', e.target, '-HU5bzWa7BXhyDuKZ')
-    //         .then((result) => {
-    //             console.log(result.text);
-    //         }, (error) => {
-    //             console.log(error.text);
-    //         });
-    //     e.target.reset()
-    // }
+    function sendEmail(e) {
+        e.preventDefault();
+        // emailjs.sendForm.sendForm('little-leaf', 'template_ttumyuu', e.target, '-HU5bzWa7BXhyDuKZ')
+        //     .then((result) => {
+        //         console.log(result.text);
+        //     }, (error) => {
+        //         console.log(error.text);
+        //     });
+        e.target.reset()
+    }
     return (
         <div className='my-10' style={{ backgroundImage: 'url(http://themes.g5plus.net/spring/wp-content/uploads/2018/01/background-02.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
             <section className="py-20 ">
@@ -47,7 +47,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-                    <form className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid">
+                    <form onSubmit={sendEmail} className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid">
                         <label className="block">
                             <span className="mb-1 text-white text-lg">Full name</span>
                             <input type="text" name='name' placeholder="Leroy Jenkins" className="block w-full rounded-md shadow-sm   dark:bg-gray-800 border-slate-300 border-2 p-2.5 outline-none focus:border-[#3C7116] focus:border-2 focus:px-4" />
