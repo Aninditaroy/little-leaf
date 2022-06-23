@@ -1,112 +1,54 @@
 import React from 'react';
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/bundle";
+import "./Banner.css";
+import { Autoplay, Navigation, Pagination } from 'swiper';
 const Banner = () => {
     return (
-        <div className='mb-24'>
-            <div
-                id="carouselDarkVariant"
-                className="carousel slide carousel-fade carousel-dark relative"
-                data-bs-ride="carousel"
-            >
-                {/* <!-- Indicators --> */}
-                <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4 ">
-                    <button
-                        data-bs-target="#carouselDarkVariant"
-                        data-bs-slide-to="0"
-                        className="active"
-                        aria-current="true"
-                        aria-label="Slide 1"
-                    ></button>
-                    <button
-                        data-bs-target="#carouselDarkVariant"
-                        data-bs-slide-to="1"
-                        aria-label="Slide 1"
-                    ></button>
-                    <button
-                        data-bs-target="#carouselDarkVariant"
-                        data-bs-slide-to="2"
-                        aria-label="Slide 1"
-                    ></button>
-                </div>
-
-                {/* <!-- Inner --> */}
-                <div className="carousel-inner relative w-full overflow-hidden">
-                    <div className="carousel-item active relative float-left w-full">
-
-                        <div className=" p-0 md:p-6  lg:p-24 xl:p-24 2xl:p-24 2xl:py-12  bg-[#c0795db0] " >
-                            <div className='w-11/12 md:w-full xl:w-11/12  2xl:w-11/12	 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'>
-                                <img src='https://i.ibb.co/44Z0Gbj/slider-51-removebg-preview.png' alt="" className='' style={{ height: '436px', width: '436px' }} />
-                                <div className='flex items-center'>
-                                    <div className='lg:mt-24'>
-                                        <h1 className='lg:px-10 text-5xl md:text-4xl lg:text-5xl lg:ml-11  font-bold' style={{ paddingLeft: '15px' }}>Give the gift of Greenery</h1>
-                                        <h4 className='lg:pl-48 text-xl  lg:ml-12 font-regular mt-5 pr-0 mb-10' style={{ paddingLeft: '15px' }}>Make your days feeling goods with beautiful plant.Whoever plants, gives God a reason to smile.</h4>
-                                    </div>
+        <>
+            {/* <img src="https://i.ibb.co/xzpjTbK/home-1-slide-2.jpg" alt=""
+            navigation={true} 
+            direction={"vertical"}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+            /> */}
+            <Swiper grabCursor={true} autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+            }}
+                pagination={{
+                    clickable: true
+                }}
+                modules={[Navigation, Pagination, Autoplay]} className="mySwiper">
+                <SwiperSlide className='carousel-img-animation' >
+                    <div style={{ backgroundImage: "url(https://i.ibb.co/xzpjTbK/home-1-slide-2.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+                        {/* <img src="https://i.ibb.co/xzpjTbK/home-1-slide-2.jpg" alt="" /> */}
+                        {/* <div className='w-11/12 md:w-full xl:w-11/12  2xl:w-11/12	 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'>
+                            {<img src='https://i.ibb.co/44Z0Gbj/slider-51-removebg-preview.png' alt="" className='max-w-sm' />}
+                            <div className='flex items-center'>
+                                <div className='lg:mt-24'>
+                                    <h1 className='lg:px-10 text-5xl md:text-4xl lg:text-5xl lg:ml-11  font-bold' style={{ paddingLeft: '15px' }}>Give the gift of Greenery</h1>
+                                    <h4 className='lg:pl-48 text-xl  lg:ml-12 font-regular mt-5 pr-0 mb-10' style={{ paddingLeft: '15px' }}>Make your days feeling goods with beautiful plant.Whoever plants, gives God a reason to smile.</h4>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
-
-                    {/* second item for test */}
-
-                    <div className="carousel-item  relative float-left w-full  ">
-                        <div className=" p-0 md:p-6  lg:p-24 xl:p-24 2xl:p-24 2xl:py-12 bg-[#5b6963a7]" >
-                            <div className='w-11/12 md:w-full xl:w-11/12  2xl:w-11/12	 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 '>
-
-                                <img src='https://i.ibb.co/9qmf0g0/Zamioculcas-zamiifolia-ZZ-Plant-Charlie-Plant-Pot-Low-Stand-Grey-Washed-9287300c-e6ca-4a6d-abb0-4d8a.png' alt="" className='' style={{ height: '436px', width: '436px' }} />
-                                <div className='flex items-center'>
-                                    <div className='lg:mt-24'>
-                                        <h1 className='lg:px-10 text-5xl md:text-4xl lg:text-5xl lg:ml-11  font-bold' style={{ paddingLeft: '15px' }}>Grow more and Feel plants</h1>
-                                        <h4 className='lg:pl-48 text-xl lg:ml-12 font-regular mt-5 pr-0 mb-10' style={{ paddingLeft: '15px' }}>It is time to switch to the green revolution.Green would be your new favorite color soon.</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </SwiperSlide>
+                <SwiperSlide className='carousel-img-animation'>
+                    <div>
+                        <img src="https://i.ibb.co/SdvLKZ9/home-1-slide-3.jpg" alt="" />
                     </div>
-
-                    {/* <!-- Single item 3 --> */}
-
-                    <div className="carousel-item  relative float-left w-full   ">
-                        <div className=" p-0 md:p-6  lg:p-24 xl:p-24 2xl:p-24 2xl:py-12 bg-[#B4C3AE] " >
-                            <div className='w-11/12 md:w-full xl:w-11/12  2xl:w-11/12	 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 '>
-
-                                {/* <img src='https://i.ibb.co/dGY6Pjc/alex-perri-m2-D-AFu-WV9s-unsplash-removebg-preview.png' alt="" className='' style={{ height: '436px', width: '436px' }} /> */}
-                                <img src=' https://i.ibb.co/k8PtkwZ/1623877401-medium-plant-spider-plant-seafoam-pot-2048x-removebg-preview.png' alt="" className='' style={{ height: '436px', width: '436px' }} />
-                                <div className='flex items-center'>
-                                    <div className='lg:mt-24'>
-                                        <h1 className='lg:px-10 text-5xl md:text-4xl lg:text-5xl lg:ml-11  font-bold' style={{ paddingLeft: '15px' }}>Go the green way</h1>
-                                        <h4 className='lg:pl-48 text-xl lg:ml-12 font-regular mt-5 pr-0 mb-10' style={{ paddingLeft: '15px' }}>Let your house have a breath of fresh air.Mother earth is quite happy with your decision.</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div>
+                        <img src="https://i.ibb.co/zrvf4gm/slider-011.jpg" className='carousel-img-animation' alt="" />
                     </div>
-                </div>
-
-                {/* <!-- Controls --> */}
-                <button
-                    className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0 invisible md:visible lg:visible xl:visible "
-                    type="button"
-                    data-bs-target="#carouselDarkVariant"
-                    data-bs-slide="prev"
-                >
-
-                    <span className="bg-white rounded-full p-2  inline-block bg-no-repeat text-black hover:bg-[#3E701C] hover:text-white" aria-hidden="true">
-                        <i class="uil uil-angle-left text-4xl"></i></span>
-
-                    <span className="visually-hidden ">Previous</span>
-                </button>
-                <button
-                    className="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0 invisible md:visible lg:visible xl:visible"
-                    type="button"
-                    data-bs-target="#carouselDarkVariant"
-                    data-bs-slide="next"
-                >
-                    <span className=" bg-white  rounded-full p-2  inline-block bg-no-repeat text-black hover:bg-[#3E701C] hover:text-white" aria-hidden="true"><i class="uil uil-angle-right text-4xl "></i></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
-
-        </div >
+                </SwiperSlide>
+            </Swiper >
+        </>
 
     );
 };

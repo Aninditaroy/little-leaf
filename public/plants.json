@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "plantName": "Green Leafed Potted Plant",
+        "price": 20,
+        "inStock": 17,
+        "description": "This plant purify the air",
+        "imageUrl": "https://images.pexels.com/photos/2001154/pexels-photo-2001154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "imageAlt": "Image of Green Leafed Potted Plant"
+    },
+    {
+        "id": 2,
+        "plantName": "Green Indoor Potted Plant Lot",
+        "price": 55,
+        "inStock": 23,
+        "description": "This plant purify the air",
+        "imageUrl": "https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "imageAlt": "Image of Green Indoor Potted Plant Lot"
+    },
+    {
+        "id": 3,
+        "plantName": "Three Potted Cactus Plants",
+        "price": 40,
+        "inStock": 60,
+        "description": "This plant purify the air",
+        "imageUrl": "https://images.pexels.com/photos/1903965/pexels-photo-1903965.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "imageAlt": "Image of Three Potted Cactus Plants"
+    }
+]

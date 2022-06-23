@@ -13,9 +13,10 @@ const Home = () => {
             <Banner />
             <Story />
             <PlantCare />
+            <Emni />
             <Facilities />
             <Contact />
-            <Emni />
+
         </div>
     );
 };
