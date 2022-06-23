@@ -1,21 +1,30 @@
 
 import React from 'react';
 import { emailjs } from 'emailjs-com';
+import { toast } from 'react-toastify';
 
 
 // http://themes.g5plus.net/spring/wp-content/uploads/2018/01/background-02.jpg
 //http://themes.g5plus.net/spring/wp-content/uploads/revslider/slider05/slider-15.jpg
 const Contact = () => {
+
+
+
+
+
     function sendEmail(e) {
         e.preventDefault();
-        // emailjs.sendForm.sendForm('little-leaf', 'template_ttumyuu', e.target, '-HU5bzWa7BXhyDuKZ')
+        // emailjs.sendForm('little-leaf', 'template_ttumyuu', e.target, '-HU5bzWa7BXhyDuKZ')
         //     .then((result) => {
         //         console.log(result.text);
         //     }, (error) => {
         //         console.log(error.text);
         //     });
         e.target.reset()
+        toast('Your email is sent!')
     }
+
+
     return (
         <div className='my-10' style={{ backgroundImage: 'url(http://themes.g5plus.net/spring/wp-content/uploads/2018/01/background-02.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
             <section className="py-20 ">
