@@ -6,47 +6,79 @@ import { Autoplay, Navigation, Pagination } from 'swiper';
 const Banner = () => {
     return (
         <>
-            {/* <img src="https://i.ibb.co/xzpjTbK/home-1-slide-2.jpg" alt=""
-            navigation={true} 
-            direction={"vertical"}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-            /> */}
-            <Swiper grabCursor={true} autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-            }}
+
+            <Swiper
+                style={{
+                    "--swiper-pagination-color": "#7F9E65",
+                    "--swiper-navigation-color": "#FDFEFD",
+                    "--swiper-pagination-bullet-size": "15px",
+                    "--swiper-theme-color": "#7F9E65",
+                    "--swiper-pagination-bullet-horizontal-gap": "15px"
+
+
+                }}
+                grabCursor={true}
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                }}
                 pagination={{
                     clickable: true
                 }}
                 modules={[Navigation, Pagination, Autoplay]} className="mySwiper">
-                <SwiperSlide className='carousel-img-animation' >
-                    <div style={{ backgroundImage: "url(https://i.ibb.co/xzpjTbK/home-1-slide-2.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                        {/* <img src="https://i.ibb.co/xzpjTbK/home-1-slide-2.jpg" alt="" /> */}
-                        {/* <div className='w-11/12 md:w-full xl:w-11/12  2xl:w-11/12	 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'>
-                            {<img src='https://i.ibb.co/44Z0Gbj/slider-51-removebg-preview.png' alt="" className='max-w-sm' />}
-                            <div className='flex items-center'>
-                                <div className='lg:mt-24'>
-                                    <h1 className='lg:px-10 text-5xl md:text-4xl lg:text-5xl lg:ml-11  font-bold' style={{ paddingLeft: '15px' }}>Give the gift of Greenery</h1>
-                                    <h4 className='lg:pl-48 text-xl  lg:ml-12 font-regular mt-5 pr-0 mb-10' style={{ paddingLeft: '15px' }}>Make your days feeling goods with beautiful plant.Whoever plants, gives God a reason to smile.</h4>
+                <SwiperSlide className='h-14' >
+                    <div className='relative flex items-center'>
+                        <img src="https://i.ibb.co/xzpjTbK/home-1-slide-2.jpg" alt="" className=' carousel-img-animation  ' />
+                        <div className=' absolute  top-11  w-3/6 
+                         lg:top-28 xl:top-48  2xl:top-60 '
+                        >
+                            <div className='invisible sm:invisible md:visible lg:visible xl:visible flex  items-center flex-col justify-center '>
+                                <h1 className=' text-3xl md:text-4xl lg:text-4xl xl:text-5xl   font-bold' >Give the gift of Greenery</h1>
+                                <h4 className='text-lg lg:text-xl  font-regular mt-5 md:mt-3 pr-0 mb-4 w-full  lg:w-11/12 xl:w-4/6 2xl:w-7/12 2xl:w-3/6' >Make your days feeling goods with beautiful plant.Whoever plants, gives God a reason to smile.</h4>
+                                <div class=" rounded-lg sm:mt-0 text-xl   font-regular pr-0 mb-10">
+                                    <button type="submit" class="items-center block px-12 py-3 text-base font-medium text-center text-  text-white hover:text-black hover:bg-white  bg-[#3c7116a0]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl  border-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-2xl uppercase button_slide slide_right">Shop Now</button>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
+
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className='carousel-img-animation'>
-                    <div>
-                        <img src="https://i.ibb.co/SdvLKZ9/home-1-slide-3.jpg" alt="" />
+                <SwiperSlide className='h-14' >
+                    <div className='relative flex items-center'>
+                        <img src="https://i.ibb.co/SdvLKZ9/home-1-slide-3.jpg" alt="" className=' carousel-img-animation  ' />
+                        <div className=' absolute  top-11  w-3/6 
+                         lg:top-28 xl:top-48  2xl:top-60 '
+                        >
+                            <div className='invisible sm:invisible md:visible lg:visible xl:visible flex  items-center flex-col justify-center '>
+                                <h1 className=' text-3xl md:text-4xl lg:text-4xl xl:text-5xl   font-bold' >Grow more and Feel plants</h1>
+                                <h4 className='text-lg lg:text-xl  font-regular mt-5 md:mt-3 pr-0 mb-4 w-full  lg:w-11/12 xl:w-4/6 2xl:w-7/12 2xl:w-3/6' >It is time to switch to the green revolution.Green would be your new favorite color soon.</h4>
+                                <div class=" rounded-lg sm:mt-0 text-xl   font-regular pr-0 mb-10">
+                                    <button type="submit" class="items-center block px-12 py-3 text-base font-medium text-center text-  text-white hover:text-black hover:bg-white  bg-[#3c7116a0]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl  border-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-2xl uppercase button_slide slide_right">Shop Now</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <div>
-                        <img src="https://i.ibb.co/zrvf4gm/slider-011.jpg" className='carousel-img-animation' alt="" />
+                <SwiperSlide className='h-14' >
+                    <div className='relative flex items-center'>
+                        <img src="https://i.ibb.co/zrvf4gm/slider-011.jpg" alt="" className=' carousel-img-animation  ' />
+                        <div className=' absolute  top-11  w-3/6 
+                         lg:top-28 xl:top-48  2xl:top-60 '
+                        >
+                            <div className='invisible sm:invisible md:visible lg:visible xl:visible flex  items-center flex-col justify-center '>
+                                <h1 className=' text-3xl md:text-4xl lg:text-4xl xl:text-5xl   font-bold' >Go the green way</h1>
+                                <h4 className='text-lg lg:text-xl  font-regular mt-5 md:mt-3 pr-0 mb-4 w-full  lg:w-11/12 xl:w-4/6 2xl:w-7/12 2xl:w-3/6' >Let your house have a breath of fresh air.Mother earth is quite happy with your decision.</h4>
+                                <div class=" rounded-lg sm:mt-0 text-xl   font-regular pr-0 mb-10">
+                                    <button type="submit" class="items-center block px-12 py-3 text-base font-medium text-center text-  text-white hover:text-black hover:bg-white  bg-[#3c7116a0]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl  border-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-2xl uppercase button_slide slide_right">Shop Now</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </SwiperSlide>
+
+
             </Swiper >
         </>
 
