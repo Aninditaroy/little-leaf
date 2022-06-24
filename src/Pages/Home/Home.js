@@ -14,8 +14,8 @@ const Home = () => {
             <Story />
             <PlantCare />
             <Emni />
-            <Facilities />
             <Contact />
+            <Facilities />
 
         </div>
     );

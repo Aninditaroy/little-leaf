@@ -2,9 +2,10 @@ import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
-import './Navbar.css'
-import auth from './../../firebase.init';
+import './Navbar.css';
+
 import Marquee from "react-fast-marquee";
+import auth from './../../../firebase.init';
 
 
 const Navbar = () => {
@@ -108,7 +109,7 @@ const Navbar = () => {
 
 
 
-            <div className="navbar bg-[#a0d2a185] bg-[#ecf6ecd9] bg-[#ecf6ec77] backdrop-blur-[20px] sticky top-0 z-50 flex justify-center items-center py-4 shadow-lg " >
+            <div className="navbar bg-[#a0d2a185] bg-[#ecf6ecd9] bg-[#ecf6ec77] backdrop-blur-[20px] sticky top-0 z-50 flex justify-center items-center py-4 shadow-lg" >
 
                 <div className="navbar-start">
                     <div className="dropdown">
