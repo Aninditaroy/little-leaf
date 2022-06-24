@@ -6,22 +6,23 @@ import { Link } from 'react-router-dom';
 // https://images.unsplash.com/photo-1551893665-f843f600794e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80               --hishab
 
 // https://images.unsplash.com/photo-1493957988430-a5f2e15f39a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80           --hishab
+//  style={{
+// backgroundImage: 'url(https://htmldemo.net/pronia/pronia/assets/images/breadcrumb/bg/1-1-1919x388.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundColor: '#0000005d',
+//     backgroundBlendMode: 'overlay'
+
+//             }}
 // 
 const Footer = () => {
     return (
         <div>
-            <footer className="p-4 sm:p-6  text-black " style={{
-                backgroundImage: 'url(https://htmldemo.net/pronia/pronia/assets/images/breadcrumb/bg/1-1-1919x388.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundColor: '#ecf6ec77',
-                backgroundBlendMode: 'overlay'
-
-            }}>
+            <footer className="p-4 sm:p-6 bg-[#edf6ee8f] text-black" >
                 {/* <ScrollToTop smooth component={<ScrollTop />} /> */}
 
                 <div className='container mx-auto '>
                     <div className="max-w-screen-xl mx-auto mb-12 lg:mb-16   ">
                         <Link to='/' className="btn btn-ghost normal-case text-xl hover:bg-transparent">
                             {/* <img src={logo} alt="" className='w-14 h-14' /> */}
-                            <span className='text-4xl font-md text-[#7f9e65] ml-2'>Little Leaf</span>
+                            <span className='text-4xl font-md text-[#1d3923] ml-2'>Little Leaf</span>
                         </Link>
                     </div>
 
@@ -29,7 +30,7 @@ const Footer = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-3  lg:grid-cols-3  divide-gray-200 divide-y-2 md:divide-x-2 md:divide-y-0 md:-mx-8">
                             <div className=" md:px-8 py-4 md:py-0">
-                                <h5 className="text-xl font-bold text-[#7f9e65]">Features</h5>
+                                <h5 className="text-xl font-bold text-[#1d3923]">Features</h5>
                                 <nav className="mt-4">
                                     <ul className="space-y-2 grid lg:grid-cols-2">
                                         <li>
@@ -54,7 +55,7 @@ const Footer = () => {
                                 </nav>
                             </div>
                             <div className=" md:px-8 py-4 md:py-0">
-                                <h5 className="text-xl font-bold text-[#7f9e65]">Customer Service</h5>
+                                <h5 className="text-xl font-bold text-[#1d3923]">Customer Service</h5>
                                 <nav className="mt-4">
                                     <ul className="grid lg:grid-cols-2">
                                         <li className="mb-2">
@@ -73,31 +74,31 @@ const Footer = () => {
                                 </nav>
                             </div>
                             <div className=" md:px-8 py-4 md:py-0">
-                                <h5 className="text-xl font-bold text-[#7f9e65]">Contact Us</h5>
+                                <h5 className="text-xl font-bold text-[#1d3923]">Contact Us</h5>
                                 <nav className="mt-4">
                                     <ul className="text-gray-600 dark:text-gray-400">
                                         <li className='flex  items-center'>
                                             {/* <img src={home} alt="" className='w-50 mr-2' /> */}
-                                            <i class="uil uil-map-marker text-2xl text-[#7f9e65] text-black"></i>
-                                            <p className='pl-1 text-black '>100,Mohammadpur,Dhaka</p>
+                                            <i class="uil uil-map-marker text-2xl  text-[#1d3923]"></i>
+                                            <p className='pl-1 text-black'>100,Mohammadpur,Dhaka</p>
                                         </li>
                                         <li className="my-2 flex items-center">
                                             <span className='mr-2'>
                                                 {/* <img src={phone} alt="" className='w-4' /> */}
-                                                <i class="uil uil-phone-pause text-2xl text-[#7f9e65] text-black "></i>
+                                                <i class="uil uil-phone-pause text-2xl text-[#1d3923]"></i>
 
                                             </span>
-                                            <p class="text-black ">+8802146213455</p>
+                                            <p class="text-black">+8802146213455</p>
                                         </li>
                                         <li className="my-2 flex items-center">
                                             {/* <img src={email} alt="" className='w-4 mr-2' /> */}
-                                            <i class="uil uil-envelope-check text-2xl text-[#7F9E65] text-black"></i>
-                                            <a className='pl-3 text-black '>anindita.roy027@gmail.com</a>
+                                            <i class="uil uil-envelope-check text-2xl text-[#1d3923]"></i>
+                                            <a className='pl-3 text-black'>anindita.roy027@gmail.com</a>
                                         </li>
                                         <li className="my-2 flex items-center">
                                             {/* <img src={email} alt="" className='w-4 mr-2' /> */}
-                                            <i class="uil uil-envelope-check text-2xl  text-[#7f9e65] text-black"></i>
-                                            <a className='pl-3 text-black '>sajeda.akhter704@gmail.com</a>
+                                            <i class="uil uil-envelope-check text-2xl  text-[#1d3923]"></i>
+                                            <a className='pl-3 text-black'>sajeda.akhter704@gmail.com</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -107,7 +108,7 @@ const Footer = () => {
                     </div>
                     <hr className="my-6 border-gray-400 sm:mx-auto dark:border-gray-700 lg:my-8" />
                     <div className="sm:flex sm:items-center sm:justify-between pb-4 ">
-                        <span className="text-black sm:text-center text-md dark:text-gray-400"> copyright @ {new Date().getFullYear()} All Rights Reserved to <span className='font-bold text-[#7F9E65] text-md'>Anindita & Sajeda</span>
+                        <span className="text-blacksm:text-center text-md dark:text-gray-400"> copyright @ {new Date().getFullYear()} All Rights Reserved to <span className='font-bold text-[#1d3923] text-md'>Anindita & Sajeda</span>
                         </span>
                         <div className="flex items-center gap-x-4 ">
 
@@ -139,8 +140,8 @@ const Footer = () => {
                     </div>
 
                 </div>
-            </footer>
-        </div>
+            </footer >
+        </div >
     );
 };
 

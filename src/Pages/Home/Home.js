@@ -2,10 +2,9 @@ import React from 'react';
 import PlantCare from '../PlantCare/PlantCare';
 import Banner from './Banner/Banner';
 import Contact from './Contact/Contact';
-import Emni from './../Home/Emni';
-
 import Facilities from './Facilities/Facilities';
 import Story from './Story/Story';
+import Tabs from './Tabs/Tabs';
 
 const Home = () => {
     return (
@@ -13,7 +12,7 @@ const Home = () => {
             <Banner />
             <Story />
             <PlantCare />
-            <Emni />
+            <Tabs />
             <Contact />
             <Facilities />
 
