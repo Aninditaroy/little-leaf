@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css'
 import auth from './../../firebase.init';
+import Marquee from "react-fast-marquee";
 
 
 const Navbar = () => {
@@ -34,6 +35,9 @@ const Navbar = () => {
         <li className='p-0 h-1/4 mx-1.5'><Link to='/aboutUs'>About Us</Link></li>
 
         <>
+
+
+
             {/* {
             user && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
 
@@ -87,37 +91,54 @@ const Navbar = () => {
         </>
     </>
     return (
+        <>
+
+            <div className='bg-[#60a924d3] bg-[#224229]'>
+                <Marquee pauseOnHover='true' gradient={false} >
+
+                    <div className='  py-3 '>
+                        <p className='text-white  text-xl'>
+                            Free standard delivery on orders over $100
+                        </p>
+                    </div>
+
+                </Marquee>
+
+            </div>
 
 
-        <div className="navbar bg-[#a0d2a185] bg-[#ecf6ecd9] bg-[#ecf6ec77] backdrop-blur-[20px] sticky top-0 z-50 flex justify-center items-center py-4 shadow-lg " >
 
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <label tabIndex="0" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </label>
-                    <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-white">
+            <div className="navbar bg-[#a0d2a185] bg-[#ecf6ecd9] bg-[#ecf6ec77] backdrop-blur-[20px] sticky top-0 z-50 flex justify-center items-center py-4 shadow-lg " >
+
+                <div className="navbar-start">
+                    <div className="dropdown">
+                        <label tabIndex="0" className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+                        <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-white">
+                            {menuItems}
+                        </ul>
+                    </div>
+                    <Link to='/' className='flex justify-center items-center'>
+                        <img src="https://i.ibb.co/zx10Tpq/icons8-leaf-100.png" alt="" className=" w-14" />
+                        <span className='text-4xl font-semibold logo-font'>Little Leaf</span>
+                    </Link>
+                </div>
+
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal p-0 flex items-center justify-center navbar-font">
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className='flex justify-center items-center'>
-                    <img src="https://i.ibb.co/zx10Tpq/icons8-leaf-100.png" alt="" className=" w-14" />
-                    <span className='text-4xl font-semibold logo-font'>Little Leaf</span>
-                </Link>
+
+                <div className="navbar-end lg:hidden">
+                    <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+                    </label>
+                </div>
             </div>
 
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0 flex items-center justify-center navbar-font">
-                    {menuItems}
-                </ul>
-            </div>
-
-            <div className="navbar-end lg:hidden">
-                <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
-                </label>
-            </div>
-        </div>
+        </>
     );
 };
 
