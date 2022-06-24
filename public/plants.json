@@ -1,29 +1,42 @@
 [
     {
         "id": 1,
-        "plantName": "Green Leafed Potted Plant",
+        "plantName": "Snake Plant",
         "price": 20,
         "inStock": 17,
-        "description": "This plant purify the air",
-        "imageUrl": "https://images.pexels.com/photos/2001154/pexels-photo-2001154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "imageAlt": "Image of Green Leafed Potted Plant"
+        "description": "Green Leafed Potted Plant",
+        "imageUrl": "https://i.ibb.co/XWp7XNd/asset-25-removebg-preview.png",
+        "imageAlt": "Image of Green Leafed Potted Plant",
+        "categories":"Outdoor plants"
     },
     {
         "id": 2,
-        "plantName": "Green Indoor Potted Plant Lot",
+        "plantName": "Terrarium plants",
         "price": 55,
         "inStock": 23,
-        "description": "This plant purify the air",
-        "imageUrl": "https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "imageAlt": "Image of Green Indoor Potted Plant Lot"
+        "description": "Green Leafed Potted Plant",
+        "imageUrl": "https://i.ibb.co/3T5n7rL/asset-30-removebg-preview.png",
+        "imageAlt": "Image of Green Indoor Potted Plant Lot",
+        "categories":"Indoor plants"
     },
     {
         "id": 3,
-        "plantName": "Three Potted Cactus Plants",
+        "plantName": "Leaf Plant",
         "price": 40,
         "inStock": 60,
-        "description": "This plant purify the air",
-        "imageUrl": "https://images.pexels.com/photos/1903965/pexels-photo-1903965.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "imageAlt": "Image of Three Potted Cactus Plants"
+        "description": "Green Leafed Potted Plant",
+        "imageUrl": "https://i.ibb.co/Ykr5XqZ/asset-28-removebg-preview.png",
+        "imageAlt": "Image of Three Potted Cactus Plants",
+        "categories":"Office plants"
+    },
+    {
+        "id": 4,
+        "plantName": "Cactus Plant",
+        "price": 40,
+        "inStock": 60,
+        "description": "Green Leafed Potted Plant",
+        "imageUrl": "https://i.ibb.co/4SH42pm/asset-27-removebg-preview.png",
+        "imageAlt": "Image of Three Potted Cactus Plants",
+        "categories":"Office plants"
     }
 ]
