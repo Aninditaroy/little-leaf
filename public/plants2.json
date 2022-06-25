@@ -1,0 +1,101 @@
+[
+    {
+        "plantName": "Green Agave",
+        "price": 13,
+        "inStock": 18,
+        "description": "Agave attenuata is a species of flowering plant in the family Asparagaceae, commonly known as the foxtail or lion's tail. The name swan's neck agave refers to its development of a curved inflorescence, unusual among agaves. Native to the plateaux of central west Mexico, as one of the unarmed agaves, it is popular as an ornamental plant in gardens in many other places with subtropical and warm climates.",
+        "imageUrl": "https://i.ibb.co/gb852rg/asset-1-removebg-preview.png",
+        "imageAlt": "Image of Green Agave",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Cotyledon tomentosa",
+        "price": 25,
+        "inStock": 16,
+        "description": "Cotyledon tomentosa, has large thick, oval and diffuse oval leaves with prominent 'teeth' at the tips that give the impression of bear legs. It forms large orange bell-shaped flowers in spring.",
+        "imageUrl": "https://i.ibb.co/16PypDc/asset-1-removebg-preview-1.png",
+        "imageAlt": "Image of Cotyledon tomentosa",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Devil's ivy",
+        "price": 12,
+        "inStock": 150,
+        "description": "Devil's ivy is almost impossible to kill and it stays green even when kept in the dark. It is sometimes mistakenly labeled as a Philodendron, Pothos or Scindapsus in plant stores. It is commonly known as a money plant in many parts of the Indian subcontinent.",
+        "imageUrl": "https://i.ibb.co/8Mx0mzL/7-600x713-removebg-preview.png",
+        "imageAlt": "Image of Devil's ivy",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Ficus Eldorado",
+        "price": 33,
+        "inStock": 44,
+        "description": "Just in time for the winter season, this adorable Ficus Eldorado's looks as though it has been kissed by the Snow Queen. Each sparkling leaf has intricate markings, much like a pattern of frost. This Ficus benjamina will warm your heart when it's cold outside!",
+        "imageUrl": "https://i.ibb.co/KrN3xcD/slider-h2-03a-removebg-preview.png",
+        "imageAlt": "Image of Ficus Eldorado",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Succulent arrangement",
+        "price": 100,
+        "inStock": 22,
+        "description": "A trendy eyecatcher! This arrangement of succulents in a natural bowl will bring you many years of pleasure. The high quality and true to nature appeal, along with their suitability for different uses, make these succulents a long lasting decorative favourite. Whether on your desk, as table decoration or on your reception counter – this evergreen ensemble will attract admiring glances in any interior design",
+        "imageUrl": "https://i.ibb.co/GHZfxgs/product-25-removebg-preview.png",
+        "imageAlt": "Image of Succulent arrangement",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Dracaena trifasciata",
+        "price": 25,
+        "inStock": 25,
+        "description": "Sansevieria or mother in law tong comes in a 12cm or 18.5cm pot. The best air purifier and low maintenance plant.This plant is legitimately the easiest houseplant to look after! You might even start to think it's not real... It rarely requires watering, we recommend every 3-4 weeks, can live in cooler and darker rooms and will just require a leaf wipe every few months or so to prevent dust from clogging up its pores.",
+        "imageUrl": "https://i.ibb.co/rs6GvPc/asset-11-removebg-preview.png",
+        "imageAlt": "Image of Sedum Dracaena trifasciata",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Fern",
+        "price": 32,
+        "inStock": 20,
+        "description": "A fern is a member of a group of vascular plants (plants with xylem and phloem) that reproduce via spores and have neither seeds nor flowers.",
+        "imageUrl": "https://i.ibb.co/wLzS9nD/pro-04-600x600-removebg-preview.png",
+        "imageAlt": "Image of Fern",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Sprenger's asparagus",
+        "price": 50,
+        "inStock": 62,
+        "description": "Unusual perennial with plume-like stems that hold soft needle-like leaves with ornamental red berries in fall. Excellent for hanging baskets and containers.",
+        "imageUrl": "https://i.ibb.co/db7qF1q/pro-01-600x600-removebg-preview.png",
+        "imageAlt": "Image of Sprenger's asparagus",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Plantain lilies",
+        "price": 31,
+        "inStock": 180,
+        "description": "Plantain lilies plants are a perennial favorite among gardeners. Their lush foliage and easy care make them ideal for a low maintenance garden.",
+        "imageUrl": "https://i.ibb.co/kQy4tdK/asset-39-removebg-preview.png",
+        "imageAlt": "Image of Plantain lilies",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Pachyphytum",
+        "price": 60,
+        "inStock": 30,
+        "description": "Pachyphytum is a genus of succulents whose name comes from the Greek words pachys.Pachyphytum has characteristically thick leaves which are very fleshy and arranged in tight rosettes of various beautiful colors.Pachyphytum plants are native to regions where they get tons of natural sunlight.",
+        "imageUrl": "https://i.ibb.co/qBWRMjQ/asset-34-removebg-preview.png",
+        "imageAlt": "Image of Pachyphytum",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Hoya plants",
+        "price": 80,
+        "inStock": 8,
+        "description": "Hoya have been popular office or house plants for decades and with good reason. They are extremely long-lived, have a classic, deep green, vining foliage and produce fragrant, light pink and red star-shaped flowers. Because of their thick waxy, foliage they are often called wax plants or sometimes porcelain flower referring to the unique texture of the flowers.",
+        "imageUrl": "https://i.ibb.co/M8jysm7/asset-36-removebg-preview-1.png",
+        "imageAlt": "Image of Hoya plants",
+        "categories": "Office plants"
+    }
+]
