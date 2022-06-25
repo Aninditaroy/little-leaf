@@ -23,9 +23,9 @@ const ProductDetails = () => {
                     </div>
                     <div>
                         <p className=' text-justify'> {description}</p>
-                        <h1 className='text-md mt-8'><span className='text-lg font-bold mr-1'>Categories:</span>{categories}</h1>
+                        <h1 className='text-md mt-8'><span className='text-lg font-bold mr-1'>Categories:</span><span className='badge bg-[#73ab24] p-3 text-white'>{categories}</span></h1>
 
-                        <h1 className='text-md mt-1 mb-4'><span className='text-lg font-bold mr-1'>Stock:</span>{inStock}</h1>
+                        <h1 className='text-md mt-1 mb-4'><span className='text-lg font-bold mr-1'>Stock:</span><span className='font-medium'>{inStock}</span></h1>
                         <hr />
 
                         <div className='flex flex-col md:flex-row md:items-center'>
@@ -51,14 +51,10 @@ const ProductDetails = () => {
                             </div>
                             <div >
                                 <div class=" flex items-center w-full  ml-auto">
-                                    <button type="submit" class="flex items-center px-5 py-2  text-sm text-center  text-white  hover:bg-[#3c7116c5]  bg-[#3c7116a0]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl  border-white rounded-md  uppercase w-40"><span className='mr-1'>Add to Cart</span> <i class="uil uil-shopping-cart-alt text-lg"></i></button>
-
+                                    <button type="submit" class="flex items-center px-5 py-2  text-sm text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-40"><span className='mr-1'>Add to Cart</span> <i class="uil uil-shopping-cart-alt text-lg"></i></button>
                                 </div>
-
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

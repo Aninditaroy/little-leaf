@@ -57,7 +57,7 @@ const Product = ({ product }) => {
                 </p> */}
                 <div class="flex items-center justify-between ">
                     <p class="text-black">
-                        ${price}
+                        $ {price}
                     </p>
                     <button data-bs-toggle="tooltip" title="Add To Cart" type="button" class="w-12 h-12 text-base font-medium rounded-full text-white bg-green-700 hover:bg-green-600 mt-2">
                         <i class="uil uil-shopping-cart-alt w-16 h-16 text-2xl"></i>
