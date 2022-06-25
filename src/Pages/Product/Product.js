@@ -4,8 +4,9 @@ import './Product.css'
 
 
 const Product = ({ product }) => {
+    console.log(product)
 
-    const { id, plantName, imageUrl, description, price, imageAlt } = product;
+    const { _id, plantName, imageUrl, description, price, imageAlt } = product;
     const navigate = useNavigate()
     const navigateToProductDetails = (id) => {
         navigate(`/product/${id}`)
@@ -14,7 +15,7 @@ const Product = ({ product }) => {
         <div class="shadow-lg rounded-2xl lg:max-w-xs bg-white m-auto  p-2 mb-12">
             <div className='p-3 effect4'>
                 <img src={imageUrl} alt={imageAlt} class="w-full p-4  m-auto bg-[#F5F5F5]" />
-                <button onClick={() => navigateToProductDetails(id)}> <span><i class="uil uil-eye text-3xl"></i></span></button>
+                <button onClick={() => navigateToProductDetails(_id)}> <span><i class="uil uil-eye text-3xl"></i></span></button>
             </div>
             <div class="bg-white m-3 p-4 rounded-lg">
                 <p class="text-black text-xl font-bold ">
