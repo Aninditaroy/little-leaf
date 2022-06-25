@@ -111,13 +111,11 @@ const Footer = () => {
                         <span className="text-blacksm:text-center text-md dark:text-gray-400"> copyright @ {new Date().getFullYear()} All Rights Reserved to <span className='font-bold text-[#1d3923] text-md'>Anindita & Sajeda</span>
                         </span>
                         <div className="flex items-center gap-x-4 ">
-
-
-                            <a href='https://www.facebook.com/profile.php?id=100010466556130'>
+                            <Link to='/'>
                                 <svg className="h-6 w-6 fill-current hover:text-[#81B441] text-[#4d6e26] mr-6" viewBox="0 0 512 512">
                                     <path d="M455.27,32H56.73A24.74,24.74,0,0,0,32,56.73V455.27A24.74,24.74,0,0,0,56.73,480H256V304H202.45V240H256V189c0-57.86,40.13-89.36,91.82-89.36,24.73,0,51.33,1.86,57.51,2.68v60.43H364.15c-28.12,0-33.48,13.3-33.48,32.9V240h67l-8.75,64H330.67V480h124.6A24.74,24.74,0,0,0,480,455.27V56.73A24.74,24.74,0,0,0,455.27,32Z" />
                                 </svg>
-                            </a>
+                            </Link>
                             <Link to='/'>
                                 <svg fill="none" className="h-6 w-6 hover:text-[#7f9e65]  text-[#376814] mr-6" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
