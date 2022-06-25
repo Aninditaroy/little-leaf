@@ -21,9 +21,9 @@ const Product = ({ product }) => {
                 <p class="text-black text-xl font-bold ">
                     {plantName}
                 </p>
-                <p class="text-gray-500 text-xs">
+                {/* <p class="text-gray-500 text-xs">
                     {description}
-                </p>
+                </p> */}
                 <div class="flex items-center justify-between ">
                     <p class="text-black">
                         ${price}
