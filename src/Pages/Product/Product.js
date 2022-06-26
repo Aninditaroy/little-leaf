@@ -11,38 +11,10 @@ const Product = ({ product }) => {
     const navigateToProductDetails = (id) => {
         navigate(`/product/${id}`)
     }
+    // const navigateToCart = () => {
+    //     navigate('/cart')
+    // }
     return (
-
-        // <div class="card shadow-lg rounded-2xl lg:max-w-xs bg-white mx-auto  p-2 mb-12">
-        //     <figure><div className='p-3 effect4 bg-[#F5F5F5]'>
-        //         <img src={imageUrl} alt={imageAlt} class="w-full p-4  m-auto " />
-        //         <button onClick={() => navigateToProductDetails(_id)}> <span><i class="uil uil-eye text-3xl"></i></span></button>
-        //     </div></figure>
-
-        //     <div class="bg-white m-3 p-4 rounded-lg ">
-        //         <p class="text-black text-xl font-bold ">
-        //             {plantName}
-        //         </p>
-        //         {/* <p class="text-gray-500 text-xs">
-        //              {description}
-        //         </p> */}
-        //         <div class="flex items-center justify-between ">
-        //             <p class="text-black">
-        //                 ${price}
-        //             </p>
-        //             <button data-bs-toggle="tooltip" title="Add To Cart" type="button" class="w-12 h-12 text-base font-medium rounded-full text-white bg-green-700 hover:bg-green-600">
-        //                 <i class="uil uil-shopping-cart-alt w-16 h-16 text-2xl"></i>
-        //             </button>
-        //         </div>
-        //     </div>
-
-
-
-
-        // </div>
-
-
-
         <div class="shadow-lg rounded-2xl lg:max-w-xs bg-white mx-auto  p-2 mb-12">
             <div className='p-3 effect4'>
                 <img src={imageUrl} alt={imageAlt} class="w-full p-4  m-auto bg-[#F5F5F5]" />
@@ -59,6 +31,7 @@ const Product = ({ product }) => {
                     <p class="text-black">
                         $ {price}
                     </p>
+                    {/* onClick={navigateToCart()} */}
                     <button data-bs-toggle="tooltip" title="Add To Cart" type="button" class="w-12 h-12 text-base font-medium rounded-full text-white bg-green-700 hover:bg-green-600 mt-2">
                         <i class="uil uil-shopping-cart-alt w-16 h-16 text-2xl"></i>
                     </button>

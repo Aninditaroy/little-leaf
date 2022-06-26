@@ -34,6 +34,7 @@ const Navbar = () => {
         <li className='p-0 h-1/4 mx-1.5'><Link to='/products'>Products</Link></li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/blog'>Blog</Link></li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/aboutUs'>About Us</Link></li>
+        <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link></li>
 
         <>
 
