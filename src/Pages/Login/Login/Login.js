@@ -172,7 +172,7 @@ const Login = () => {
 
                     <div className="mt-6  flex items-center justify-between block text-gray-700 text-sm font-bold mb-6">
                         <p><input className='mr-2' type="checkbox" />Remember me</p>
-                        <Link to='/login' onClick={resetPassword} className="font-bold text-sm text-orange-500 hover:text-orange-800">Forget password?</Link>
+                        <Link to='/login' onClick={resetPassword} className="font-bold text-sm  text-[#79A206]">Forget password?</Link>
 
                     </div>
 
@@ -188,10 +188,9 @@ const Login = () => {
 
 
                     <p className='flex justify-between'>
-                        <small>New to Little Leaf?
-                        </small>
+                        <span className='text-[#79A206] text-sm font-bold '>New to Little Leaf?</span>
                         <Link to='/signup'
-                            className='text-[#89B849] hover:underline'
+                            className='text-[#79A206] font-medium hover:underline'
                         >Create new account</Link>
                     </p>
 

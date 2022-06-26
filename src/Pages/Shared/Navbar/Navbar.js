@@ -121,8 +121,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to='/' className='flex justify-center items-center'>
-                        <img src="https://i.ibb.co/zx10Tpq/icons8-leaf-100.png" alt="" className=" w-14" />
-                        <span className='text-4xl font-semibold logo-font'>Little Leaf</span>
+                        <img src="https://i.ibb.co/fnB14zy/logo-removebg-preview-1.png" alt="" className="" />
+                        {/* <span className='text-4xl font-semibold logo-font'>Little Leaf</span> */}
                     </Link>
                 </div>
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import Products from '../../Products/Products';
+import BestSellingProducts from '../BestSellingProducts/BestSellingProducts';
+import HomeProducts from '../HomeProducts/HomeProducts';
+import NewProducts from '../NewProducts/NewProducts';
 import './Tabs.css';
 const Tabs = () => {
     return (
@@ -21,13 +24,13 @@ const Tabs = () => {
             </ul>
             <div class="tab-content" id="tabs-tabContent">
                 <div class="tab-pane fade show active" id="tabs-products" role="tabpanel" aria-labelledby="tabs-products-tab">
-                    <Products />
+                    <HomeProducts />
                 </div>
                 <div class="tab-pane fade" id="tabs-bestselling" role="tabpanel" aria-labelledby="tabs-bestselling-tab">
-                    <Products />
+                    <BestSellingProducts />
                 </div>
                 <div class="tab-pane fade" id="tabs-newproducts" role="tabpanel" aria-labelledby="tabs-newproducts-tab">
-                    <Products />
+                    <NewProducts />
                 </div>
             </div>
         </div>

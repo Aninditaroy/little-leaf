@@ -1,5 +1,320 @@
 [
     {
+        "plantName": "Pink Dragon Tree",
+        "price": 50,
+        "inStock": 100,
+        "description": "The Pink Dragon Tree needs medium, indirect sunlight. Never place the plant in direct sun, as the rays can scorch the leaves. Watering Needs.",
+        "imageUrl": "https://i.ibb.co/j6Xrg7P/12-8-600x713-removebg-preview.png",
+        "imageAlt": "Image of Pink Dragon Tree",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Spider plant",
+        "price": 10,
+        "inStock": 18,
+        "description": "The spider plant (Chlorophytum Comosum) is considered one of the most adaptable of houseplants and the easiest to grow. This plant can grow in a wide range of conditions and suffers from few problems, other than brown tips.",
+        "imageUrl": "https://i.ibb.co/kHWcG2j/12-4-600x713-removebg-preview.png",
+        "imageAlt": "Image of Spider plant",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Aurora",
+        "price": 150,
+        "inStock": 40,
+        "description": "The Aurora is one of the most durable houseplants and is fairly adaptable. She will do well in a room that gets a medium amount of natural light, placed within 5 feet of a window. Bright, sunny, or overly warm windows should be avoided. Rotate the plant occasionally to encourage even growth.",
+        "imageUrl": "https://i.ibb.co/HNzSm5C/11-3-600x713-removebg-preview.png",
+        "imageAlt": "Image of Aurora",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Calathea Louisae",
+        "price": 50,
+        "inStock": 10,
+        "description": "Calathea Louisae, popularly known as Thai Beauty, is grown all over the world. The leaves of these plants have an ornament consisting of deep green.",
+        "imageUrl": "https://i.ibb.co/PG728xS/10-9-600x713-removebg-preview.png",
+        "imageAlt": "Image of Calathea Louisae",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "ZZ plant",
+        "price": 450,
+        "inStock": 50,
+        "description": "Easy slow-growing plant with glossy black foliage. The new leaves emerge from a contrasting lime green.She appreciates bright, indirect light and likes to dry between watering.",
+        "imageUrl": "https://i.ibb.co/0cS2Nnm/10-6-600x713-removebg-preview.png",
+        "imageAlt": "Image of ZZ plant",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Boxwood Bonsai",
+        "price": 450,
+        "inStock": 50,
+        "description": "Buxus sempervirens (Common Box or European Box; also as Boxwood) is a flowering plant in the genus Buxus, native to western.The species typically grows on soils derived from chalk, limestone, usually as an understorey in forests of larger trees.",
+        "imageUrl": "https://i.ibb.co/dGwdPQY/product-24-570x718-removebg-preview.png",
+        "imageAlt": "Image of Boxwood Bonsai",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Drift Popcorn",
+        "price": 18,
+        "inStock": 12,
+        "description": "In an ideal world, this plant will want a spot that is well away from direct sunlight, with a good amount of water in summer – but much less in winter.",
+        "imageUrl": "https://i.ibb.co/9GqGn2k/product-08-570x718-removebg-preview.png",
+        "imageAlt": "Image of Drift Popcorn",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Hyacinth",
+        "price": 450,
+        "inStock": 50,
+        "description": "Growing hyacinth flowers indoors is a great way to enjoy the beauty of these gorgeous flowers in your home at any time of year.Place the pot in a cool spot in the house until the leaves begin to appear.",
+        "imageUrl": "https://i.ibb.co/2NYMGKZ/product-33-570x718-removebg-preview.png",
+        "imageAlt": "Image of Hyacinth",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Garden croton",
+        "price": 30,
+        "inStock": 66,
+        "description": "Croton, Codiaeum variegatum, is a common houseplant grown for its striking foliage. ... This evergreen shrub or small tree varies widely in leaf color and pattern.",
+        "imageUrl": "https://i.ibb.co/LnW2JDt/16-4-600x713-removebg-preview.png",
+        "imageAlt": "Image of Garden croton",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Dwarf umbrella tree",
+        "price": 120,
+        "inStock": 15,
+        "description": "The dwarf umbrella tree, schefflera arboricola, appears to be a smaller version of the umbrella tree, Schefflera actinophylla.It is an evergreen shrub growing to 8–9 m tall, free-standing, or clinging to the trunks of other trees.",
+        "imageUrl": "https://i.ibb.co/zfQ3v57/15-5-600x713-removebg-preview.png",
+        "imageAlt": "Image of Dwarf umbrella tree",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Sago Palm",
+        "price": 35,
+        "inStock": 22,
+        "description": "This sago palm stem will make a great filler for your floral bouquets. This vibrant faux accent is perfect to add more beauty and charm to any corner of your living room.",
+        "imageUrl": "https://i.ibb.co/p6H1Ybv/14-6-600x713-removebg-preview.png",
+        "imageAlt": "Image of Sago Palm",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Rubber Plant",
+        "price": 255,
+        "inStock": 48,
+        "description": "A rubber tree plant is also known as a Ficus elastica.Bright, indirect light is ideal for growing the Rubber Plant, however they are unusually tolerant of lower light spaces for a ficus.",
+        "imageUrl": "https://i.ibb.co/bKdLnV3/14-1-600x713-removebg-preview.png",
+        "imageAlt": "Image of Rubber Plant",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Palm",
+        "price": 75,
+        "inStock": 88,
+        "description": "The Arecaceae is a family of perennial flowering plants in the monocot order Arecales. Their growth form can be climbers, shrubs, tree-like and stemless plants, all commonly known as palms. Those having a tree-like form are called palm trees.",
+        "imageUrl": "https://i.ibb.co/NSgm61K/14-3-600x713-removebg-preview.png",
+        "imageAlt": "Image of Palm",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Juniper Bonsai",
+        "price": 75,
+        "inStock": 88,
+        "description": "The Juniper Bonsai is an evergreen coniferous tree, a very popular choice for Bonsai. In this article we explain how to keep your Juniper alive and thriving!",
+        "imageUrl": "https://i.ibb.co/Y7v2x0Z/product-22-570x718-removebg-preview.png",
+        "imageAlt": "Image of Juniper Bonsai",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Birds Nest Fern",
+        "price": 29,
+        "inStock": 100,
+        "description": "If you’re slowly turning your home into a haven for tropical plants, The Birds Nest Fern is a must-have plant. This lush leathery-leaved fern finds its home in humid environments naturally. Still, it can easily become a brilliant flush of green indoors or out.",
+        "imageUrl": "https://i.ibb.co/XWp7XNd/asset-25-removebg-preview.png",
+        "imageAlt": "Image of Birds Nest Fern Plant",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Houseplants",
+        "price": 45,
+        "inStock": 23,
+        "description": "Home grown with love and hand picked from our organic garden.One of the most unique plants you can grow!",
+        "imageUrl": "https://i.ibb.co/wM9rtLM/asset-26-removebg-preview.png",
+        "imageAlt": "Image of Houseplants in wooden pots",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Zebra Cactus",
+        "price": 55,
+        "inStock": 66,
+        "description": "Zebra cactus, often compared to Aloe as they are both in the same plant family, are not only visually appealing, but also easy to care for. Basically          sit it on your desk, water it when you feel like it—don’t overwater when you do, and that’s it!",
+        "imageUrl": "https://i.ibb.co/zQdj7Gc/asset-23-removebg-preview.png",
+        "imageAlt": "Image of Zebra Cactus",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Dischidia Oiantha",
+        "price": 26,
+        "inStock": 60,
+        "description": "Dischidia Oiantha aka Dischidia White Diamond, a close relative of the Hoya, has diamond shaped creamy variegated leaves. It will bloom tiny white waxy flowers and looks beautiful in a hanging basket.",
+        "imageUrl": "https://i.ibb.co/m6sX8HV/asset-22-removebg-preview.png",
+        "imageAlt": "Image of Dischidia Oiantha",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Terrarium Plant",
+        "price": 200,
+        "inStock": 30,
+        "description": "A terrarium is a garden of plants growing in a clear container, such as a bottle, glass globe, old aquarium, carboy, or similar object. The terrarium can be landscaped to represent a scene in nature, a miniature ecosystem.",
+        "imageUrl": "https://i.ibb.co/3T5n7rL/asset-30-removebg-preview.png",
+        "imageAlt": "Image of Terrarium Plant",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Haworthia",
+        "price": 120,
+        "inStock": 20,
+        "description": "Its main feature is its evergreen and fleshy leaves, which grow in the form of rosettes, on top of each other, spirally arranged.Haworthia is a dark green, small succulent plant native to the dry crags and mountainous vegetation of the Eastern Cape, South Africa.",
+        "imageUrl": "https://i.ibb.co/4SH42pm/asset-27-removebg-preview.png",
+        "imageAlt": "Image of Haworthia",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Sedum rubrotinctum Aurora",
+        "price": 30,
+        "inStock": 150,
+        "description": "Sedum rubrotinctum Aurora or Pink Jelly Beans is a stunning variation to the more red and green Sedum rubrotinctum. Colors may change a bit overthe year depending on temperature, water conditions and light intensity.Sedum rubrotinctum Aurora usually has the best pink colors in autumn, winter and early spring.",
+        "imageUrl": "https://i.ibb.co/nrgH6Xz/asset-20-removebg-preview.png",
+        "imageAlt": "Image of Sedum rubrotinctum Aurora",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Aloe vera Plant",
+        "price": 25,
+        "inStock": 200,
+        "description": "Aloe vera has long, fleshy, spiked leaves that are green to gray-green.Aloe vera thrives in warm temperatures in full sun.A sunny window with morning or afternoon sun is ideal.Water it sparingly every other week, and only if needed.",
+        "imageUrl": "https://i.ibb.co/WsxZX5X/asset-14-removebg-preview.png",
+        "imageAlt": "Image of Aloe vera",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Chickweed",
+        "price": 55,
+        "inStock": 66,
+        "description": "Chickweed is low growing, with matted and trailing green stems from six to fifteen inches in length.The branching stems may be green or burgundy,are leafy and bunched at the base, and often take root at the leaf junctions.!",
+        "imageUrl": "https://i.ibb.co/282s71T/asset-14-removebg-preview-1.png",
+        "imageAlt": "Image of Chickweed",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Agave Salmiana",
+        "price": 36,
+        "inStock": 66,
+        "description": "Agave is a genus of monocots native to the hot and arid regions of the Americas, although some Agave species are also native to tropical areas of South America.The genus Agave is primarily known for its succulent and xerophytic species that typically form large rosettes of strong, fleshy leaves",
+        "imageUrl": "https://i.ibb.co/D7RMWS9/asset-13-removebg-preview.png",
+        "imageAlt": "Image of Agave Salmiana",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Haworthia limifolia",
+        "price": 10,
+        "inStock": 30,
+        "description": "Haworthia Limifolia, (Fairies Washboard) are charming, compact succulent plants. It rarely exceeds four inches in a potted container, making it the perfect addition to a window sill or desk.",
+        "imageUrl": "https://i.ibb.co/vs4KvvQ/asset-13-removebg-preview-1.png",
+        "imageAlt": "Image of Haworthia limifolia",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Haworthia Zebra",
+        "price": 12,
+        "inStock": 23,
+        "description": "Haworthias are non-cactus succulents that can be grown in pots throughout their lives without problems. They do not require as much sun as other similar plants, and even develop very well in semi-shade.",
+        "imageUrl": "https://i.ibb.co/sJz066K/asset-12-removebg-preview.png",
+        "imageAlt": "Image of Haworthia Zebra",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Jade plant",
+        "price": 17,
+        "inStock": 10,
+        "description": "The Jade Tree is a popular succulent plant widely cultivated by collectors and plant lovers around the world.Flowering occurs mainly in the spring although it has been proven that its flowering period can cover the whole year under favorable conditions.",
+        "imageUrl": "https://i.ibb.co/QYLK3Bg/asset-10-removebg-preview.png",
+        "imageAlt": "Image of Jade plant",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Dracaena trifasciata",
+        "price": 20,
+        "inStock": 26,
+        "description": "Sansevieria Hahnii is a popular, compact Bird’s Nest Snake Plant. The dark, glossy leaves are funnel shaped and form an elegant rosette of lush succulent foliage with horizontal grey-green variegation. Sansevieria will adapt to different light levels, however the colours are enhanced in bright, filtered conditions.",
+        "imageUrl": "https://i.ibb.co/WsxZX5X/asset-14-removebg-preview.png",
+        "imageAlt": "Image of Dracaena trifasciata",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Silver ragwort",
+        "price": 32,
+        "inStock": 45,
+        "description": "Silver ragwort is an annual plant. Intended for planting in flower beds, borders and for growing in pots as a supplement to balcony flowers. The seeds are sown in the period from March to April under covers.Silver ragwort has a very attractive silver leaf color. It tolerates frosts well.",
+        "imageUrl": "https://i.ibb.co/282s71T/asset-14-removebg-preview-1.png",
+        "imageAlt": "Image of Silver ragwort",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Crassula arborescens",
+        "price": 14,
+        "inStock": 62,
+        "description": "The succulent Crassula arborescens ssp. undulatifolia belongs to the plant genus Crassula. South Africa and is a hybrid. Crassula arborescens 'Curly' is green and red with a shrubby growth form and gets a white flower.Their leaves enchant with their curved, simple waveform.",
+        "imageUrl": "https://i.ibb.co/zfQ3v57/15-5-600x713-removebg-preview.png",
+        "imageAlt": "Image of Crassula arborescens",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Calathea roseopicta",
+        "price": 10,
+        "inStock": 30,
+        "description": "Calathea roseopicta, the rose-painted calathea, is a species of plant in the family Marantaceae, native to northwest Brazil. It is a clump-forming evergreen perennial growing to 50 cm, very similar in appearance to Calathea makoyana.",
+        "imageUrl": "https://i.ibb.co/56r3DBp/asset-2-removebg-preview.png",
+        "imageAlt": "Image of Calathea roseopicta",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Haworthia Scabra",
+        "price": 27,
+        "inStock": 28,
+        "description": "Haworthiopsis scabra, formerly Haworthia scabra, is a species of flowering succulent plant from arid regions of the Western and Eastern Cape Provinces, South Africa.",
+        "imageUrl": "https://i.ibb.co/rs6GvPc/asset-11-removebg-preview.png",
+        "imageAlt": "Image of Sedum Haworthia Scabra",
+        "categories": "Indoor plants"
+    },
+    {
+        "plantName": "Echeveria laui",
+        "price": 120,
+        "inStock": 20,
+        "description": "IEcheveria Laui is known to be a beautiful succulent. As the plant matures you can expect it to reach up to around 15 cm (6″) tall. The leaves are beautiful fleshy and pink making it the plants most dominant feature. When it flowers you can expect it to produce peachy to rose coloured that bloom from summer to fall.",
+        "imageUrl": "https://i.ibb.co/XZTCrn5/asset-31-removebg-preview.png",
+        "imageAlt": "Image of Echeveria laui",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Buxus sempervirens",
+        "price": 350,
+        "inStock": 10,
+        "description": "American boxwood, or common box, is a broadly rounded, multi-branched, evergreen shrub or small tree in the Buxaceae (boxwood) family.Boxwood is considered a low-maintenance plant. It is shallow rooted and adapts to a wide range of light and soil conditions.It is best not to plant too deeply and prefers well-drained soil.",
+        "imageUrl": "https://i.ibb.co/g9M3Zx9/asset-32-removebg-preview.png",
+        "imageAlt": "Image of Buxus sempervirens",
+        "categories": "Outdoor plants"
+    },
+    {
+        "plantName": "Senecio vitalis",
+        "price": 231,
+        "inStock": 18,
+        "description": "Senecio vitalis is a fast-spreading succulent that has great ornamental appeal which makes it the ideal plant for container gardens. Senecio vitalis is also called Blue Chalk Fingers and Narrow Leaf Chalk Sticks because of its elongated foliage which extends from the stem and gives it the appearance of having fingers.",
+        "imageUrl": "https://i.ibb.co/brb6J2q/asset-33-removebg-preview.png",
+        "imageAlt": "Image of Senecio vitalis",
+        "categories": "Outdoor plants"
+    },
+    {
         "plantName": "Green Agave",
         "price": 13,
         "inStock": 18,
@@ -97,5 +412,23 @@
         "imageUrl": "https://i.ibb.co/M8jysm7/asset-36-removebg-preview-1.png",
         "imageAlt": "Image of Hoya plants",
         "categories": "Office plants"
+    },
+    {
+        "plantName": "Barrel Cactus",
+        "price": 80,
+        "inStock": 13,
+        "description": "A perfect way to enjoy the green of barrel cactus year-round without having to water or trim.These faux plants are ideal to use for areas without good lighting. No getting your hands dirty, we have done the planting for you. Use these anywhere you would feature live plants; they will do the trick! Comes in a stylish cement pot.",
+        "imageUrl": "https://i.ibb.co/tmyWgsk/asset-37-removebg-preview.png",
+        "imageAlt": "Image of Barrel Cactus",
+        "categories": "Office plants"
+    },
+    {
+        "plantName": "Sansevieria Trifasciata",
+        "price": 180,
+        "inStock": 24,
+        "description": "Sansevieria moonshine which is commonly called a snake plant, mother in law tongue plant, moonshine sansevieria is a Great Purifying air, Easy care, and Unique looking Indoor plants. It has attractive silvery-white green leaves that grow compact and has a clumping growth habit.",
+        "imageUrl": "https://i.ibb.co/sgnf4m1/asset-36-removebg-preview.png",
+        "imageAlt": "Image of Sansevieria Trifasciata",
+        "categories": "Indoor plants"
     }
 ]
