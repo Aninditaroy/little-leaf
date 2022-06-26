@@ -7,7 +7,7 @@ const CartScreen = () => {
     return (
         <div>
             <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 text-center my-10">Shopping Cart</h1>
-            {
+            {/* {
                 products.map(product => <div
                     product={product}
                     key={product._id}
@@ -21,7 +21,7 @@ const CartScreen = () => {
                         </div>
                     </div>
                 </div>)
-            }
+            } */}
 
 
         </div >
