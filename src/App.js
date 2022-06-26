@@ -13,6 +13,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Products from './Pages/Products/Products';
 import ScrollToTop from 'react-scroll-to-top';
+import CartScreen from './Pages/CartScreen/CartScreen';
 function App() {
   return (
     <div>
@@ -23,8 +24,10 @@ function App() {
         <Route path='/home' element={<Home />}></Route>
         <Route path='/products' element={<Products />}></Route>
         <Route path='/product/:productId' element={<ProductDetails />}></Route>
+        <Route path='/cart' element={<CartScreen />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
+
       </Routes>
       <ToastContainer />
       <Footer />
