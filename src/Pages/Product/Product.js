@@ -4,7 +4,7 @@ import './Product.css'
 
 
 const Product = ({ product }) => {
-    console.log(product)
+    // console.log(product)
 
     const { _id, plantName, imageUrl, description, price, imageAlt } = product;
     const navigate = useNavigate()

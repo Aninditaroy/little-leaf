@@ -21,8 +21,8 @@ const Footer = () => {
                 <div className='container mx-auto '>
                     <div className="max-w-screen-xl mx-auto mb-12 lg:mb-16   ">
                         <Link to='/' className="btn btn-ghost normal-case text-xl hover:bg-transparent">
-                            {/* <img src={logo} alt="" className='w-14 h-14' /> */}
-                            <span className='text-4xl font-md text-[#1d3923] ml-2'>Little Leaf</span>
+                            <img src="https://i.ibb.co/fnB14zy/logo-removebg-preview-1.png" alt="" className='' />
+                            {/* <span className='text-4xl font-md text-[#1d3923] ml-2'>Little Leaf</span> */}
                         </Link>
                     </div>
 

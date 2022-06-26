@@ -11,13 +11,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './Pages/Shared/Navbar/Navbar';
 import Footer from './Pages/Shared/Footer/Footer';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import Products from './Pages/Products/Products';
+import ScrollToTop from 'react-scroll-to-top';
 function App() {
   return (
     <div>
       <Navbar />
+      <ScrollToTop smooth component={<p style={{ color: "blue", backgroundColor: 'none' }}><i class="uil uil-arrow-up text-white bg-[#73ab24] p-3 rounded text-2xl"></i></p>} />
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/home' element={<Home />}></Route>
+        <Route path='/products' element={<Products />}></Route>
         <Route path='/product/:productId' element={<ProductDetails />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>

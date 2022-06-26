@@ -13,7 +13,8 @@ const ProductDetails = () => {
 
         <div className='mb-14 '>
             <div className='bg-[#F6F7FB] flex justify-center  pb-32 pt-16'>
-                <img src={imageUrl} alt={imageAlt} />
+                <img src={imageUrl} alt={imageAlt} className="hover:scale-110 transition-all transform duration-700" />
+
             </div>
             <div className='bg-white w-4/6  xl:w-1/2 py-16 mx-auto -my-20  mb-24 rounded-xl shadow-xl'>
                 <div className='w-3/4 mx-auto'>
