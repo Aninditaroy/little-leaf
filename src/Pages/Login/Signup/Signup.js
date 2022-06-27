@@ -78,7 +78,7 @@ const Signup = () => {
 
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name });
-        console.log("update done", data)
+        // console.log("update done", data)
         reset()
 
     };
