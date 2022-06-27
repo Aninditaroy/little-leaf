@@ -1,19 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Product.css'
 
 
 const Product = ({ product }) => {
-    // console.log(product)
-
     const { _id, plantName, imageUrl, description, price, imageAlt } = product;
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const navigateToProductDetails = (id) => {
         navigate(`/product/${id}`)
     }
-    // const navigateToCart = () => {
-    //     navigate('/cart')
-    // }
     return (
         <div class="shadow-lg rounded-2xl lg:max-w-xs bg-white mx-auto  p-2 mb-12">
             <div className='p-3 effect4'>
@@ -31,13 +27,12 @@ const Product = ({ product }) => {
                     <p class="text-black">
                         $ {price}
                     </p>
-                    {/* onClick={navigateToCart()} */}
-                    <button data-bs-toggle="tooltip" title="Add To Cart" type="button" class="w-12 h-12 text-base font-medium rounded-full text-white bg-green-700 hover:bg-green-600 mt-2">
+                    <button onClick={() => navigateToProductDetails(_id)} product-bs-toggle="carttip" title="Add To Cart" type="button" class="w-12 h-12 text-base font-medium rounded-full text-white bg-green-700 hover:bg-green-600 mt-2">
                         <i class="uil uil-shopping-cart-alt w-16 h-16 text-2xl"></i>
                     </button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

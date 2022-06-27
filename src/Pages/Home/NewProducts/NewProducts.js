@@ -5,7 +5,7 @@ import Product from './../../Product/Product';
 const NewProducts = () => {
     const [products] = useProducts();
     const newProducts = [...products].reverse();
-    console.log('new product haaha', newProducts);
+    // console.log('new product haaha', newProducts);
     return (
         <div>
             <div className='w-5/6 mx-auto'>
