@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import useProductDetails from './../../Hooks/useProductDetails';
 import { toast } from 'react-toastify';
 import useCart from './../../Hooks/useCart';
-import { useForm } from 'react-hook-form';
 
 const ProductDetails = () => {
     const { productId } = useParams();
@@ -12,38 +11,9 @@ const ProductDetails = () => {
     const [cart, setCart] = useState({});
     const [cartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
-    const { handleSubmit, register } = useForm();
     const navigateToCart = (id) => {
         const cartItems = cartProducts.find(cartProduct => cartProduct.cartId == id)
         console.log(cartItems);
-        if (!cartItems) {
-            const cart = {
-                cartId: id,
-                name: plantName,
-                img: imageUrl,
-                imgAlt: imageAlt,
-                quantity: quantity,
-                price: price,
-                description: description
-            }
-            //send to cart api
-            fetch('http://localhost:5000/cart', {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(cart)
-            })
-                .then(res => res.json())
-                .then(added => {
-                    if (added) {
-                        toast.success("Tool added")
-                    }
-                    else {
-                        toast.error("Failed to add!")
-                    }
-                })
-        }
         // for (const id in storedCart) {
         //     const addedProduct = products.find(product => product._id === id);
         //     if (addedProduct) {
@@ -54,8 +24,32 @@ const ProductDetails = () => {
         // }
         // setCart(savedCart);
 
+        const cart = {
+            cartId: id,
+            name: plantName,
+            img: imageUrl,
+            imgAlt: imageAlt,
+            price: price,
+            description: description
+        }
 
-
+        //send to cart api
+        fetch('http://localhost:5000/cart', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cart)
+        })
+            .then(res => res.json())
+            .then(added => {
+                if (added) {
+                    toast.success("Tool added")
+                }
+                else {
+                    toast.error("Failed to add!")
+                }
+            })
     }
     return (
         // <div>
@@ -79,37 +73,34 @@ const ProductDetails = () => {
 
                         <h1 className='text-md mt-1 mb-4'><span className='text-lg font-bold mr-1'>Stock:</span><span className='font-medium'>{inStock}</span></h1>
                         <hr />
-                        {/* cart form start*/}
-                        <form onSubmit={handleSubmit(navigateToCart)}>
-                            <div className='flex flex-col md:flex-row md:items-center'>
-                                <div className='flex flex-row items-center'>
-                                    <span className='text-lg font-bold mr-1'>Quantity:</span>
-                                    <div className='flex flex-row items-center justify-around py-1 px-3  w-1/2 md:w-2/5  lg:w-2/5 xl:w-2/5 my-5 rounded-md bg-[#F6F7FB] '>
-                                        <span>
-                                            <button>
-                                                {/* <i class="uil uil-plus"></i> */}
-                                                <i class="uil uil-plus-circle text-[#73AB24] text-xl"></i>
-                                            </button>
-                                        </span>
-                                        <span>
-                                            <input name="quantity"  {...register("quantity")} type="number" placeholder='1' className='w-full text-center text-black bg-[#F6F7FB]' />
-                                        </span>
-                                        <span>
-                                            <button>
-                                                {/* <i class="uil uil-minus"></i> */}
-                                                <i class="uil uil-minus-circle text-[#73AB24] text-xl "></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div >
-                                    <div class=" flex items-center w-full  ml-auto">
-                                        <button onClick={() => navigateToCart(_id)} type="submit" class="flex items-center px-5 py-2  text-sm text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-40"><span className='mr-1'>Add to Cart</span> <i class="uil uil-shopping-cart-alt text-lg"></i></button>
-                                    </div>
+
+                        <div className='flex flex-col md:flex-row md:items-center'>
+                            <div className='flex flex-row items-center'>
+                                <span className='text-lg font-bold mr-1'>Quantity</span>
+                                <div className='flex flex-row items-center justify-around py-1 px-3  w-1/2 md:w-2/5  lg:w-2/5 xl:w-2/5 my-5 rounded-md bg-[#F6F7FB] '>
+                                    <span>
+                                        <button>
+                                            {/* <i class="uil uil-plus"></i> */}
+                                            <i class="uil uil-plus-circle text-[#73AB24] text-xl"></i>
+                                        </button>
+                                    </span>
+                                    <span>
+                                        <input type="number" placeholder='1' className='w-full text-center text-black bg-[#F6F7FB]' />
+                                    </span>
+                                    <span>
+                                        <button>
+                                            {/* <i class="uil uil-minus"></i> */}
+                                            <i class="uil uil-minus-circle text-[#73AB24] text-xl "></i>
+                                        </button>
+                                    </span>
                                 </div>
                             </div>
-                        </form>
-                        {/* cart form  end*/}
+                            <div >
+                                <div class=" flex items-center w-full  ml-auto">
+                                    <button onClick={() => navigateToCart(_id)} type="submit" class="flex items-center px-5 py-2  text-sm text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-40"><span className='mr-1'>Add to Cart</span> <i class="uil uil-shopping-cart-alt text-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
