@@ -6,8 +6,8 @@ const useCart = () => {
         fetch('http://localhost:5000/carts')
             .then(res => res.json())
             .then(data => setCartProducts(data))
-    }, [])
-    return ([cartProducts]);
+    }, [cartProducts])
+    return ([cartProducts, setCartProducts]);
 };
 
 export default useCart;
