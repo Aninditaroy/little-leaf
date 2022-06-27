@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -9,7 +10,7 @@ const ProductDetails = () => {
     const { productId } = useParams();
     const [productDetails] = useProductDetails(productId);
     const [cart, setCart] = useState({});
-    const [cartProducts] = useCart();
+    const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
     const navigateToCart = (id) => {
         const cartItems = cartProducts.find(cartProduct => cartProduct.cartId == id)
@@ -51,10 +52,9 @@ const ProductDetails = () => {
                 }
             })
     }
+
     return (
-        // <div>
-        //     <h2 className='text-4xl text-green-600'>Hi:{productId}</h2>
-        //     <h2 className='text-4xl text-green-600'>{productDetails.plantName}</h2>
+
 
         <div className='mb-14 ' >
             <div className='bg-[#F6F7FB] flex justify-center  pb-32 pt-16'>
@@ -86,28 +86,26 @@ const ProductDetails = () => {
                                     </span>
                                     <span>
                                         <input type="number" placeholder='1' className='w-full text-center text-black bg-[#F6F7FB]' />
-                                    </span>
+                                    </span >
                                     <span>
                                         <button>
                                             {/* <i class="uil uil-minus"></i> */}
                                             <i class="uil uil-minus-circle text-[#73AB24] text-xl "></i>
                                         </button>
                                     </span>
-                                </div>
-                            </div>
+                                </div >
+                            </div >
                             <div >
                                 <div class=" flex items-center w-full  ml-auto">
                                     <button onClick={() => navigateToCart(_id)} type="submit" class="flex items-center px-5 py-2  text-sm text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-40"><span className='mr-1'>Add to Cart</span> <i class="uil uil-shopping-cart-alt text-lg"></i></button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </div >
+                    </div >
+                </div >
+            </div >
         </div >
 
-
-        // </div>
     );
 };
 
