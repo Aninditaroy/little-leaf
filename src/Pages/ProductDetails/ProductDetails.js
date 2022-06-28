@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -12,10 +11,28 @@ const ProductDetails = () => {
     const [cart, setCart] = useState({});
     const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
+    const increaseQuantity = () => {
+        let qty = parseInt(document.getElementById('quantity-value').value);
+        if (!qty) {
+            qty = 0;
+        }
+        document.getElementById('quantity-value').value = qty + 1;
+    }
+    const decreaseQuantity = () => {
+        let qty = parseInt(document.getElementById('quantity-value').value);
+        if (qty > 1) {
+            document.getElementById('quantity-value').value = qty - 1;
+        }
+        else {
+            document.getElementById('quantity-value').value = qty;
+            toast.error('Quantity must be greater than 0')
+        }
+    }
+
 
     const navigateToCart = (id, _id) => {
         const cartItems = cartProducts.find(cartProduct => cartProduct.cartId === id);
-        let input_quantity = document.getElementById('quantity-value').value
+        let input_quantity = document.getElementById('quantity-value').value;
 
         if (!input_quantity) {
             input_quantity = 1
@@ -53,17 +70,17 @@ const ProductDetails = () => {
         }
 
         if (cartItems) {
-            console.log(cartItems)
+            // console.log(cartItems)
             let prevQuantity = parseInt(cartItems.quantity);
             let quantityFinal = parseInt(input_quantity) + parseInt(prevQuantity);
 
             const cart = {
                 quantity: quantityFinal,
             }
-            console.log(cart)
+            // console.log(cart)
 
             // //send to cart api
-            const url = `http://localhost:5000/carts/${cartItems._id}`
+            const url = `https://rocky-anchorage-54101.herokuapp.com/carts/${cartItems._id}`
             fetch(url, {
                 method: "PATCH",
                 headers: {
@@ -109,16 +126,16 @@ const ProductDetails = () => {
                                 <span className='text-lg font-bold mr-1'>Quantity</span>
                                 <div className='flex flex-row items-center justify-around py-1 px-3  w-1/2 md:w-2/5  lg:w-2/5 xl:w-2/5 my-5 rounded-md bg-[#F6F7FB] '>
                                     <span>
-                                        <button>
+                                        <button onClick={increaseQuantity}>
                                             {/* <i class="uil uil-plus"></i> */}
                                             <i class="uil uil-plus-circle text-[#73AB24] text-xl"></i>
                                         </button>
                                     </span>
                                     <span>
-                                        <input type="number" placeholder='1' className='w-full text-center text-black bg-[#F6F7FB]' id='quantity-value' />
+                                        <input type="number" defaultValue='1' placeholder='1' className='w-full text-center text-black bg-[#F6F7FB]' id='quantity-value' />
                                     </span>
                                     <span>
-                                        <button>
+                                        <button onClick={decreaseQuantity}>
                                             {/* <i class="uil uil-minus"></i> */}
                                             <i class="uil uil-minus-circle text-[#73AB24] text-xl "></i>
                                         </button>
