@@ -3,7 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import "./Banner.css";
 import { Autoplay, Navigation, Pagination } from 'swiper';
+import { useNavigate } from 'react-router-dom';
 const Banner = () => {
+    const navigate = useNavigate();
+    const navigateToProducts = () => {
+        navigate('/products')
+    }
     return (
         <>
 
@@ -38,7 +43,7 @@ const Banner = () => {
                                 {/* <div class=" rounded-lg sm:mt-0 text-xl   font-regular pr-0 mb-10">
                                     <button type="submit" class="items-center block px-12 py-3 text-base font-medium text-center text-  text-white hover:text-black hover:bg-white  bg-[#3c7116a0]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl  border-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-2xl uppercase button_slide slide_right">Shop Now</button>
                                 </div> */}
-                                <button class="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-[#3c7116a0] hover:bg-[#3c7116]">
+                                <button onClick={navigateToProducts} class="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-[#3c7116a0] hover:bg-[#3c7116]">
                                     <span class="relative text-lg text-white uppercase">Shop Now</span>
                                     <div class="flex items-center -space-x-3 translate-x-3">
                                         <div class="w-2.5 h-[1.6px] rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>
@@ -61,7 +66,7 @@ const Banner = () => {
                             <div className='invisible sm:invisible md:visible lg:visible xl:visible flex  items-center flex-col justify-center '>
                                 <h1 className=' text-3xl md:text-4xl lg:text-4xl xl:text-5xl   font-bold' >Grow more and Feel plants</h1>
                                 <h4 className='text-lg lg:text-xl  font-regular mt-5 md:mt-3 pr-0 mb-4 w-full  lg:w-11/12 xl:w-4/6 2xl:w-7/12 2xl:w-3/6' >It is time to switch to the green revolution.Green would be your new favorite color soon.</h4>
-                                <button class="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-[#3c7116a0] hover:bg-[#3c7116]">
+                                <button onClick={navigateToProducts} class="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-[#3c7116a0] hover:bg-[#3c7116]">
                                     <span class="relative text-lg text-white uppercase">Shop Now</span>
                                     <div class="flex items-center -space-x-3 translate-x-3">
                                         <div class="w-2.5 h-[1.6px] rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>
@@ -84,7 +89,7 @@ const Banner = () => {
                             <div className='invisible sm:invisible md:visible lg:visible xl:visible flex  items-center flex-col justify-center '>
                                 <h1 className=' text-3xl md:text-4xl lg:text-4xl xl:text-5xl   font-bold' >Go the green way</h1>
                                 <h4 className='text-lg lg:text-xl  font-regular mt-5 md:mt-3 pr-0 mb-4 w-full  lg:w-11/12 xl:w-4/6 2xl:w-7/12 2xl:w-3/6' >Let your house have a breath of fresh air.Mother earth is quite happy with your decision.</h4>
-                                <button class="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-[#3c7116a0] hover:bg-[#3c7116]">
+                                <button onClick={navigateToProducts} class="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-[#3c7116a0] hover:bg-[#3c7116]">
                                     <span class="relative text-lg text-white uppercase">Shop Now</span>
                                     <div class="flex items-center -space-x-3 translate-x-3">
                                         <div class="w-2.5 h-[1.6px] rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>
