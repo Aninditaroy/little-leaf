@@ -16,7 +16,7 @@ const Login = () => {
 
     let navigate = useNavigate();
     let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname || "/home";
 
     const [
         signInWithEmailAndPassword,
