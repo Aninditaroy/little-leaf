@@ -1,4 +1,4 @@
-import { signOut } from 'firebase/auth';
+
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
@@ -6,11 +6,16 @@ import './Navbar.css';
 
 import Marquee from "react-fast-marquee";
 import auth from './../../../firebase.init';
+import useAdmin from './../../../Hooks/useAdmin';
+import { signOut } from 'firebase/auth';
 
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
+    const [admin] = useAdmin(user)
+    console.log("DASHBOARD", admin)
+
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken')
@@ -39,15 +44,13 @@ const Navbar = () => {
 
 
             {
-                user && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
+                admin && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
 
             }
             {/* <li className='p-0 h-1/4'>{user ?
           
                 <div className='p-0 h-1/4'>
                     <button onClick={logout} className="btn btn-ghost ">Sign Out</button>
-
-
                 </div>
                 {
                     (user.photoURL) ? <div className="avatar">
@@ -65,11 +68,25 @@ const Navbar = () => {
 
                 <>
                     {
-                        user ? <div className='p-0 h-1/4'>
-                            <button onClick={logout} className="btn btn-ghost ">Sign Out</button>
+                        user ?
+                            <>
+                                <div className='p-0 h-1/4'>
+                                    <button onClick={logout} className="btn btn-ghost ">Sign Out</button>
+                                </div>
+                                <p className='badge badge-lg badge-primary font-semibold'>{user.displayName}</p>
 
+                                {/* <li>{
+                                    user ?
+                                        <span>
+                                            <button onClick={logout} className="btn btn-ghost">Log Out
+                                            </button>
+                                            <p className='badge badge-lg badge-primary font-semibold'>{user.displayName}</p>
+                                        </span>
 
-                        </div>
+                                        :
+                                        <Link to='/login'>Login</Link>
+                                }</li> */}
+                            </>
 
                             :
 
@@ -93,7 +110,7 @@ const Navbar = () => {
     return (
         <>
 
-            <div className='bg-[#60a924d3] bg-[#224229]'>
+            <div className=' bg-[#224229]'>
                 <Marquee pauseOnHover='true' gradient={false} >
 
                     <div className='  py-3 '>
