@@ -39,10 +39,10 @@ const Navbar = () => {
 
 
 
-            {/* {
-            user && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
+            {
+                user && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
 
-        } */}
+            }
             {/* <li className='p-0 h-1/4'>{user ?
           
                 <div className='p-0 h-1/4'>

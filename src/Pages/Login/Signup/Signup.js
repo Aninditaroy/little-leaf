@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from './../../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import useToken from './../../../Hooks/useToken';
+import Loading from '../../Shared/Loading/Loading';
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -18,21 +20,22 @@ const Signup = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     // const email = user?.user?.email;
     // const name = user?.user?.displayName
-    // console.log("Forfgh", email, name)
+    // console.log("For test", email, name)
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    // const [token] = useToken(user);
+    const [token] = useToken(user);
 
-    // console.log("from sugnup", user)
+    // console.log("from signup", user)
 
-    // if (token) {
-    //     navigate('/dashboard')
-    // }
+    if (token) {
+        navigate('/dashboard')
+    }
 
     if (user) {
         navigate('/home')
     }
+
 
     useEffect(() => {
         if (error) {
@@ -58,9 +61,9 @@ const Signup = () => {
     }, [error])
 
 
-    // if (loading || updating) {
-    //     return <Loading></Loading>
-    // }
+    if (loading || updating) {
+        return <Loading />
+    }
 
     let signInError;
 

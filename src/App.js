@@ -14,6 +14,8 @@ import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Products from './Pages/Products/Products';
 import ScrollToTop from 'react-scroll-to-top';
 import CartScreen from './Pages/CartScreen/CartScreen';
+import RequireAdmin from './Pages/Required/RequireAdmin';
+import Dashboard from './Pages/Dashboard/Dashboard';
 function App() {
   return (
     <div>
@@ -27,6 +29,11 @@ function App() {
         <Route path='/cart' element={<CartScreen />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
+        <Route path='/dashboard' element={<RequireAdmin>
+          <Dashboard />
+        </RequireAdmin>}>
+          <Route></Route>
+        </Route>
 
       </Routes>
       <ToastContainer />
