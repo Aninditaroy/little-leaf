@@ -32,14 +32,14 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
 
-        <Route path='/dashboard' element={
+        {/* <Route path='/dashboard' element={
           <RequireAdmin>
             <Dashboard></Dashboard>
           </RequireAdmin>
 
         }>
           <Route index element={<Users></Users>}></Route>
-        </Route>
+        </Route> */}
 
       </Routes>
       <ToastContainer />
