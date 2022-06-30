@@ -26,9 +26,9 @@ const Signup = () => {
 
     const [token] = useToken(user);
 
-    if (token) {
-        navigate('/dashboard')
-    }
+    // if (token) {
+    //     navigate('/')
+    // }
 
     // if (user) {
     //     navigate('/home')
