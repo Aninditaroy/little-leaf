@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import PlantCare from '../PlantCare/PlantCare';
 import Banner from './Banner/Banner';
 import Contact from './Contact/Contact';
@@ -15,6 +16,7 @@ const Home = () => {
             <Tabs />
             <Contact />
             <Facilities />
+
 
 
 

@@ -26,8 +26,6 @@ const Signup = () => {
 
     const [token] = useToken(user);
 
-    // console.log("from signup", user)
-
     if (token) {
         navigate('/dashboard')
     }

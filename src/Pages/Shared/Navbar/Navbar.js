@@ -13,8 +13,8 @@ import { signOut } from 'firebase/auth';
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
-    const [admin] = useAdmin(user)
-    console.log("DASHBOARD", admin)
+    // const [admin] = useAdmin(user)
+    // console.log("DASHBOARD", admin)
 
     const logout = () => {
         signOut(auth);
@@ -43,10 +43,12 @@ const Navbar = () => {
 
 
 
-            {
+            {/* {
                 admin && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
 
-            }
+            } */}
+
+
             {/* <li className='p-0 h-1/4'>{user ?
           
                 <div className='p-0 h-1/4'>
