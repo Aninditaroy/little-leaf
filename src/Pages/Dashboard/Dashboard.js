@@ -39,7 +39,7 @@ const Dashboard = () => {
 
                     {
                         admin && <>
-                            <li><NavLink to='/dashboard/users'>All Users</NavLink></li>
+                            <li><NavLink to='/dashboard/addProducts'>Add Products</NavLink></li>
                             {/* <li><Link to='/dashboard/addTool'>Add Tools</Link></li>
                             <li><Link to='/dashboard/manageOrder'>Manage Orders</Link></li>
                             <li><Link to='/dashboard/manageTool'>Manage Tools</Link></li> */}
