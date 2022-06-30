@@ -18,32 +18,36 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import RequireAdmin from './Pages/Required/RequireAdmin';
 import Users from './Pages/Dashboard/Users';
 import RequireAuth from './Pages/Required/RequireAuth';
+import Wrapper from './Pages/Wrapper/Wrapper';
+
 function App() {
   return (
     <div>
-      <Navbar />
-      <ScrollToTop smooth component={<p style={{ color: "blue", backgroundColor: 'none' }}><i class="uil uil-arrow-up text-white bg-[#73ab24] p-3 rounded text-2xl"></i></p>} />
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/home' element={<Home />}></Route>
-        <Route path='/products' element={<Products />}></Route>
-        <Route path='/product/:productId' element={<ProductDetails />}></Route>
-        <Route path='/cart' element={<CartScreen />}></Route>
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='/signup' element={<Signup />}></Route>
+      <Wrapper>
+        <Navbar />
+        <ScrollToTop smooth component={<p style={{ color: "blue", backgroundColor: 'none' }}><i class="uil uil-arrow-up text-white bg-[#73ab24] p-3 rounded text-2xl"></i></p>} />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/home' element={<Home />}></Route>
+          <Route path='/products' element={<Products />}></Route>
+          <Route path='/product/:productId' element={<ProductDetails />}></Route>
+          <Route path='/cart' element={<CartScreen />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/signup' element={<Signup />}></Route>
 
-        {/* <Route path='/dashboard' element={
-          <RequireAdmin>
-            <Dashboard></Dashboard>
-          </RequireAdmin>
+          <Route path='/dashboard' element={
+            <RequireAdmin>
+              <Dashboard></Dashboard>
+            </RequireAdmin>
 
-        }>
-          <Route index element={<Users></Users>}></Route>
-        </Route> */}
+          }>
+            <Route index element={<Users></Users>}></Route>
+          </Route>
 
-      </Routes>
-      <ToastContainer />
-      <Footer />
+        </Routes>
+        <ToastContainer />
+        <Footer />
+      </Wrapper>
 
     </div>
   );

@@ -5,15 +5,16 @@ import Loading from './../Shared/Loading/Loading';
 
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
         method: 'GET',
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
+        // headers: {
+        //     authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        // }
     }).then(res => res.json()));
     if (isLoading) {
         return <Loading />
     }
+    console.log(users);
     return (
         <div className='my-24'>
             <h2 className='text-2xl text-center'><span className='border-b-2 border-green-200 font-semibold'>All Users</span></h2>
@@ -28,7 +29,7 @@ const Users = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <UserRow index={index} key={user._id} user={user} refetch={refetch}></UserRow>)
+                            users?.map((user, index) => <UserRow index={index} key={user._id} user={user} refetch={refetch}></UserRow>)
                         }
                     </tbody>
                 </table>
