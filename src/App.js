@@ -19,6 +19,7 @@ import RequireAdmin from './Pages/Required/RequireAdmin';
 import Users from './Pages/Dashboard/Users';
 import RequireAuth from './Pages/Required/RequireAuth';
 import Wrapper from './Pages/Wrapper/Wrapper';
+import AddProducts from './Pages/Dashboard/AddProducts';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
 
           }>
             <Route index element={<Users></Users>}></Route>
+            <Route path='/dashboard/addProducts' element={<AddProducts></AddProducts>}></Route>
           </Route>
 
         </Routes>

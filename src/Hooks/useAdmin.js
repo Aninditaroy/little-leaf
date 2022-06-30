@@ -17,7 +17,12 @@ const useAdmin = (user) => {
                 .then(res => res.json())
                 .then(data => {
                     setAdmin(data.admin)
+<<<<<<< HEAD
                     // setAdminLoading(false)
+=======
+                    console.log(admin, 'from useAdmin')
+                    setAdminLoading(false)
+>>>>>>> 98a6eacd8865adac54b462bf029ce44cf9b3a9d7
 
                 })
         }
