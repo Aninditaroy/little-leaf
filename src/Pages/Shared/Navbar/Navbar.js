@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 import Marquee from "react-fast-marquee";
@@ -15,7 +15,6 @@ const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const [admin] = useAdmin(user)
     console.log("admin from navbar", admin)
-
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken')
@@ -45,7 +44,6 @@ const Navbar = () => {
 
             {
                 admin && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
-
             }
 
 

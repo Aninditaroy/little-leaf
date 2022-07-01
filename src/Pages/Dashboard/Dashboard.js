@@ -1,10 +1,12 @@
 import React from 'react';
 
 import { Link, Outlet, NavLink } from 'react-router-dom';
-import useAdmin from './../../Hooks/useAdmin';
-import auth from './../../firebase.init';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
+
 import Loading from '../Shared/Loading/Loading';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import useAdmin from './../../Hooks/useAdmin';
 
 
 const Dashboard = () => {
@@ -13,6 +15,7 @@ const Dashboard = () => {
     if (adminLoading) {
         <Loading></Loading>
     }
+    console.log('from dashboard user', user)
     return (
         <div className="drawer drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />

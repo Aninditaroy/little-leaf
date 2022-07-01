@@ -24,7 +24,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth)
-
+    console.log('hello user', user)
     const [sendPasswordResetEmail, sending, ResetError] = useSendPasswordResetEmail(auth);
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const Login = () => {
 
     }, [error])
 
-
+    console.log('hello user', user)
     const [token] = useToken(user)
 
     useEffect(() => {
