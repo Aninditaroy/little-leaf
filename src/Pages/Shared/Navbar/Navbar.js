@@ -14,7 +14,6 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
     const [admin] = useAdmin(user)
-    console.log("admin from navbar", admin)
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken')
@@ -43,7 +42,7 @@ const Navbar = () => {
 
 
             {
-                admin && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
+                ((user?.providerId) && admin) && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
             }
 
 

@@ -70,14 +70,12 @@ const ProductDetails = () => {
         }
 
         if (cartItems) {
-            // console.log(cartItems)
             let prevQuantity = parseInt(cartItems.quantity);
             let quantityFinal = parseInt(input_quantity) + parseInt(prevQuantity);
 
             const cart = {
                 quantity: quantityFinal,
             }
-            // console.log(cart)
 
             // //send to cart api
             const url = `https://rocky-anchorage-54101.herokuapp.com/carts/${cartItems._id}`

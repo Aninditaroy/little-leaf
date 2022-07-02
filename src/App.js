@@ -20,6 +20,7 @@ import Users from './Pages/Dashboard/Users';
 import RequireAuth from './Pages/Required/RequireAuth';
 import Wrapper from './Pages/Wrapper/Wrapper';
 import AddProducts from './Pages/Dashboard/AddProducts';
+import ManageProducts from './Pages/Dashboard/ManageProducts';
 
 function App() {
   return (
@@ -37,13 +38,16 @@ function App() {
           <Route path='/signup' element={<Signup />}></Route>
 
           <Route path='/dashboard' element={
-            <RequireAdmin>
-              <Dashboard></Dashboard>
-            </RequireAdmin>
+            <RequireAuth>
+              <RequireAdmin>
+                <Dashboard></Dashboard>
+              </RequireAdmin>
+            </RequireAuth>
 
           }>
             <Route index element={<Users></Users>}></Route>
             <Route path='/dashboard/addProducts' element={<AddProducts></AddProducts>}></Route>
+            <Route path='/dashboard/manageProducts' element={<ManageProducts></ManageProducts>}></Route>
           </Route>
 
         </Routes>

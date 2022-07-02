@@ -24,7 +24,7 @@ const UserRow = ({ user, refetch, index }) => {
             })
     }
     return (
-        <tr >
+        <tr className='bg-slate-500'>
             <th>{index + 1}</th>
             <td>{email}</td>
             {/* {

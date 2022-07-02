@@ -14,13 +14,12 @@ const Users = () => {
     if (isLoading) {
         return <Loading />
     }
-    console.log(users);
     return (
         <div className='my-24'>
             <h2 className='text-2xl text-center'><span className='border-b-2 border-green-200 font-semibold'>All Users</span></h2>
             <div className="overflow-x-auto container">
                 <table className="table  w-2/3 mt-10 mb-64 mx-auto">
-                    <thead>
+                    <thead className='bg-white border-b'>
                         <tr>
                             <th></th>
                             <th>Name</th>

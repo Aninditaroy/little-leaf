@@ -3,15 +3,12 @@ import { toast } from 'react-toastify';
 
 const DeleteCartModal = ({ deletingCart, refetch, setDeletingCart }) => {
     const { name } = deletingCart;
-    console.log(deletingCart)
     const handleDelete = id => {
-        // console.log("DATA", id)
         fetch(`https://rocky-anchorage-54101.herokuapp.com/carts/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 if (data.deletedCount) {
                     toast.success(`${name} is deleted`)
                     setDeletingCart(null)
@@ -25,8 +22,6 @@ const DeleteCartModal = ({ deletingCart, refetch, setDeletingCart }) => {
                 <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
                 <div className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
-                        {/* <h3 className="font-bold text-lg text-red-600">Are you sure you want to delete ?</h3>
-                <p className="py-4">If you delete ,you cant find the doctor.</p> */}
 
                         <div className="text-center p-5 flex-auto justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 -m-1 flex items-center text-red-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">

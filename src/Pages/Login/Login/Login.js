@@ -24,7 +24,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth)
-    console.log('hello user', user)
+    // console.log('hello user', user)
     const [sendPasswordResetEmail, sending, ResetError] = useSendPasswordResetEmail(auth);
 
     useEffect(() => {
@@ -47,7 +47,6 @@ const Login = () => {
 
     }, [error])
 
-    console.log('hello user', user)
     const [token] = useToken(user)
 
     useEffect(() => {
@@ -77,7 +76,6 @@ const Login = () => {
     };
 
     const resetPassword = async () => {
-        // console.log(email)
         if (email) {
             await sendPasswordResetEmail(email);
             toast.error("Sent Email")

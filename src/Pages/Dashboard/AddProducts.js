@@ -9,7 +9,6 @@ const AddProducts = () => {
         const formData = new FormData();
         const image = data.image[0];
         formData.append('image', image);
-        // console.log(data)
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
         //send to imagebb
         fetch(url, {
@@ -18,7 +17,6 @@ const AddProducts = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log('imagebb', result)
                 if (result.success) {
                     const img = result.data.url;
                     const plant = {
@@ -41,7 +39,7 @@ const AddProducts = () => {
                     })
                         .then(res => res.json())
                         .then(added => {
-                            console.log("plant added", added)
+                            // console.log("plant added", added)
                             if (added) {
                                 toast.success("Plant added")
                                 reset();
