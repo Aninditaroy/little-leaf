@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from './../Shared/Loading/Loading';
 import ManageProductsRow from './ManageProductsRow';
+import DeleteProductModal from './DeleteProductModal';
+import EditProductModal from './EditProductModal';
 
 const ManageProducts = () => {
-    // const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('https://secret-peak-21813.herokuapp.com/tool', {
-    //     headers: {
-    //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    //     }
-    // }).then(res => res.json()));
-    // const [deletingTool, setDeletingTool] = useState(null);
-    // if (isLoading) {
-    //     return <Loading />
-    // }
+    const { data: manageProducts, isLoading, refetch } = useQuery('manageProducts', () => fetch('http://localhost:5000/product').then(res => res.json()));
+
+    // console.log(manageProducts);
+    const [deletingProduct, setDeletingProduct] = useState(null);
+    const [editingProduct, setEditingProduct] = useState(null);
+    if (isLoading) {
+        return <Loading />
+    }
     return (
-        <div>
+        <div className=''>
             <h2>Manage your products</h2>
 
             <>
@@ -32,65 +33,34 @@ const ManageProducts = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {
-                                tools.map((tool, index) => <ManageProductsRow 
-                                    key={tool._id}
-                                    tool={tool}
+                            {
+                                manageProducts.map((manageProduct, index) => <ManageProductsRow
+                                    key={manageProduct._id}
+                                    manageProduct={manageProduct}
                                     refetch={refetch}
-                                    setDeletingTool={setDeletingTool}
+                                    setDeletingProduct={setDeletingProduct}
+                                    setEditingProduct={setEditingProduct}
                                     index={index} />)
-                            } */}
-                            <tr>
-                                <th>1</th>
-                                <td>
-                                    <div class="flex items-center space-x-3">
-                                        <div class="avatar">
-                                            <div class="mask mask-squircle w-12 h-12">
-                                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80" alt="" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="font-bold">name</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td className='break-all'>description</td>
-                                <td>min_order_quantity</td>
-                                <td>available_quantity</td>
-                                <td className=''>
-                                    {/* edit button */}
-                                    <label
-                                        for="delete-confirm-modal"
-                                        className='mr-2'
-                                    >
-                                        <button class="bg-blue-100 hover:bg-blue-200  text-grey-darkest font-bold py-1 px-4 rounded-full inline-flex items-center">
-                                            <i class="uil uil-edit text-blue-500 font-bold text-lg pr-1"></i>
-                                            <span>Edit</span>
-                                        </button>
-                                    </label>
-                                    {/* delete button */}
-                                    <label
-                                        for="delete-confirm-modal" >
-                                        <button class="bg-red-100 hover:bg-red-200 text-grey-darkest font-bold py-1 px-4 rounded-full inline-flex items-center">
-                                            <i class="uil uil-times-circle text-red-500  font-bold text-lg pr-1"></i>
-                                            <span>Delete</span>
-                                        </button>
-                                    </label>
-                                </td>
-                            </tr >
-
+                            }
 
 
                         </tbody>
                     </table>
                 </div>
-                {/* {
-                deletingTool && <DeleteConfirmModal
-                    deletingTool={deletingTool}
-                    refetch={refetch}
-                    setDeletingTool={setDeletingTool}
-                />
-            } */}
+                {
+                    deletingProduct && <DeleteProductModal
+                        deletingProduct={deletingProduct}
+                        refetch={refetch}
+                        setDeletingProduct={setDeletingProduct}
+                    />
+                }
+                {
+                    editingProduct && <EditProductModal
+                        editingProduct={editingProduct}
+                        refetch={refetch}
+                        setEditingProduct={setEditingProduct}
+                    />
+                }
             </ >
 
 
