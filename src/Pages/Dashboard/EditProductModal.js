@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 
 const EditProductModal = ({ editingProduct, refetch, setEditingProduct }) => {
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+    console.log('from EditProductModal', editingProduct);
     const onSubmit = (data, e) => {
         // const handleEditProduct = (event) => {
         //     event.preventDefault();
@@ -90,14 +91,14 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct }) => {
 
 
 
-        <div className='h-96'>
-            <div className='fixed  top-48 left-0 w-full h-96 outline-none overflow-x-auto overflow-y-auto'>
-                <input type="checkbox" id="edit-manage-product-modal" className="modal-toggle" />
-                <div className="modal modal-bottom sm:modal-middle overflow-y-auto">
-                    <div className="modal-box overflow-y-auto">
+        <div className=' '>
+            <div className='EditProductModal  outline-none overflow-x-auto overflow-y-auto'>
+                <input type="checkbox" id="edit-manage-product-modal" className="modal-toggle " />
+                <div className="modal modal-bottom sm:modal-middle mt-44 w-full ">
+                    <div className="modal-box overflow-y-auto h-5/6 w-full">
 
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <div class="flex items-center justify-between mt-4">
+                        <form onSubmit={handleSubmit(onSubmit)} className='py-16'>
+                            <div class="flex items-center justify-between mt-4 ">
                                 <div class='w-full md:w-1/2 pr-2'>
                                     <div>
                                         <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Plant Name</label>
@@ -239,6 +240,21 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct }) => {
                             </div>
                             <input className='btn w-full flex justify-center items-center mx-auto max-w-xs text-white hover:bg-[#73ab24be]  bg-[#73AB24]  hover:ease-in-out shadow-2xl' type="submit"
                                 value='Save Changes' />
+
+
+
+                            <div className="modal-action text-center space-x-4 md:block">
+                                <div className="p-3  mt-2 text-center space-x-4 md:block">
+                                    <label for="edit-manage-product-modal" className="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100 ">
+                                        Cancel
+                                    </label>
+
+
+                                    {/* <button onClick={() => handleEditProduct(deletingProduct._id)} className="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600">Delete</button> */}
+                                </div>
+                            </div>
+
+
                         </form>
 
 
@@ -246,16 +262,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct }) => {
 
 
 
-                        <div className="modal-action text-center space-x-4 md:block">
-                            <div className="p-3  mt-2 text-center space-x-4 md:block">
-                                <label for="edit-manage-product-modal" className="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100 ">
-                                    Cancel
-                                </label>
 
-
-                                {/* <button onClick={() => handleEditProduct(deletingProduct._id)} className="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600">Delete</button> */}
-                            </div>
-                        </div>
 
 
 

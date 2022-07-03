@@ -5,7 +5,7 @@ const ManageProductsRow = ({ manageProduct, index, setDeletingProduct, setEditin
     return (
         <>
             <tr>
-                <th>{index + 1}</th>
+                <td className='bg-gray-100/50'>{index + 1}</td>
                 <td>
                     <div class="flex items-center space-x-3">
                         <div class="avatar">
