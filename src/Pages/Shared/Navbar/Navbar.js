@@ -42,7 +42,8 @@ const Navbar = () => {
 
 
             {
-                ((user?.providerId) && admin) && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
+                // ((user?.providerId) && admin) && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
+                admin && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
             }
 
 
