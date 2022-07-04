@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import useProductDetails from './../../Hooks/useProductDetails';
 import { toast } from 'react-toastify';
 import useCart from './../../Hooks/useCart';
@@ -11,6 +11,7 @@ const ProductDetails = () => {
     const [cart, setCart] = useState({});
     const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
+    const navigate = useNavigate();
     const increaseQuantity = () => {
         let qty = parseInt(document.getElementById('quantity-value').value);
         if (!qty) {
@@ -31,6 +32,7 @@ const ProductDetails = () => {
 
 
     const navigateToCart = (id, _id) => {
+        navigate('/cart')
         const cartItems = cartProducts.find(cartProduct => cartProduct.cartId === id);
         let input_quantity = document.getElementById('quantity-value').value;
 
