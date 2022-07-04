@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManageProductsRow = ({ manageProduct, index, setDeletingProduct, setEditingProduct }) => {
+const ManageProductsRow = ({ manageProduct, index, setDeletingProduct, setEditingProduct, refetch }) => {
     const { price, categories, description, imageAlt, imageUrl, plantName, inStock, _id } = manageProduct;
     return (
         <>
