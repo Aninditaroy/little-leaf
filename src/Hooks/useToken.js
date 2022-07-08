@@ -22,11 +22,11 @@ const useToken = (user) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     const accessToken = data.token;
-                    console.log("accessToken", typeof (accessToken));
+                    // console.log("accessToken", typeof (accessToken));
                     localStorage.setItem('accessToken', accessToken);
-                    console.log(localStorage);
+                    // console.log(localStorage);
                     setToken(accessToken);
                 })
 

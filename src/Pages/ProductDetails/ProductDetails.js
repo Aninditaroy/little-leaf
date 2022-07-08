@@ -4,10 +4,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import useProductDetails from './../../Hooks/useProductDetails';
 import { toast } from 'react-toastify';
 import useCart from './../../Hooks/useCart';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
 
 const ProductDetails = () => {
     const { productId } = useParams();
     const [productDetails] = useProductDetails(productId);
+    const [user] = useAuthState(auth)
+    console.log(user)
     const [cart, setCart] = useState({});
     const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
@@ -33,70 +37,74 @@ const ProductDetails = () => {
 
     const navigateToCart = (id, _id) => {
         navigate('/cart')
-        const cartItems = cartProducts.find(cartProduct => cartProduct.cartId === id);
-        let input_quantity = document.getElementById('quantity-value').value;
+        console.log(user)
+        if (user) {
+            const cartItems = cartProducts.find(cartProduct => cartProduct.cartId === id);
+            console.log(cartItems)
+            let input_quantity = document.getElementById('quantity-value').value;
 
-        if (!input_quantity) {
-            input_quantity = 1
-        }
-        if (!cartItems) {
+            if (!input_quantity) {
+                input_quantity = 1
+            }
+            if (!cartItems) {
 
-            const cart = {
-                cartId: id,
-                name: plantName,
-                img: imageUrl,
-                imgAlt: imageAlt,
-                quantity: input_quantity,
-                price: price,
-                description: description
+                const cart = {
+                    cartId: id,
+                    name: plantName,
+                    img: imageUrl,
+                    imgAlt: imageAlt,
+                    quantity: input_quantity,
+                    price: price,
+                    description: description
+                }
+
+
+                //send to cart api
+                fetch('https://rocky-anchorage-54101.herokuapp.com/cart', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(cart)
+                })
+                    .then(res => res.json())
+                    .then(added => {
+                        if (added) {
+                            toast.success("Product added to Cart!")
+                        }
+                        else {
+                            toast.error("Failed add to your Cart!")
+                        }
+                    })
             }
 
+            if (cartItems) {
+                let prevQuantity = parseInt(cartItems.quantity);
+                let quantityFinal = parseInt(input_quantity) + parseInt(prevQuantity);
 
-            //send to cart api
-            fetch('https://rocky-anchorage-54101.herokuapp.com/cart', {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(cart)
-            })
-                .then(res => res.json())
-                .then(added => {
-                    if (added) {
-                        toast.success("Product added to Cart!")
-                    }
-                    else {
-                        toast.error("Failed add to your Cart!")
-                    }
+                const cart = {
+                    quantity: quantityFinal,
+                }
+
+                // //send to cart api
+                const url = `https://rocky-anchorage-54101.herokuapp.com/carts/${cartItems._id}`
+                fetch(url, {
+                    method: "PATCH",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(cart),
                 })
-        }
-
-        if (cartItems) {
-            let prevQuantity = parseInt(cartItems.quantity);
-            let quantityFinal = parseInt(input_quantity) + parseInt(prevQuantity);
-
-            const cart = {
-                quantity: quantityFinal,
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data) {
+                            toast.success("Quantity Updated")
+                        }
+                        else {
+                            toast.error("Failed to update quantity!")
+                        }
+                    })
             }
-
-            // //send to cart api
-            const url = `https://rocky-anchorage-54101.herokuapp.com/carts/${cartItems._id}`
-            fetch(url, {
-                method: "PATCH",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(cart),
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data) {
-                        toast.success("Quantity Updated")
-                    }
-                    else {
-                        toast.error("Failed to update quantity!")
-                    }
-                })
         }
     }
 
