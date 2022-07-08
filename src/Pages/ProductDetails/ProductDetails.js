@@ -4,6 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import useProductDetails from './../../Hooks/useProductDetails';
 import { toast } from 'react-toastify';
 import useCart from './../../Hooks/useCart';
+import auth from './../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ProductDetails = () => {
     const { productId } = useParams();
@@ -11,6 +13,7 @@ const ProductDetails = () => {
     const [cart, setCart] = useState({});
     const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
     const increaseQuantity = () => {
         let qty = parseInt(document.getElementById('quantity-value').value);
@@ -48,7 +51,8 @@ const ProductDetails = () => {
                 imgAlt: imageAlt,
                 quantity: input_quantity,
                 price: price,
-                description: description
+                description: description,
+                // email: user.email
             }
 
 
