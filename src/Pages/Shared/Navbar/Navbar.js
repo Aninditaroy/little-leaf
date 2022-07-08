@@ -13,7 +13,7 @@ import { signOut } from 'firebase/auth';
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
-    console.log("USER from navbar", user)
+    // console.log("USER from navbar", user)
     const [admin] = useAdmin(user)
     const logout = () => {
         signOut(auth);
