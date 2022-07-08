@@ -55,7 +55,8 @@ const ProductDetails = () => {
                     imgAlt: imageAlt,
                     quantity: input_quantity,
                     price: price,
-                    description: description
+                    description: description,
+                    email: user.email
                 }
 
 

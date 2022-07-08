@@ -8,11 +8,13 @@ import Marquee from "react-fast-marquee";
 import auth from './../../../firebase.init';
 import useAdmin from './../../../Hooks/useAdmin';
 import { signOut } from 'firebase/auth';
+import useCart from './../../../Hooks/useCart';
 
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
+    const [cartProducts] = useCart();
     // console.log("USER from navbar", user)
     const [admin] = useAdmin(user)
     const logout = () => {
@@ -36,7 +38,13 @@ const Navbar = () => {
         <li className='p-0 h-1/4 mx-1.5'><Link to='/products'>Products</Link></li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/blog'>Blog</Link></li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/aboutUs'>About Us</Link></li>
-        <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link></li>
+        <div class="indicator mr-2">
+            <span class="indicator-item badge bg-[#224229] mr-1.5 text-white rounded-full">{cartProducts.length}</span>
+            <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon p-0'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link>
+            </li>
+        </div>
+        {/* <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link>
+        </li> */}
 
         <>
 
