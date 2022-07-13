@@ -11,7 +11,7 @@ const ProductDetails = () => {
     const { productId } = useParams();
     const [productDetails] = useProductDetails(productId);
     const [user] = useAuthState(auth)
-    console.log(user)
+    // console.log(user)
     const [cart, setCart] = useState({});
     const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
@@ -37,10 +37,10 @@ const ProductDetails = () => {
 
     const navigateToCart = (id, _id) => {
         navigate('/cart')
-        console.log(user)
+        // console.log(user)
         if (user) {
             const cartItems = cartProducts.find(cartProduct => cartProduct.cartId === id);
-            console.log(cartItems)
+            // console.log(cartItems)
             let input_quantity = document.getElementById('quantity-value').value;
 
             if (!input_quantity) {
@@ -61,7 +61,8 @@ const ProductDetails = () => {
 
 
                 //send to cart api
-                fetch('https://rocky-anchorage-54101.herokuapp.com/cart', {
+                // fetch('https://rocky-anchorage-54101.herokuapp.com/cart', {
+                fetch('http://localhost:5000/cart', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -88,7 +89,7 @@ const ProductDetails = () => {
                 }
 
                 // //send to cart api
-                const url = `https://rocky-anchorage-54101.herokuapp.com/carts/${cartItems._id}`
+                const url = `http://localhost:5000/carts/${cartItems._id}`
                 fetch(url, {
                     method: "PATCH",
                     headers: {

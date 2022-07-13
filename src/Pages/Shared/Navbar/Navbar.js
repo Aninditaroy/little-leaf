@@ -39,7 +39,7 @@ const Navbar = () => {
         <li className='p-0 h-1/4 mx-1.5'><Link to='/blog'>Blog</Link></li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/aboutUs'>About Us</Link></li>
         <div class="indicator mr-2">
-            <span class="indicator-item badge bg-[#224229] mr-1.5 text-white rounded-full">{cartProducts.length}</span>
+            <span class="indicator-item badge  bg-[#224229] mr-1.5 text-white rounded-full">{cartProducts.length}</span>
             <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon p-0'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link>
             </li>
         </div>

@@ -21,44 +21,49 @@ import RequireAuth from './Pages/Required/RequireAuth';
 import Wrapper from './Pages/Wrapper/Wrapper';
 import AddProducts from './Pages/Dashboard/AddProducts';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
-
+import Payment from './Pages/Payment/Payment';
+import { createContext } from 'react';
+export const InputContext = createContext(0);
 function App() {
   return (
     <div>
       <Wrapper>
         <Navbar />
         <ScrollToTop smooth component={<p style={{ color: "blue", backgroundColor: 'none' }}><i class="uil uil-arrow-up text-white bg-[#73ab24] p-3 rounded text-2xl"></i></p>} />
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/home' element={<Home />}></Route>
-          <Route path='/products' element={<Products />}></Route>
-          <Route path='/product/:productId' element={
-            <RequireAuth>
-              <ProductDetails />
-            </RequireAuth>
-          }></Route>
-          <Route path='/cart' element={
-            <RequireAuth>
-              <CartScreen></CartScreen>
-            </RequireAuth>
-          }></Route>
-          <Route path='/login' element={<Login />}></Route>
-          <Route path='/signup' element={<Signup />}></Route>
+        <InputContext.Provider value={0}>
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/home' element={<Home />}></Route>
+            <Route path='/products' element={<Products />}></Route>
+            <Route path='/product/:productId' element={
+              <RequireAuth>
+                <ProductDetails />
+              </RequireAuth>
+            }></Route>
+            <Route path='/cart' element={
+              <RequireAuth>
+                <CartScreen></CartScreen>
+              </RequireAuth>
+            }></Route>
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/signup' element={<Signup />}></Route>
+            <Route path='/payment' element={<Payment />}></Route>
 
-          <Route path='/dashboard' element={
-            <RequireAuth>
-              <RequireAdmin>
-                <Dashboard></Dashboard>
-              </RequireAdmin>
-            </RequireAuth>
+            <Route path='/dashboard' element={
+              <RequireAuth>
+                <RequireAdmin>
+                  <Dashboard></Dashboard>
+                </RequireAdmin>
+              </RequireAuth>
 
-          }>
-            <Route index element={<Users></Users>}></Route>
-            <Route path='/dashboard/addProducts' element={<AddProducts></AddProducts>}></Route>
-            <Route path='/dashboard/manageProducts' element={<ManageProducts></ManageProducts>}></Route>
-          </Route>
+            }>
+              <Route index element={<Users></Users>}></Route>
+              <Route path='/dashboard/addProducts' element={<AddProducts></AddProducts>}></Route>
+              <Route path='/dashboard/manageProducts' element={<ManageProducts></ManageProducts>}></Route>
+            </Route>
 
-        </Routes>
+          </Routes>
+        </InputContext.Provider>
         <ToastContainer />
         <Footer />
       </Wrapper>

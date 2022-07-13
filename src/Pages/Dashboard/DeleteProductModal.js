@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const DeleteProductModal = ({ deletingProduct, refetch, setDeletingProduct }) => {
-    console.log('from DeleteProductModal', deletingProduct);
+    // console.log('from DeleteProductModal', deletingProduct);
     const { plantName } = deletingProduct;
     const handleDelete = id => {
         fetch(`https://rocky-anchorage-54101.herokuapp.com/product/${id}`, {

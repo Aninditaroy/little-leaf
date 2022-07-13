@@ -15,7 +15,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
     const onSubmit = (data, e) => {
         const formData = new FormData();
         const image = data.image[0];
-        console.log("image", formData)
+        // console.log("image", formData)
 
         if (image) {
 
@@ -43,7 +43,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
                             price: data.price,
                             description: data.description
                         }
-                        console.log("plant from edit product modal", plant);
+                        // console.log("plant from edit product modal", plant);
 
                         //send to my database
                         // const { data: editProduct, isLoading, refetch } = useQuery('editProduct', () => {
