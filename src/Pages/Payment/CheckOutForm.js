@@ -5,30 +5,28 @@ import { useEffect } from 'react';
 import auth from './../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-const CheckoutForm = (total) => {
+const CheckoutForm = ({ total }) => {
     // console.log(total)
     const stripe = useStripe();
     const elements = useElements();
     const [paymentError, setPaymentError] = useState('')
-    // const [cardError, setCardError] = useState('')
     const [paymentSuccess, setPaymentSuccess] = useState('')
-    const [clientSecret, setClientSecret] = useState('');
-    const [processing, setProcessing] = useState(false);
+    const [clientSecret, setClientSecret] = useState("");
+    const [processing, setProcessing] = useState(false)
     const [transactionId, setTransactionId] = useState('')
-    const [user] = useAuthState(auth)
-    console.log('client', clientSecret);
+    const [user] = useAuthState(auth);
     useEffect(() => {
+        // Create PaymentIntent as soon as the page loads
         fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify({ total })
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
                 if (data?.clientSecret) {
                     setClientSecret(data.clientSecret)
                 }
@@ -37,9 +35,88 @@ const CheckoutForm = (total) => {
 
 
 
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     if (!stripe || !elements) {
+    //         return;
+    //     }
+
+    //     const card = elements.getElement(CardElement);
+
+    //     if (card == null) {
+    //         return;
+    //     }
+
+    //     // const { error } = await stripe.createPaymentMethod({
+    //     //     type: 'card',
+    //     //     card,
+    //     // });
+
+    //     const { error, paymentMethod } = await stripe.createPaymentMethod({
+    //         type: 'card',
+    //         card,
+    //     });
+
+
+    //     setPaymentError(error?.message || '')
+
+    //     // confirm card payment
+
+    //     setPaymentSuccess('')
+    //     setProcessing(true)
+
+
+    //     const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+    //         clientSecret,
+    //         {
+    //             payment_method: {
+    //                 card: card,
+    //                 billing_details: {
+    //                     name: user?.displayName,
+    //                     email: user?.email
+    //                 },
+    //             },
+    //         },
+    //     );
+
+    //     if (intentError) {
+    //         setPaymentError(intentError?.message);
+    //         setProcessing(false)
+    //     }
+    //     else {
+    //         setPaymentError('')
+    //         setTransactionId(paymentIntent.id)
+    //         setPaymentSuccess(`Your payment is completed`);
+
+
+
+    //         //         const payment = {
+    //         //             order: _id,
+    //         //             transactionId: paymentIntent.id
+    //         //         }
+
+    //         //         const url = `http://localhost:5000/carts/${_id}`
+    //         //         fetch(url, {
+    //         //             method: "PATCH",
+    //         //             headers: {
+    //         //                 "content-type": "application/json",
+    //         //                 authorization: ` Bearer ${localStorage.getItem('accessToken')}`
+    //         //             },
+    //         //             body: JSON.stringify(payment),
+    //         //         })
+    //         //             .then(res => res.json())
+    //         //             .then(data => {
+    //         //                 setProcessing(false)
+    //         //                 console.log(data)
+    //         //             })
+    //     }
+    // }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!stripe || !elements) {
+            // Stripe.js has not loaded yet. Make sure to disable
+            // form submission until Stripe.js has loaded.
             return;
         }
 
@@ -49,11 +126,6 @@ const CheckoutForm = (total) => {
             return;
         }
 
-        // const { error } = await stripe.createPaymentMethod({
-        //     type: 'card',
-        //     card,
-        // });
-
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card,
@@ -62,9 +134,6 @@ const CheckoutForm = (total) => {
 
 
         setPaymentError(error?.message || '')
-
-        // confirm card payment
-
         setPaymentSuccess('')
         setProcessing(true)
 
@@ -75,45 +144,23 @@ const CheckoutForm = (total) => {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: user?.displayName,
-                        email: user?.email
+                        name: user.displayName,
+                        email: user.email
                     },
                 },
             },
         );
-
         if (intentError) {
             setPaymentError(intentError?.message);
             setProcessing(false)
         }
         else {
             setPaymentError('')
-            setTransactionId(paymentIntent.id)
-            setPaymentSuccess(`Your payment is completed`);
-
-
-
-            //         const payment = {
-            //             order: _id,
-            //             transactionId: paymentIntent.id
-            //         }
-
-            //         const url = `http://localhost:5000/carts/${_id}`
-            //         fetch(url, {
-            //             method: "PATCH",
-            //             headers: {
-            //                 "content-type": "application/json",
-            //                 authorization: ` Bearer ${localStorage.getItem('accessToken')}`
-            //             },
-            //             body: JSON.stringify(payment),
-            //         })
-            //             .then(res => res.json())
-            //             .then(data => {
-            //                 setProcessing(false)
-            //                 console.log(data)
-            //             })
+            //setTransactionId(paymentIntent.id)
+            setPaymentSuccess(`Your payment is completed`)
         }
     }
+
 
     return (
 
@@ -139,7 +186,8 @@ const CheckoutForm = (total) => {
                 {/* <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || paymentSuccess || !clientSecret}>
                     Pay
                 </button> */}
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || paymentSuccess || !clientSecret}>
+
+                <button className='btn btn-success btn-sm mt-4' type="submit">
                     Pay
                 </button>
             </form>
@@ -152,9 +200,8 @@ const CheckoutForm = (total) => {
                     <p>Your Transaction id <span className="text-orange-500 font-bold">{transactionId}</span></p>
                 </div>
             }
-        </div>
+        </div >
     );
-
 };
 
 export default CheckoutForm;
