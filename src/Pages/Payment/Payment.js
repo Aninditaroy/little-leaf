@@ -12,7 +12,7 @@ const Payment = () => {
     let total = 0;
     let shipping = 8;
     const [cartProducts] = useCart();
-    console.log(cartProducts)
+    // console.log(cartProducts)
     const [user] = useAuthState(auth)
     cartProducts.forEach(product => {
         subtotal += product.price * parseInt(product.quantity);

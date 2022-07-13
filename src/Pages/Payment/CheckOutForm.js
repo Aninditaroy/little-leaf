@@ -5,17 +5,18 @@ import { useEffect } from 'react';
 import auth from './../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-const CheckoutForm = ({ total }) => {
-    console.log(total)
+const CheckoutForm = (total) => {
+    // console.log(total)
     const stripe = useStripe();
     const elements = useElements();
     const [paymentError, setPaymentError] = useState('')
-    const [cardError, setCardError] = useState('')
+    // const [cardError, setCardError] = useState('')
     const [paymentSuccess, setPaymentSuccess] = useState('')
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('')
     const [user] = useAuthState(auth)
+    console.log('client', clientSecret);
     useEffect(() => {
         fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
@@ -27,6 +28,7 @@ const CheckoutForm = ({ total }) => {
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 if (data?.clientSecret) {
                     setClientSecret(data.clientSecret)
                 }
@@ -47,7 +49,12 @@ const CheckoutForm = ({ total }) => {
             return;
         }
 
-        const { error } = await stripe.createPaymentMethod({
+        // const { error } = await stripe.createPaymentMethod({
+        //     type: 'card',
+        //     card,
+        // });
+
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
@@ -135,7 +142,6 @@ const CheckoutForm = ({ total }) => {
                 <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || paymentSuccess || !clientSecret}>
                     Pay
                 </button>
-
             </form>
             {
                 paymentError && <p className='font-bold text-red-700'>{paymentError}</p>
