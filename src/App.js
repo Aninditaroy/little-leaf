@@ -21,8 +21,8 @@ import RequireAuth from './Pages/Required/RequireAuth';
 import Wrapper from './Pages/Wrapper/Wrapper';
 import AddProducts from './Pages/Dashboard/AddProducts';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
-import Payment from './Pages/Payment/Payment';
 import { createContext } from 'react';
+import Payment from './Pages/CartScreen/Payment';
 export const InputContext = createContext(0);
 function App() {
   return (
@@ -47,7 +47,8 @@ function App() {
             }></Route>
             <Route path='/login' element={<Login />}></Route>
             <Route path='/signup' element={<Signup />}></Route>
-            <Route path='/payment' element={<Payment />}></Route>
+            {/* <Route path='/payment' element={<Payment />}></Route> */}
+            <Route path="payment/:id" element={<Payment />}></Route>
 
             <Route path='/dashboard' element={
               <RequireAuth>

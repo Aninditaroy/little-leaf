@@ -140,9 +140,9 @@ const CartScreen = () => {
                         </div> */}
                         <div >
                             <div class="flex items-center justify-center w-full mx-auto">
-                                <Link to='/payment'>
-                                    <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-full">Proceed To Checkout</button>
-                                </Link>
+                                {/* <Link to='/payment'> */}
+                                <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-full">Proceed To Checkout</button>
+                                {/* </Link> */}
                             </div>
                         </div>
                     </div>
