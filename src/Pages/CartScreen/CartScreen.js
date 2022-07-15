@@ -12,16 +12,17 @@ const CartScreen = () => {
     const [deletingCart, setDeletingCart] = useState(null)
     let subtotal = 0;
     let vat = 0;
-    // let total = 0;
     let total = useContext(InputContext);
     let shipping = 8;
     cartProducts.forEach(product => {
-        //    console.log(product);
+
         subtotal += product.price * parseInt(product.quantity);
         vat = subtotal * (0.075);
         total = subtotal + vat + shipping;
-        // console.log(total)
+
     })
+    let id = cartProducts[0]?._id
+    // console.log(id);
 
     return (
         // <InputContext.Provider value={[subtotal, vat, total, shipping]}>
@@ -140,9 +141,15 @@ const CartScreen = () => {
                         </div> */}
                         <div >
                             <div class="flex items-center justify-center w-full mx-auto">
-                                {/* <Link to='/payment'> */}
-                                <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-full">Proceed To Checkout</button>
-                                {/* </Link> */}
+                                {
+                                    id ? <Link to={`/payment/${id}`}>
+                                        <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-full">Proceed To Checkout</button>
+                                    </Link>
+                                        :
+                                        <Link to='/payment'>
+                                            <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white   bg-[#464f3a]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-full" disabled>Proceed To Checkout</button>
+                                        </Link>
+                                }
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
-const CheckoutForm = ({ cart }) => {
+const CheckoutForm = ({ cart, setCartProducts, cartProducts }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('')
@@ -11,9 +11,10 @@ const CheckoutForm = ({ cart }) => {
     const [transectionId, setTransectionId] = useState('')
     const [clientSecret, setClientSecret] = useState(true);
 
+    // console.log(cartProducts, setCartProducts);
+
     const { _id, price, name } = cart;
     useEffect(() => {
-        console.log('ewew');
         // Create PaymentIntent as soon as the page loads
         fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
@@ -36,8 +37,6 @@ const CheckoutForm = ({ cart }) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         if (!stripe || !elements) {
-            // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
             return;
         }
 
@@ -81,10 +80,12 @@ const CheckoutForm = ({ cart }) => {
             setProcessing(false)
         }
         else {
+            // setCartProducts([])
             setCardError('')
             setTransectionId(paymentIntent.id)
             console.log(paymentIntent)
             setCardSuccess('Congrats! Your payment is completed.')
+            // setCartProducts('')
 
 
             //store payment on db
@@ -129,7 +130,9 @@ const CheckoutForm = ({ cart }) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
+                <button onClick={() => {
+                    setCartProducts([]);
+                }} className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
                     Pay
                 </button>
 
