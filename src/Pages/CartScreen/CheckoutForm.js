@@ -17,7 +17,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
     const { _id, price, name } = cart;
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://rocky-anchorage-54101.herokuapp.com/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -96,7 +96,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
                 transectionId: paymentIntent.id
             }
             //update backend after payment successfull
-            // const url = `http://localhost:5000/orders`
+            // const url = `https://rocky-anchorage-54101.herokuapp.com/orders`
             // fetch(url, {
             //     method: "PATCH",
             //     headers: {

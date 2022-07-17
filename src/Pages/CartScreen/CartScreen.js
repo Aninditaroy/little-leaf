@@ -17,7 +17,7 @@ const CartScreen = () => {
     const [cartProducts, setCartProducts] = useState([]);
     const email = user?.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/carts/${email}`)
+        fetch(`https://rocky-anchorage-54101.herokuapp.com/carts/${email}`)
             .then(res => res.json())
             .then(data => setCartProducts(data))
     }, [cartProducts])
