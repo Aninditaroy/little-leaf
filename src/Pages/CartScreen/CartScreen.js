@@ -6,10 +6,21 @@ import useCart from './../../Hooks/useCart';
 import CartScreenRow from './CartScreenRow';
 import DeleteCartModal from './DeleteCartModal';
 import { InputContext } from './../../App';
+import auth from './../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useEffect } from 'react';
 // export const InputContext = createContext(0);
 const CartScreen = () => {
-    const [cartProducts] = useCart();
+
     const [deletingCart, setDeletingCart] = useState(null)
+    const [user] = useAuthState(auth);
+    const [cartProducts, setCartProducts] = useState([]);
+    const email = user?.email;
+    useEffect(() => {
+        fetch(`http://localhost:5000/carts/${email}`)
+            .then(res => res.json())
+            .then(data => setCartProducts(data))
+    }, [cartProducts])
     let subtotal = 0;
     let vat = 0;
     let total = useContext(InputContext);
@@ -141,6 +152,11 @@ const CartScreen = () => {
                         </div> */}
                         <div >
                             <div class="flex items-center justify-center w-full mx-auto">
+                                {/* <button onClick={() => {
+                                    setCartProducts([]);
+                                }} className='btn btn-success btn-sm mt-4'>
+                                    Clear Cart
+                                </button> */}
                                 {
                                     id ? <Link to={`/payment/${id}`}>
                                         <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-full">Proceed To Checkout</button>

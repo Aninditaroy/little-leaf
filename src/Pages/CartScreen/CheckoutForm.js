@@ -2,7 +2,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
-const CheckoutForm = ({ cart, setCartProducts, cartProducts }) => {
+const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('')
@@ -12,6 +12,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts }) => {
     const [clientSecret, setClientSecret] = useState(true);
 
     // console.log(cartProducts, setCartProducts);
+
 
     const { _id, price, name } = cart;
     useEffect(() => {
@@ -88,20 +89,21 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts }) => {
             // setCartProducts('')
 
 
-            //store payment on db
-            // const payment = {
-            //     appointment: _id,
-            //     transectionId: paymentIntent.id
-            // }
-            // //update backend after payment successfull
-            // const url = `https://gentle-anchorage-06325.herokuapp.com/booking/${_id}`
+            // store payment on db
+            const orders = {
+                order: _id,
+                total: total,
+                transectionId: paymentIntent.id
+            }
+            //update backend after payment successfull
+            // const url = `http://localhost:5000/orders`
             // fetch(url, {
             //     method: "PATCH",
             //     headers: {
             //         "content-type": "application/json",
-            //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            //         //authorization: `Bearer ${localStorage.getItem('accessToken')}`
             //     },
-            //     body: JSON.stringify(payment),
+            //     body: JSON.stringify(orders),
             // })
             //     .then(res => res.json())
             //     .then(data => {

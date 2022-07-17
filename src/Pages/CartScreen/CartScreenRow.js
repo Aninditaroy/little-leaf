@@ -31,7 +31,7 @@ const CartScreenRow = ({ cart, setDeletingCart }) => {
                     ></span> */}
 
                     {/* <span class="relative">Paid</span> */}
-                    <Link to={`/payment/${cart._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>
+                    {/* <Link to={`/payment/${cart._id}`}><button className='btn btn-xs btn-success'>pay</button></Link> */}
 
 
 
