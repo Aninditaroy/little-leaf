@@ -38,7 +38,7 @@ const Navbar = () => {
         <li className='p-0 h-1/4 mx-1.5'><Link to='/products'>Products</Link></li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/blog'>Blog</Link></li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/aboutUs'>About Us</Link></li>
-        <div class="indicator mr-2">
+        <div class="indicator ml-3 mt-2 lg:mr-2">
             <span class="indicator-item badge  bg-[#224229] mr-1.5 text-white rounded-full">{cartProducts.length}</span>
             <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon p-0'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link>
             </li>
@@ -134,8 +134,7 @@ const Navbar = () => {
 
 
 
-            <div className="navbar bg-[#a0d2a185] bg-[#ecf6ecd9] bg-[#ecf6ec77] backdrop-blur-[20px] sticky top-0 z-50 flex justify-center items-center py-4 shadow-lg" >
-
+            <div className="navbar bg-[#a0d2a185] bg-[#ecf6ecd9] bg-[#ecf6ec77] backdrop-blur-[20px] sticky top-0 z-50 flex justify-center items-center py-4 shadow-lg">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex="0" className=" lg:hidden">
@@ -147,7 +146,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to='/' className='flex justify-center items-center'>
-                        <img src="https://i.ibb.co/fnB14zy/logo-removebg-preview-1.png" alt="" className="" />
+                        <img src="https://i.ibb.co/1JRs2mf/Beige-Simple-Aesthetic-Cactus-Logo-removebg-preview.png" alt="" className="" />
                         {/* <span className='text-4xl font-semibold logo-font'>Little Leaf</span> */}
                     </Link>
                 </div>

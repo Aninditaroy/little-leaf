@@ -4,9 +4,10 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from './../../../firebase.init';
-import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import useToken from './../../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
+
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -20,7 +21,7 @@ const Signup = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     // const email = user?.user?.email;
     // const name = user?.user?.displayName
-
+    console.log(user);
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -30,11 +31,19 @@ const Signup = () => {
         navigate('/')
     }
 
+    const [sendEmailVerification, sending, verifyrror] = useSendEmailVerification(
+        auth
+    );
     // if (user) {
     //     navigate('/home')
     // }
 
-
+    // const verifyEmail = async () => {
+    //     await sendEmailVerification(auth.currentUser)
+    //         .then(() => {
+    //             toast.success('Email Verification Sent');
+    //         })
+    // }
     useEffect(() => {
         if (error) {
 
@@ -71,15 +80,13 @@ const Signup = () => {
 
     }
 
-
-
-
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password)
+        // await verifyEmail();
         await updateProfile({ displayName: data.name });
         reset()
-
     };
+
     return (
         <div className=" h-screen overflow-hidden flex items-center justify-center">
             <div className="bg-white lg:w-96 md:w-5/12	 w-10/12 shadow-3xl shadow-2xl shadow-2xl border-l-4 border-solid border-[#6da820c8] rounded-2xl mb-10 pb-10">
@@ -180,10 +187,13 @@ const Signup = () => {
 
                         </label>
                     </div>
-                    <input
+                    {/* <input className='btn w-full max-w-xs text-white font-medium p-2 md:p-4 uppercase  rounded-2xl mb-6 border-none  bg-[#79A206] hover:bg-[#56720b] hover:text-black' type="submit"
+                        value='SIGNUP' /> */}
 
-                        className='btn w-full max-w-xs text-white font-medium p-2 md:p-4 uppercase  rounded-2xl mb-6 border-none  bg-[#79A206] hover:bg-[#56720b] hover:text-black' type="submit"
-                        value='SIGNUP' />
+                    <button onClick={async () => {
+                        await sendEmailVerification();
+                        toast.success('Verification Email Sent');
+                    }} className='btn w-full max-w-xs text-white font-medium p-2 md:p-4 uppercase  rounded-2xl mb-6 border-none  bg-[#79A206] hover:bg-[#56720b] hover:text-black' type="submit">SIGNUP</button>
 
 
 
