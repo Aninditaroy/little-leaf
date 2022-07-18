@@ -7,6 +7,7 @@ import auth from './../../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import useToken from './../../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
+import { signOut } from 'firebase/auth';
 
 
 const Signup = () => {
@@ -66,6 +67,7 @@ const Signup = () => {
         }
 
     }, [error])
+    console.log('hello user From signup', user?.user?.emailVerified)
 
 
     if (loading || updating) {
@@ -82,6 +84,7 @@ const Signup = () => {
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password)
+
         // await verifyEmail();
         await updateProfile({ displayName: data.name });
         reset()

@@ -7,10 +7,12 @@ import auth from './../../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from './../../Shared/Loading/Loading';
 import useToken from './../../../Hooks/useToken';
+import { signOut } from 'firebase/auth';
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
+    // console.log(user);
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -24,8 +26,9 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth)
-    // console.log('hello user', user)
+    console.log('hello user', user?.user?.emailVerified)
     const [sendPasswordResetEmail, sending, ResetError] = useSendPasswordResetEmail(auth);
+
 
     useEffect(() => {
 
@@ -72,6 +75,7 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
+
         reset();
     };
 
