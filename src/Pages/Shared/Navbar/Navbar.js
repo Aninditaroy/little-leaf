@@ -9,18 +9,22 @@ import auth from './../../../firebase.init';
 import useAdmin from './../../../Hooks/useAdmin';
 import { signOut } from 'firebase/auth';
 import useCart from './../../../Hooks/useCart';
+import Loading from '../Loading/Loading';
 
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
     const [cartProducts] = useCart();
-    console.log("USER from navbar", user)
+    // console.log("USER email from navbar", user?.emailVerified)
+    // console.log("USER from navbar", user)
     const [admin] = useAdmin(user)
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken')
     };
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     const menuItems = <>
         <li tabindex="0" className='p-0 h-1/4 mx-1.5 hover:bg[#81B441]'>
@@ -77,12 +81,12 @@ const Navbar = () => {
 
                 <>
                     {
-                        user ?
+                        (user?.emailVerified) ?
                             <>
                                 <div className='p-0 h-1/4'>
                                     <button onClick={logout} className="btn btn-ghost ">Sign Out</button>
                                 </div>
-                                <p className='badge badge-lg badge-primary font-semibold'>{user.displayName}</p>
+                                <p className='badge badge-lg badge-primary font-semibold'>{user?.displayName}</p>
 
                                 {/* <li>{
                                     user ?
