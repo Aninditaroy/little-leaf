@@ -47,7 +47,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
 
                         //send to my database
                         // const { data: editProduct, isLoading, refetch } = useQuery('editProduct', () => {
-                        //     fetch(`https://rocky-anchorage-54101.herokuapp.com/product/${_id}`, {
+                        //     fetch(`http://localhost:5000/product/${_id}`, {
                         //         method: "PATCH",
                         //         headers: {
                         //             'content-type': 'application/json',
@@ -71,7 +71,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
 
 
                         //send to my database
-                        fetch(`https://rocky-anchorage-54101.herokuapp.com/product/${_id}`, {
+                        fetch(`http://localhost:5000/product/${_id}`, {
                             method: "PATCH",
                             headers: {
                                 'content-type': 'application/json',
@@ -114,7 +114,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
             }
             console.log("plant from edit product modal else", plant);
             //send to my database
-            fetch(`https://rocky-anchorage-54101.herokuapp.com/product/${_id}`, {
+            fetch(`http://localhost:5000/product/${_id}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json',
@@ -175,7 +175,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
         //             }
         //             console.log("plant from edit product modal", plant);
         //             //send to my database
-        //             // fetch('https://rocky-anchorage-54101.herokuapp.com/product', {
+        //             // fetch('http://localhost:5000/product', {
         //             //     method: "POST",
         //             //     headers: {
         //             //         'content-type': 'application/json',
@@ -367,9 +367,6 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
                                     <label for="edit-manage-product-modal" className="btn mb-2 md:mb-0 bg-white  px-8 py-2 text-sm font-medium tracking-wider border text-gray-600 rounded-full shadow-xl hover:shadow-lg hover:bg-gray-100 ">
                                         Cancel
                                     </label>
-
-
-
                                 </div>
                             </div>
 

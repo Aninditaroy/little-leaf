@@ -14,7 +14,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [verify, setVerify] = useState(false)
-    // console.log(user);
+
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -28,6 +28,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth)
+    console.log('user from login', user);
     // console.log('hello user first', user)
     // console.log('hello user', user?.user?.emailVerified)
     const [sendPasswordResetEmail, sending, ResetError] = useSendPasswordResetEmail(auth);

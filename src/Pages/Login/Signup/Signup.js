@@ -25,7 +25,7 @@ const Signup = () => {
     // ] = useCreateUserWithEmailAndPassword(auth);
     // const email = user?.user?.email;
     // const name = user?.user?.displayName
-    console.log(user);
+    console.log('user from signup', user);
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -92,7 +92,6 @@ const Signup = () => {
         createUserWithEmailAndPassword(data.email, data.password)
         reset()
         setVerify(true);
-
     };
 
     return (
@@ -109,15 +108,9 @@ const Signup = () => {
                             </div>
 
                             <form onSubmit={handleSubmit(onSubmit)} className="p-6  pt-16 pb-0">
-
-
-
-
                                 <div className='mb-6 '>
                                     <div className="flex items-center text-lg ">
                                         <span className=' absolute ml-3'><i class="uil uil-user-plus"></i></span>
-
-
                                         <input
                                             type="text"
                                             placeholder="Your Name"
@@ -227,8 +220,17 @@ const Signup = () => {
                         </div>
                     </div>
                     :
-                    <div><p>Please verify your email.</p>
-                        <button onClick={() => { navigate('/login') }} className='btn'>Please Sign in</button>
+                    // <div className='flex flex-col justify-center mx-auto'>
+                    //     <p>Please verify your email.</p>
+                    //     <button onClick={() => { navigate('/login') }} className='btn'>Please Sign in</button>
+                    // </div>
+                    <div class="card w-96 bg-base-100 shadow-lg my-24 mx-auto">
+                        <div class="card-body">
+                            <h2 class="text-xl font-semibold text-center">Please verify your email!</h2>
+                            <div class="card-actions justify-center">
+                                <button onClick={() => { navigate('/login') }} className='btn btn-primary'>Please Sign in</button>
+                            </div>
+                        </div>
                     </div>
             }
         </div>

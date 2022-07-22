@@ -61,8 +61,8 @@ const ProductDetails = () => {
 
 
                 //send to cart api
-                // fetch('https://rocky-anchorage-54101.herokuapp.com/cart', {
-                fetch('https://rocky-anchorage-54101.herokuapp.com/cart', {
+                // fetch('http://localhost:5000/cart', {
+                fetch('http://localhost:5000/cart', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -89,7 +89,7 @@ const ProductDetails = () => {
                 }
 
                 // //send to cart api
-                const url = `https://rocky-anchorage-54101.herokuapp.com/carts/${cartItems._id}`
+                const url = `http://localhost:5000/carts/${cartItems._id}`
                 fetch(url, {
                     method: "PATCH",
                     headers: {

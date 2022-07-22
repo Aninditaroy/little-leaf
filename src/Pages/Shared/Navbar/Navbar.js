@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 import Marquee from "react-fast-marquee";
@@ -18,6 +18,8 @@ const Navbar = () => {
     // console.log("USER email from navbar", user?.emailVerified)
     // console.log("USER from navbar", user)
     const [admin] = useAdmin(user)
+    console.log(user)
+    // console.log(user?.displayName)
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken')
