@@ -288,7 +288,11 @@ border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
                         {/* <a href="/" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
 border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit">Login</a> */}
 
+                        {/* <input onclick="location.href='/'" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
+border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
+                            value='Login'>
 
+                        </input> */}
 
 
 
