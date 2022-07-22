@@ -10,6 +10,7 @@ const AddProducts = () => {
         const formData = new FormData();
         const image = data.image[0];
         formData.append('image', image);
+        console.log(image);
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
         //send to imagebb
         fetch(url, {
@@ -30,7 +31,7 @@ const AddProducts = () => {
                         description: data.description
                     }
                     //send to my database
-                    fetch('https://rocky-anchorage-54101.herokuapp.com/product', {
+                    fetch('http://localhost:5000/product', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',
