@@ -18,7 +18,7 @@ const Navbar = () => {
     // console.log("USER email from navbar", user?.emailVerified)
     // console.log("USER from navbar", user)
     const [admin] = useAdmin(user)
-    console.log(user)
+    // console.log(user)
     // console.log(user?.displayName)
     const logout = () => {
         signOut(auth);
@@ -57,7 +57,7 @@ const Navbar = () => {
 
 
             {
-                ((user?.email) && admin) && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
+                ((user?.emailVerified) && admin) && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
                 // admin && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
             }
 

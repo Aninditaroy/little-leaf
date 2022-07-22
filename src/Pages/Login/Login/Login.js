@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from './../../../firebase.init';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useUpdateProfile, useAuthState } from 'react-firebase-hooks/auth';
 import Loading from './../../Shared/Loading/Loading';
 import useToken from './../../../Hooks/useToken';
 import { signOut } from 'firebase/auth';
@@ -13,10 +13,17 @@ import { async } from '@firebase/util';
 const Login = () => {
 
     const [email, setEmail] = useState('');
+    const [userState, setUserState] = useState(false);
     const [verify, setVerify] = useState(false)
+    const [verifyError, setVerifyError] = useState('')
+    const [user1] = useAuthState(auth)
+    console.log('user 1 from login', user1);
 
 
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+
+
+    const { register, formState: { errors }, handleSubmit, reset, watch } = useForm();
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     let navigate = useNavigate();
     let location = useLocation();
@@ -60,15 +67,34 @@ const Login = () => {
 
     }, [error])
 
+
     useEffect(() => {
 
         if (user) {
-            if (!user?.user?.emailVerified) {
-                toast("please verify your email first")
+            if ((!user?.user?.emailVerified)) {
+                toast("please  verify your email first")
+            }
+            if (loading) {
+                return <Loading />
             }
 
         }
+
+
     }, [user])
+    useEffect(() => {
+        if (user1) {
+            if (!user1.emailVerified) {
+                setVerifyError('Please verify your email first')
+            }
+            if (user1.emailVerified) {
+                navigate('/')
+            }
+            setUserState(true)
+            // navigate('/')
+
+        }
+    }, [user1])
 
 
     const [token] = useToken(user)
@@ -87,16 +113,31 @@ const Login = () => {
     // }
 
 
-
-
     if (loading) {
         return <Loading />
     }
 
 
 
+
+
+
+
+
     const onSubmit = async data => {
+        // if (!user?.emailVerified) {
+        //     updateProfile({ emailVerified: true });
+        //     await signInWithEmailAndPassword(data.email, data.password)
+
+        // }
+
+        // else {
+        //     await signInWithEmailAndPassword(data.email, data.password)
+        // }
+        watch()
         await signInWithEmailAndPassword(data.email, data.password)
+
+        reset()
 
         // .then((userCredential) => {
         //     console.log(userCredential)
@@ -143,6 +184,10 @@ const Login = () => {
 
 
                     </div>
+
+                    {
+                        <p>{verifyError}</p>
+                    }
 
                     <form onSubmit={handleSubmit(onSubmit)} className="p-6  pt-16 pb-0">
                         <div className='mb-6 '>
@@ -220,12 +265,29 @@ const Login = () => {
                         </div>
 
 
+                        {
+                            ((!user1?.emailVerified) && (userState)) && <a href="/login" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
+                            border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit">Login</a>
+                        }
 
-                        <input
+                        {
+                            ((!userState) && (!user1)) &&
+                            <>
+                                <input onclick="location.href='/'" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
+border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
+                                    value='Login'></input>
+                            </>
+                        }
 
-                            className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
-                            border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
-                            value='Login' />
+                        {/* <input onclick="location.href='/'" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
+border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
+                            value='Login'>
+
+                        </input> */}
+
+                        {/* <a href="/" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
+border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit">Login</a> */}
+
 
 
 

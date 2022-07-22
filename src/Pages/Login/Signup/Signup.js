@@ -14,6 +14,7 @@ const Signup = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
     const [verify, setVerify] = useState(false)
+    const [displayName, setDisplayName] = useState('');
 
     const [
         createUserWithEmailAndPassword,
@@ -81,7 +82,7 @@ const Signup = () => {
 
     let signInError;
 
-    if (error) {
+    if (updateError) {
         signInError = <p className='text-red-500 font-bold mb-2 mt-0 pt-0'><small>{updateError?.message}</small></p>
 
 
@@ -89,7 +90,8 @@ const Signup = () => {
 
 
     const onSubmit = async data => {
-        createUserWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
         reset()
         setVerify(true);
     };
@@ -230,6 +232,9 @@ const Signup = () => {
                             <div class="card-actions justify-center">
                                 <button onClick={() => { navigate('/login') }} className='btn btn-primary'>Please Sign in</button>
                             </div>
+                            {/* <div class="card-actions justify-center">
+                                <a href='/login' className='btn btn-primary'>Please Sign in</a>
+                            </div> */}
                         </div>
                     </div>
             }
