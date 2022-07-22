@@ -12,6 +12,7 @@ const AddProducts = () => {
         const image = data.image[0];
         console.log(image)
         formData.append('image', image);
+        console.log(image);
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
         //send to imagebb
         fetch(url, {
