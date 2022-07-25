@@ -85,7 +85,7 @@ const Login = () => {
     useEffect(() => {
         if (user1) {
             if (!user1.emailVerified) {
-                setVerifyError('Please verify your email first')
+                setVerifyError('Please verify your email first!')
             }
             if (user1.emailVerified) {
                 navigate('/')
@@ -186,7 +186,7 @@ const Login = () => {
                     </div>
 
                     {
-                        <p>{verifyError}</p>
+                        <p className="text-sm text-red-500 text-center pt-10"> {verifyError}</p>
                     }
 
                     <form onSubmit={handleSubmit(onSubmit)} className="p-6  pt-16 pb-0">
@@ -288,7 +288,11 @@ border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
                         {/* <a href="/" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
 border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit">Login</a> */}
 
+                        {/* <input onclick="location.href='/'" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
+border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
+                            value='Login'>
 
+                        </input> */}
 
 
 

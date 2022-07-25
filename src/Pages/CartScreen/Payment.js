@@ -57,7 +57,7 @@ const Payment = () => {
                 <div class="card-body">
                     <p className="text-success font-bold">Hello ,{user.displayName}</p>
                     <h2>Please Pay $<span class="text-2xl font-bold">
-                        {cart.price}</span></h2>
+                        {total}</span></h2>
                     <p className="text-success font-bold">Your ordered list:</p>
                     {
                         cartProducts.map(product =>

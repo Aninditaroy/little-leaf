@@ -63,7 +63,7 @@ const Signup = () => {
                 toast("Internal Error.");
             }
             else {
-                toast.error(`${error?.message} `)
+                toast.error(`${error?.message}`)
             }
 
         }
