@@ -11,7 +11,7 @@ module.exports = {
       {
         littleLeaftheme: {
           primary: "#ABD373",
-          secondary: "#D8E9D6",
+          secondary: "#368246",
           accent: "#191919",
           neutral: "#edede9",
           "base-100": "#ffffff",

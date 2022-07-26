@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
 
-const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
+const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, city, country, zipcode, orderNotes }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('')
@@ -99,7 +99,12 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
                 total: total,
                 userName: user?.displayName,
                 userEmail: user?.email,
-                transectionId: paymentIntent.id
+                transectionId: paymentIntent.id,
+                address: address,
+                city: city,
+                country: country,
+                zipcode: zipcode,
+                orderNotes: orderNotes
             }
             // update backend after payment successfull
             const url = `http://localhost:5000/orders`
@@ -188,7 +193,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
+                <button className='btn bg-[#368246] text-white btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
                     Pay
                 </button>
 
@@ -197,7 +202,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
                 cardError && <p className='font-bold text-red-700'>{cardError}</p>
             }
             {
-                cardSuccess && <div className='font-bold text-green-700'>
+                cardSuccess && <div className='font-bold text-[#368246]'>
                     <p>{cardSuccess}</p>
                     <p>Your Transaction id <span className="text-orange-500 font-bold">{transectionId}</span></p>
                 </div>
