@@ -10,7 +10,7 @@ font-family: 'Lato', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,100;1,300&family=Libre+Baskerville:ital@0;1&family=Lora:ital@1&family=Noto+Sans+TC:wght@300;400&family=Oleo+Script+Swash+Caps:wght@700&family=Oswald:wght@200&family=Roboto:ital,wght@0,300;1,300&display=swap');
 
 .story-font {
-  font-family: 'Lato';
+  font-family: 'Roboto';
 }
 
 [class^="hvr-"] {
