@@ -12,6 +12,10 @@ import useCart from './../../../Hooks/useCart';
 import Loading from '../Loading/Loading';
 
 
+
+
+
+
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const [cartProducts] = useCart();
