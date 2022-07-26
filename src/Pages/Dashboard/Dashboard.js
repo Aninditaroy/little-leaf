@@ -44,6 +44,7 @@ const Dashboard = () => {
                         admin && <>
                             <li className='my-2'><NavLink to='/dashboard/addProducts'><i class="uil uil-plus-square text-lg"></i>Add Products</NavLink></li>
                             <li className='my-2'><NavLink to='/dashboard/manageProducts'><i class="uil uil-file-edit-alt text-lg"></i>Manage Products</NavLink></li>
+                            <li className='my-2'><NavLink to='/dashboard/manageOrders'><i class="uil uil-file-check text-lg"></i>Manage Orders</NavLink></li>
                             {/* <li><Link to='/dashboard/addTool'>Add Tools</Link></li>
                             <li><Link to='/dashboard/manageOrder'>Manage Orders</Link></li>
                             <li><Link to='/dashboard/manageTool'>Manage Tools</Link></li> */}

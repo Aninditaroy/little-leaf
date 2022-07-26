@@ -23,6 +23,7 @@ import AddProducts from './Pages/Dashboard/AddProducts';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import { createContext } from 'react';
 import Payment from './Pages/CartScreen/Payment';
+import ManageOrders from './Pages/Dashboard/ManageOrders';
 export const InputContext = createContext(0);
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
               <Route index element={<Users></Users>}></Route>
               <Route path='/dashboard/addProducts' element={<AddProducts></AddProducts>}></Route>
               <Route path='/dashboard/manageProducts' element={<ManageProducts></ManageProducts>}></Route>
+              <Route path='/dashboard/manageOrders' element={<ManageOrders />}></Route>
             </Route>
 
           </Routes>
