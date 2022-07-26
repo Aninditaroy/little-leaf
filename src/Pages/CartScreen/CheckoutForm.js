@@ -1,6 +1,8 @@
 
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
 
 const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
     const stripe = useStripe();
@@ -10,8 +12,9 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
     const [processing, setProcessing] = useState(false)
     const [transectionId, setTransectionId] = useState('')
     const [clientSecret, setClientSecret] = useState(true);
+    const [user] = useAuthState(auth);
 
-    // console.log(cartProducts, setCartProducts);
+
 
 
     const { _id, price, name } = cart;
@@ -61,6 +64,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
         setCardError(error?.message || '')
         setCardSuccess('')
         setProcessing(true)
+        console.log('total from  check', total)
 
         //confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
@@ -84,7 +88,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
             // setCartProducts([])
             setCardError('')
             setTransectionId(paymentIntent.id)
-            console.log(paymentIntent)
+            console.log('total from else check', total)
             setCardSuccess('Congrats! Your payment is completed.')
             // setCartProducts('')
 
@@ -93,23 +97,75 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
             const orders = {
                 order: _id,
                 total: total,
+                userName: user?.displayName,
+                userEmail: user?.email,
                 transectionId: paymentIntent.id
             }
-            //update backend after payment successfull
-            // const url = `http://localhost:5000/orders`
-            // fetch(url, {
-            //     method: "PATCH",
+            // update backend after payment successfull
+            const url = `http://localhost:5000/orders`
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                    //authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(orders),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setProcessing(false)
+                })
+
+
+
+
+
+            // const url1 = `http://localhost:5000/carts`
+            // fetch(url1, {
+            //     method: 'delete',
             //     headers: {
             //         "content-type": "application/json",
-            //         //authorization: `Bearer ${localStorage.getItem('accessToken')}`
+
             //     },
             //     body: JSON.stringify(orders),
             // })
             //     .then(res => res.json())
             //     .then(data => {
-            //         setProcessing(false)
+            //         // setProcessing(false)
             //         console.log(data)
             //     })
+
+
+
+
+            cartProducts.map(cartProduct => {
+                const cartProductTest = {
+                    description: cartProduct.description,
+                    img: cartProduct.img,
+                    name: cartProduct.name,
+                    price: cartProduct.price,
+                    quantity: cartProduct.quantity,
+                    transectionId: paymentIntent.id
+
+                }
+                // console.log(cartProduct)
+                const url = 'http://localhost:5000/orderItem'
+                fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                        //authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    },
+                    body: JSON.stringify(cartProductTest),
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    })
+            })
+
+
+
         }
     };
 
@@ -132,9 +188,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total }) => {
                         },
                     }}
                 />
-                <button onClick={() => {
-                    setCartProducts([]);
-                }} className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
+                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
                     Pay
                 </button>
 

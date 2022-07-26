@@ -32,12 +32,13 @@ const Payment = () => {
     }).then(res => res.json()))
 
     // post all orders
-    const orderurl = `http://localhost:5000/orders`;
-    useEffect(() => {
-        fetch(`http://localhost:5000/orders`)
-            .then(res => res.json())
-            .then(data => setCartProducts(data))
-    }, [cartProducts])
+
+    // const orderurl = `http://localhost:5000/orders`;
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/orders`)
+    //         .then(res => res.json())
+    //         .then(data => setCartProducts(data))
+    // }, [cartProducts])
 
     // console.log(appointment)
 
