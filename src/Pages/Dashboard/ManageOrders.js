@@ -34,6 +34,7 @@ const ManageOrders = () => {
                                         <ManageOrdersRow
                                             singleOrder={singleOrder}
                                             key={singleOrder._id}
+                                            refetch={refetch}
                                         ></ManageOrdersRow>
                                     )
                                 }

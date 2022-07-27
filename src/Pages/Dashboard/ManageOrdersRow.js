@@ -1,7 +1,28 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const ManageOrdersRow = ({ singleOrder }) => {
-    const { userName, userEmail, transectionId, address, city, country, zipcode, total } = singleOrder;
+const ManageOrdersRow = ({ singleOrder, refetch }) => {
+    const { userName, userEmail, transectionId, address, city, country, zipcode, total, _id } = singleOrder;
+
+    const handleShipping = () => {
+        fetch(`http://localhost:5000/manageorder/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+
+            }
+        })
+            .then(res => res.json())
+
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    refetch()
+                    toast.success(`Successfully shipped`)
+                }
+
+            })
+    }
 
     return (
         <tr class="text-gray-700">
@@ -26,7 +47,19 @@ const ManageOrdersRow = ({ singleOrder }) => {
 
             <td class="px-4 py-3 text-sm border">{total}</td>
             <td class="px-4 py-3 text-xs border">
-                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+                {
+                    singleOrder?.pandingChange ?
+                        <button>
+                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Shipped </span>
+                        </button>
+                        :
+
+                        <button onClick={handleShipping}>
+                            <span class="px-2 py-1 font-semibold leading-tight text-purple-700 bg-purple-100 rounded-sm"> Pending </span>
+                        </button>
+
+                }
+
             </td>
             <td class="px-4 py-3 text-sm border">{transectionId}</td>
         </tr>
