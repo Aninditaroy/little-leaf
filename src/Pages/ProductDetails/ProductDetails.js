@@ -16,6 +16,7 @@ const ProductDetails = () => {
     const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
     const navigate = useNavigate();
+
     const increaseQuantity = () => {
         let qty = parseInt(document.getElementById('quantity-value').value);
         if (!qty) {
