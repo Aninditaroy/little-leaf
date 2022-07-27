@@ -92,10 +92,7 @@ const CartScreen = () => {
                                                 class="px-5 py-5 border-b-2 border-gray-200 bg-[#E8F2EB] text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                                                 Quantity
                                             </th>
-                                            <th
-                                                class="px-5 py-5 border-b-2 border-gray-200 bg-[#E8F2EB] text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                                                Status
-                                            </th>
+
                                             <th class="px-5 py-5 border-b-2 border-gray-200 bg-[#E8F2EB] text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                                                 Action
                                             </th>
@@ -134,7 +131,7 @@ const CartScreen = () => {
                                     Vat(10%)
                                     {/* <span className="bg-gray-200 p-1 text-xs font-medium leading-3  text-gray-800">STUDENT</span> */}
                                 </p>
-                                <p className="text-base leading-4 text-gray-600">${vat}</p>
+                                <p className="text-base leading-4 text-gray-600">${vat.toFixed(2)}</p>
                             </div>
                             <div className="flex justify-between items-center w-full">
                                 <p className="text-base leading-4 text-gray-800">Shipping</p>
@@ -168,17 +165,19 @@ const CartScreen = () => {
 
                                     {
                                         id ? <Link to={`/payment/${id}`}>
-                                            <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-full">Proceed To Checkout</button>
+                                            <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  hover:scale-110 rounded-md  uppercase w-full">Proceed To Checkout</button>
                                         </Link>
                                             :
                                             <Link to='/payment'>
-                                                <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white   bg-[#464f3a]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-full" disabled>Proceed To Checkout</button>
+                                                <button type="submit" class="flex items-center py-2  text-sm px-2 text-center  text-white   bg-[#73AB24]  cursor-not-allowed   hover:duration-500 hover:ease-in-out hover:scale-110 rounded-md  uppercase w-full" disabled>Proceed To Checkout</button>
                                             </Link>
                                     }
                                 </div>
                             </div>
-                            <div className='flex flex-col justify-center px-0 xl:p-8 w-full bg-gray-100 '>
-                                <button onClick={() => clearCart()} type="submit" class="py-2 text-sm  text-center  text-white bg-[#464f3a] shadow-2xl border-white rounded-md uppercase px-5">Clear Cart</button>
+                            <div className='mx-auto'>
+                                <div className='px-0 xl:p-8 w-full bg-gray-100'>
+                                    <button onClick={() => clearCart()} type="submit" class="py-2 text-sm  text-center  text-white bg-[#464f3a] shadow-2xl border-white rounded-md uppercase px-5">Clear Cart</button>
+                                </div>
                             </div>
                         </div>
                     </div>

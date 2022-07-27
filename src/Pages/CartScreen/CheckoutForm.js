@@ -127,22 +127,38 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
 
 
 
-            // const url1 = `http://localhost:5000/carts`
-            // fetch(url1, {
-            //     method: 'delete',
-            //     headers: {
-            //         "content-type": "application/json",
+            const url1 = `http://localhost:5000/carts`
+            fetch(url1, {
+                method: 'delete',
+                headers: {
+                    "content-type": "application/json",
 
-            //     },
-            //     body: JSON.stringify(orders),
-            // })
-            //     .then(res => res.json())
-            //     .then(data => {
-            //         // setProcessing(false)
-            //         console.log(data)
+                },
+                // body: JSON.stringify(orders),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    // setProcessing(false)
+                    console.log(data)
+                })
+
+
+            // const clearCart = () => {
+            //     const url1 = `http://localhost:5000/carts`
+            //     fetch(url1, {
+            //         method: 'delete',
+            //         headers: {
+            //             "content-type": "application/json",
+
+            //         },
+            //         // body: JSON.stringify(orders),
             //     })
-
-
+            //         .then(res => res.json())
+            //         .then(data => {
+            //             // setProcessing(false)
+            //             console.log(data)
+            //         })
+            // }
 
 
             cartProducts.map(cartProduct => {
@@ -171,6 +187,29 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
                     })
             })
 
+            // patch instock in products
+
+            cartProducts.map(cartProduct => {
+                let prevQty = cartProduct?.quantity;
+                let newInStock = cartProduct?.inStock - prevQty;
+                const stock = {
+                    inStock: newInStock
+                }
+                console.log('new stock from checkout', newInStock)
+                const url = `http://localhost:5000/products/${cartProduct?.cartId}`
+                fetch(url, {
+                    method: "PATCH",
+                    headers: {
+                        "content-type": "application/json",
+                        //authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    },
+                    body: JSON.stringify(stock),
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    })
+            })
 
 
         }
