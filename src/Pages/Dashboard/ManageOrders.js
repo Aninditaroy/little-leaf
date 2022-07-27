@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading/Loading';
 import ManageOrdersRow from './ManageOrdersRow';
 
 
@@ -9,6 +10,9 @@ const ManageOrders = () => {
 
     const { data: manageOrders, isLoading, refetch } = useQuery('manageOrders', () => fetch('http://localhost:5000/orders').then(res => res.json()));
     // console.log(manageOrders);
+    if (isLoading) {
+        <Loading></Loading>
+    }
 
     return (
         <div>
@@ -23,6 +27,7 @@ const ManageOrders = () => {
                                     <th class="px-4 py-3">Address</th>
                                     <th class="px-4 py-3">Price</th>
                                     <th class="px-4 py-3">Status</th>
+                                    <th class="px-4 py-3">Order Date</th>
                                     <th class="px-4 py-3">Transaction Id</th>
                                 </tr>
                             </thead>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
 
-const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, city, country, zipcode, orderNotes }) => {
+const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, city, country, zipcode, orderNotes, orderTime, orderDate }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('')
@@ -64,7 +64,6 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
         setCardError(error?.message || '')
         setCardSuccess('')
         setProcessing(true)
-        console.log('total from  check', total)
 
         //confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
@@ -104,7 +103,10 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
                 city: city,
                 country: country,
                 zipcode: zipcode,
-                orderNotes: orderNotes
+                orderNotes: orderNotes,
+                orderTime: orderTime,
+                orderDate: orderDate
+
             }
             // update backend after payment successfull
             const url = `http://localhost:5000/orders`

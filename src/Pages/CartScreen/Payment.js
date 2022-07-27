@@ -29,6 +29,11 @@ const Payment = () => {
     console.log(address)
     const [user, loading] = useAuthState(auth)
     const { id } = useParams()
+    const orderDate = new Date().toLocaleDateString("en-US");
+    const orderTime = new Date().toLocaleTimeString();
+
+
+
     const url = `http://localhost:5000/cart/${id}`;
     const { data: cart, isLoading } = useQuery(['cart', id], () => fetch(url, {
         method: 'GET',
@@ -139,7 +144,10 @@ const Payment = () => {
                                         city={city}
                                         country={country}
                                         zipcode={zipcode}
-                                        orderNotes={orderNotes} />
+                                        orderNotes={orderNotes}
+                                        orderDate={orderDate}
+                                        orderTime={orderTime}
+                                    />
                                 </Elements>
                             </div>
                         </div>

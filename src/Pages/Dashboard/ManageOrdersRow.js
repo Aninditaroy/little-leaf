@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const ManageOrdersRow = ({ singleOrder, refetch }) => {
-    const { userName, userEmail, transectionId, address, city, country, zipcode, total, _id } = singleOrder;
+    const { userName, userEmail, transectionId, address, city, country, zipcode, total, _id, orderDate, orderTime } = singleOrder;
 
     const handleShipping = () => {
         fetch(`http://localhost:5000/manageorder/${_id}`, {
@@ -41,7 +41,7 @@ const ManageOrdersRow = ({ singleOrder, refetch }) => {
 
             {/* <td class="px-4 py-3 text-ms font-semibold border">{address}{city}</td> */}
             <td class="px-4 py-3   border text-black">
-                <p class=" text-black">{address}</p>
+                <p class="text-sm text-black">{address}</p>
                 <p class="text-xs "> <span className=''>{city}</span> <span>{zipcode}</span></p>
             </td>
 
@@ -60,6 +60,10 @@ const ManageOrdersRow = ({ singleOrder, refetch }) => {
 
                 }
 
+            </td>
+            <td class="px-4 py-3   border text-black">
+                <p class="text-sm text-black">{orderDate}</p>
+                <p class="text-xs "> {orderTime}</p>
             </td>
             <td class="px-4 py-3 text-sm border">{transectionId}</td>
         </tr>
