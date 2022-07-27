@@ -45,7 +45,7 @@ const ManageOrdersRow = ({ singleOrder, refetch }) => {
                 <p class="text-xs "> <span className=''>{city}</span> <span>{zipcode}</span></p>
             </td>
 
-            <td class="px-4 py-3 text-sm border">{total}</td>
+            <td class="px-4 py-3 text-sm border">${total}</td>
             <td class="px-4 py-3 text-xs border">
                 {
                     singleOrder?.pandingChange ?

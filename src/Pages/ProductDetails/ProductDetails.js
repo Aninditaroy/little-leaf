@@ -22,7 +22,13 @@ const ProductDetails = () => {
         if (!qty) {
             qty = 0;
         }
-        document.getElementById('quantity-value').value = qty + 1;
+        if (qty <= inStock) {
+            document.getElementById('quantity-value').value = qty + 1;
+        }
+        else {
+            document.getElementById('quantity-value').value = inStock;
+            toast.error('Quantity must be lower than available stock')
+        }
     }
     const decreaseQuantity = () => {
         let qty = parseInt(document.getElementById('quantity-value').value);
@@ -57,7 +63,8 @@ const ProductDetails = () => {
                     quantity: input_quantity,
                     price: price,
                     description: description,
-                    email: user.email
+                    email: user.email,
+                    inStock: inStock
                 }
 
 
@@ -123,13 +130,17 @@ const ProductDetails = () => {
                 <div className='w-3/4 mx-auto'>
                     <div className='mb-3'>
                         <h2 className='text-3xl font-semibold text-center'>{plantName}</h2>
-                        <h1 className='text-2xl font-bold text-center mt-2 text-[#73AB24]'>${price}</h1>
+                        <h1 className='text-2xl font-bold text-center mt-2 text-[#73AB24]'><span className=' font-extrabold text-2xl mr-1'>&#2547;</span>{price}</h1>
                     </div>
                     <div>
                         <p className=' text-justify'> {description}</p>
                         <h1 className='text-md mt-8'><span className='text-lg font-bold mr-1'>Categories:</span><span className='badge bg-[#73ab24] p-3 text-white'>{categories}</span></h1>
 
-                        <h1 className='text-md mt-1 mb-4'><span className='text-lg font-bold mr-1'>Stock:</span><span className='font-medium'>{inStock}</span></h1>
+                        <h1 className='text-md mt-1 mb-4'><span className='text-lg font-bold mr-1'>Stock:</span><span className='font-medium'>{
+                            (inStock < 1) ? <span className='text-red-500'>Out of stock</span>
+                                :
+                                <span>{inStock}</span>
+                        }</span></h1>
                         <hr />
 
                         <div className='flex flex-col md:flex-row md:items-center'>
@@ -155,7 +166,11 @@ const ProductDetails = () => {
                             </div>
                             <div >
                                 <div class=" flex items-center w-full  ml-auto">
-                                    <button onClick={() => navigateToCart(_id)} type="submit" class="flex items-center px-5 py-2  text-sm text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-40"><span className='mr-1'>Add to Cart</span> <i class="uil uil-shopping-cart-alt text-lg"></i></button>
+                                    {
+                                        (inStock < 1) ? <button onClick={() => navigateToCart(_id)} type="submit" class="flex items-center px-5 py-2  text-sm text-center  text-white  bg-[#73ab24]  cursor-not-allowed   shadow-2xl border-white rounded-md  uppercase w-40" disabled><span className='mr-1'>Add to Cart</span> <i class="uil uil-shopping-cart-alt text-lg"></i></button>
+                                            :
+                                            <button onClick={() => navigateToCart(_id)} type="submit" class="flex items-center px-5 py-2  text-sm text-center  text-white  hover:bg-[#73ab24be]  bg-[#73AB24]  hover:border-0  hover:duration-500 hover:ease-in-out  shadow-2xl hover:scale-110 border-white rounded-md  uppercase w-40"><span className='mr-1'>Add to Cart</span> <i class="uil uil-shopping-cart-alt text-lg"></i></button>
+                                    }
                                 </div>
                             </div>
                         </div>
