@@ -22,7 +22,7 @@ const ProductDetails = () => {
         if (!qty) {
             qty = 0;
         }
-        if (qty <= inStock) {
+        if (qty < inStock) {
             document.getElementById('quantity-value').value = qty + 1;
         }
         else {
@@ -91,29 +91,78 @@ const ProductDetails = () => {
             if (cartItems) {
                 let prevQuantity = parseInt(cartItems.quantity);
                 let quantityFinal = parseInt(input_quantity) + parseInt(prevQuantity);
+                if (quantityFinal > inStock) {
+                    const cart = {
+                        quantity: inStock,
+                    }
 
-                const cart = {
-                    quantity: quantityFinal,
-                }
-
-                // //send to cart api
-                const url = `http://localhost:5000/carts/${cartItems._id}`
-                fetch(url, {
-                    method: "PATCH",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify(cart),
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data) {
-                            toast.success("Quantity Updated")
-                        }
-                        else {
-                            toast.error("Failed to update quantity!")
-                        }
+                    // //send to cart api
+                    const url = `http://localhost:5000/carts/${cartItems._id}`
+                    fetch(url, {
+                        method: "PATCH",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(cart),
                     })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data) {
+                                toast.success("Quantity must be smaller than available stock")
+                            }
+                            else {
+                                toast.error("Failed to update quantity!")
+                            }
+                        })
+                }
+                else {
+                    const cart = {
+                        quantity: quantityFinal,
+                    }
+
+                    // //send to cart api
+                    const url = `http://localhost:5000/carts/${cartItems._id}`
+                    fetch(url, {
+                        method: "PATCH",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(cart),
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data) {
+                                toast.success("Quantity Updated")
+                            }
+                            else {
+                                toast.error("Failed to update quantity!")
+                            }
+                        })
+                }
+                // console.log("prevQuantity : ", prevQuantity, " quantityFinal : ", quantityFinal, " inStock : ", inStock);
+
+                // const cart = {
+                //     quantity: quantityFinal,
+                // }
+
+                // // //send to cart api
+                // const url = `http://localhost:5000/carts/${cartItems._id}`
+                // fetch(url, {
+                //     method: "PATCH",
+                //     headers: {
+                //         "content-type": "application/json"
+                //     },
+                //     body: JSON.stringify(cart),
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         if (data) {
+                //             toast.success("Quantity Updated")
+                //         }
+                //         else {
+                //             toast.error("Failed to update quantity!")
+                //         }
+                //     })
             }
         }
     }

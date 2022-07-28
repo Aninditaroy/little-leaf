@@ -31,7 +31,7 @@ function App() {
     <div>
       <Wrapper>
         <Navbar />
-        <ScrollToTop smooth component={<p style={{ color: "blue", backgroundColor: 'none' }}><i class="uil uil-arrow-up text-white bg-[#73ab24] p-3 rounded text-2xl "></i></p>} />
+        <ScrollToTop smooth component={<p style={{ color: "blue", backgroundColor: 'none' }}><i class="uil uil-arrow-up text-white   text-3xl "></i></p>} />
         <InputContext.Provider value={0}>
           <Routes>
             <Route path='/' element={<Home />}></Route>

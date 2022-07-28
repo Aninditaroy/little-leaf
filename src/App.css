@@ -87,13 +87,13 @@ font-family: 'Lato', sans-serif;
   animation-iteration-count: 1;
 }
 .styles_scroll-to-top__2A70v {
-  background-color: white;
+  background-color:#73ab24 !important;
   right: 40px;
   bottom: 100px !important;
   position: fixed;
   z-index: 2;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 50% !important;
   width: 40px;
   height: 40px;
   transition: opacity 1s ease-in-out;

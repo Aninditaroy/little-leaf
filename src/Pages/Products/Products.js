@@ -41,7 +41,6 @@ const Products = () => {
     const handleSearch = (e) => {
         e.preventDefault()
         const searchText = e.target.value
-        console.log(searchText)
         if (searchText) {
             const searchedText = searchText.toLowerCase()
             const filtered = pro.filter(searchedProduct => searchedProduct?.plantName?.toLowerCase().includes(searchedText))
