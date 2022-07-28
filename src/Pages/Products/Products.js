@@ -41,9 +41,15 @@ const Products = () => {
     const handleSearch = (e) => {
         e.preventDefault()
         const searchText = e.target.value
-        const searchedText = searchText.toLowerCase()
-        const filtered = pro.filter(searchedProduct => searchedProduct?.plantName?.toLowerCase().includes(searchedText))
-        setSearchProduct(filtered)
+        console.log(searchText)
+        if (searchText) {
+            const searchedText = searchText.toLowerCase()
+            const filtered = pro.filter(searchedProduct => searchedProduct?.plantName?.toLowerCase().includes(searchedText))
+            setSearchProduct(filtered)
+        }
+        else {
+            setSearchProduct(products)
+        }
     }
     return (
         <div>

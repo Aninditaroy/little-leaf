@@ -24,6 +24,7 @@ import ManageProducts from './Pages/Dashboard/ManageProducts';
 import { createContext } from 'react';
 import Payment from './Pages/CartScreen/Payment';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 export const InputContext = createContext(0);
 function App() {
   return (
@@ -70,6 +71,11 @@ function App() {
         <ToastContainer />
         <Footer />
       </Wrapper>
+
+      <MessengerCustomerChat
+        pageId="109826301815799"
+        appId="603314714470938"
+      />,
 
     </div>
   );
