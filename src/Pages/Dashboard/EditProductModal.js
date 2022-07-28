@@ -47,7 +47,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
 
                         //send to my database
                         // const { data: editProduct, isLoading, refetch } = useQuery('editProduct', () => {
-                        //     fetch(`http://localhost:5000/product/${_id}`, {
+                        //     fetch(`https://rocky-anchorage-54101.herokuapp.com/product/${_id}`, {
                         //         method: "PATCH",
                         //         headers: {
                         //             'content-type': 'application/json',
@@ -71,7 +71,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
 
 
                         //send to my database
-                        fetch(`http://localhost:5000/product/${_id}`, {
+                        fetch(`https://rocky-anchorage-54101.herokuapp.com/product/${_id}`, {
                             method: "PATCH",
                             headers: {
                                 'content-type': 'application/json',
@@ -114,7 +114,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
             }
             console.log("plant from edit product modal else", plant);
             //send to my database
-            fetch(`http://localhost:5000/product/${_id}`, {
+            fetch(`https://rocky-anchorage-54101.herokuapp.com/product/${_id}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json',
@@ -175,7 +175,7 @@ const EditProductModal = ({ editingProduct, refetch, setEditingProduct, }) => {
         //             }
         //             console.log("plant from edit product modal", plant);
         //             //send to my database
-        //             // fetch('http://localhost:5000/product', {
+        //             // fetch('https://rocky-anchorage-54101.herokuapp.com/product', {
         //             //     method: "POST",
         //             //     headers: {
         //             //         'content-type': 'application/json',

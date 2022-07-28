@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteCartModal = ({ deletingCart, refetch, setDeletingCart }) => {
     const { name } = deletingCart;
     const handleDelete = id => {
-        fetch(`http://localhost:5000/carts/${id}`, {
+        fetch(`https://rocky-anchorage-54101.herokuapp.com/carts/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
