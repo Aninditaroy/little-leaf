@@ -86,6 +86,21 @@ font-family: 'Lato', sans-serif;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+.styles_scroll-to-top__2A70v {
+  background-color: white;
+  right: 40px;
+  bottom: 100px !important;
+  position: fixed;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 40px;
+  height: 40px;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 0 9px 25px 0 rgb(132 128 177 / 28%);
+  border: none;
+  outline: none;
+}
 
 
 
