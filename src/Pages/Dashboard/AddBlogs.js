@@ -8,84 +8,32 @@ const AddBlogs = () => {
             </div>
 
             <div>
-                <div class=" w-4/6 mx-auto my-12  p-6 shadow-lg">
+                <div class=" w-4/6 mx-auto my-12">
 
                     <div class="mt-5 md:mt-0 ">
                         <form action="#" method="POST">
-                            <div class="shadow sm:rounded-md sm:overflow-hidden">
-                                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                                    <div class="grid grid-cols-2 gap-6">
-                                        <div class="col-span-2">
-                                            <div class="relative h-10 input-component  empty sm:inline-block mt-2 sm:w-1/2 sm:pr-1">
-                                                <input id="authorName" type="text" name="authorName" class="h-full w-full border-gray-300 px-2 transition-all hover:border-gray-500 focus:border-green-500 
-              rounded-md focus:ring-0 group focus:outline-0 border text-sm" />
-                                                <label for="authorName" class="absolute left-2 transition-all bg-white px-1 text-green-600 text-xs top-0 labelClass">
-                                                    Author Name
-                                                </label>
-                                            </div>
-
-                                            <div class="relative h-10 input-component  empty sm:inline-block mt-2 sm:-mx-1 sm:pl-1 sm:w-1/2">
-
-                                                <div class="shrink-0">
-                                                    {/* <img class="object-cover w-16 h-16 rounded-full"
-                                                        src="https://cdn.pixabay.com/photo/2016/04/22/04/57/graduation-1345143__340.png" alt="profile photo" /> */}
-                                                </div>
-                                                <label for="last" class="absolute left-2 transition-all bg-white px-1 pb-1 text-green-600 text-xs top-0 labelClass ">
-                                                    Click To Choose Author Image
-                                                </label>
-                                                <input type="file"
-                                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
-
-                                            </div>
+                            <div class="sm:rounded-md sm:overflow-hidden shadow-lg">
+                                <div class="px-4 py-5 bg-white space-y-6 sm:p-6 ">
 
 
-                                            {/* <div class="relative h-10 input-component  empty sm:inline-block mt-2 sm:-mx-1 sm:pl-1 sm:w-1/2">
-                                                <input id="last" type="file" name="last" class="h-full w-full border-gray-300 px-2 transition-all hover:border-gray-500 focus:border-green-500 
-            rounded-md focus:ring-0 group focus:outline-0 border text-sm pt-1.5" />
-                                                <label for="last" class="absolute left-2 transition-all bg-white px-3 pr-3.5 py-2 pb-1 text-green-600 text-xs top-0 labelClass ">
-                                                    Click To Choose Author Image
-                                                </label>
-                                            </div> */}
-
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <div class="grid grid-cols-2 gap-6">
-                                            <div class="col-span-2">
-                                                <div class="relative h-10 input-component  empty sm:inline-block mt-2 sm:w-1/2 sm:pr-1">
-                                                    <input id="blogCategory" type="text" name="blogCategory" class="h-full w-full border-gray-300 px-2 transition-all hover:border-gray-500 focus:border-green-500 
-              rounded-md focus:ring-0 group focus:outline-0 border text-sm" />
-                                                    <label for="blogCategory" class="absolute left-2 transition-all bg-white px-1 text-green-600 text-xs top-0 labelClass">
-                                                        Blog Category
-                                                    </label>
-                                                </div>
-                                                <div class="relative h-10 input-component  empty sm:inline-block mt-2 sm:-mx-1 sm:pl-1 sm:w-1/2">
-                                                    <input id="blogTitle" type="text" name="blogTitle" class="h-full w-full border-gray-300 px-2 transition-all hover:border-gray-500 focus:border-green-500 
-            rounded-md focus:ring-0 group focus:outline-0 border text-sm" />
-                                                    <label for="blogTitle" class="absolute left-2 transition-all bg-white px-1 text-green-600 text-xs top-0 labelClass">
-                                                        Blog Title
-                                                    </label>
-                                                </div>
+                                    <div className=''>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700">
+                                                Author Photo Image
+                                            </label>
+                                            <div class="mt-1 flex items-center">
+                                                <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                                                    <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                    </svg>
+                                                </span>
+                                                <input type="file" class="ml-1 bg-white py-2 px-2 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" />
                                             </div>
                                         </div>
+
                                     </div>
 
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700">
-                                            Photo
-                                        </label>
-                                        <div class="mt-1 flex items-center">
-                                            <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
-                                                <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                                                </svg>
-                                            </span>
-                                            <button type="button" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                Change
-                                            </button>
-                                        </div>
-                                    </div>
+
 
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700">
