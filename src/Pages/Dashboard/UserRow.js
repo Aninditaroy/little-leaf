@@ -24,15 +24,15 @@ const UserRow = ({ user, refetch, index }) => {
             })
     }
     return (
-        <tr className='bg-slate-500'>
-            <th>{index + 1}</th>
-            <td>{email}</td>
+        <tr class="text-gray-700">
+            <th class="px-4 py-3 border font-bold text-center">{index + 1}</th>
+            <td class="px-4 py-3 border text-center">{email}</td>
             {/* {
                 <td>{(role === 'admin') ? <p className="badge badge-lg  bg-primary hover:bg-secondary">Admin</p>
                     :
                     <p className="badge badge-lg bg-[#224229] hover:bg-green-400 text-white">User</p>}</td>
             } */}
-            <td>
+            <td class="px-4 py-3 border px-5">
                 {
                     (role !== 'admin') ? <button
                         onClick={makeAdmin}

@@ -17,6 +17,10 @@ font-family: 'Lato', sans-serif;
   font-family: 'Playfair Display';
 }
 
+.my-orders-font {
+  font-family: 'Libre Baskerville'
+}
+
 [class^="hvr-"] {
   /*display: inline-block;*/
   /*vertical-align: middle;*/
@@ -86,8 +90,9 @@ font-family: 'Lato', sans-serif;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+
 .styles_scroll-to-top__2A70v {
-  background-color:#73ab24 !important;
+  background-color: #73ab24 !important;
   right: 40px;
   bottom: 100px !important;
   position: fixed;

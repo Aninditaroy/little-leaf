@@ -25,6 +25,8 @@ import { createContext } from 'react';
 import Payment from './Pages/CartScreen/Payment';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import MyOrders from './Pages/MyOrders/MyOrders';
+import Blogs from './Pages/Blogs/Blogs';
 export const InputContext = createContext(0);
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}></Route>
             <Route path='/home' element={<Home />}></Route>
+            <Route path='/blogs' element={<Blogs />}></Route>
             <Route path='/products' element={<Products />}></Route>
             <Route path='/product/:productId' element={
               <RequireAuth>
@@ -51,6 +54,9 @@ function App() {
             <Route path='/signup' element={<Signup />}></Route>
             {/* <Route path='/payment' element={<Payment />}></Route> */}
             <Route path="payment/:id" element={<Payment />}></Route>
+            <Route path="myorders" element={<RequireAuth>
+              <MyOrders />
+            </RequireAuth>}></Route>
 
             <Route path='/dashboard' element={
               <RequireAuth>

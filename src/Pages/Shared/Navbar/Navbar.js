@@ -1,19 +1,13 @@
-
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-
 import Marquee from "react-fast-marquee";
 import auth from './../../../firebase.init';
 import useAdmin from './../../../Hooks/useAdmin';
 import { signOut } from 'firebase/auth';
 import useCart from './../../../Hooks/useCart';
 import Loading from '../Loading/Loading';
-
-
-
-
 
 
 const Navbar = () => {
@@ -38,31 +32,29 @@ const Navbar = () => {
                 Home
 
             </Link>
-            {/* <ul className="p-1 bg-base-100 z-50	">
-                <li><Link to='/'>Summary</Link></li>
-                <li><Link to='/'>Review</Link></li>
-                <li><Link to='/allTool'>Tools</Link></li>
-                <li><Link to='/'>Footer</Link></li>
-            </ul> */}
+
         </li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/products'>Products</Link></li>
-        <li className='p-0 h-1/4 mx-1.5'><Link to='/blog'>Blog</Link></li>
+        <li className='p-0 h-1/4 mx-1.5'><Link to='/blogs'>Blog</Link></li>
         <li className='p-0 h-1/4 mx-1.5'><Link to='/aboutUs'>About Us</Link></li>
         <div class="indicator ml-3 mt-2 lg:mr-2">
             <span class="indicator-item badge  bg-[#224229] mr-1.5 text-white rounded-full">{cartProducts?.length}</span>
             <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon p-0'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link>
             </li>
         </div>
-        {/* <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link>
-        </li> */}
 
         <>
 
 
 
             {
-                ((user?.emailVerified) && admin) && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
-                // admin && <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
+                ((user?.emailVerified) && admin) && <>
+                    <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
+                    <li className='p-0 h-1/4 hidden'><Link to='/myorders'>My Orders</Link></li>
+                </>
+            }
+            {
+                ((user?.emailVerified) && !admin) && <li className='p-0 h-1/4'><Link to='/myorders'>My Orders</Link></li>
             }
 
 
@@ -148,7 +140,6 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex="0" className=" lg:hidden">
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" className="" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg> */}
                             <i class="uil uil-list-ul text-2xl"></i>
                         </label>
                         <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-white">
@@ -157,7 +148,6 @@ const Navbar = () => {
                     </div>
                     <Link to='/' className='flex justify-center items-center'>
                         <img src="https://i.ibb.co/1JRs2mf/Beige-Simple-Aesthetic-Cactus-Logo-removebg-preview.png" alt="" className="" />
-                        {/* <span className='text-4xl font-semibold logo-font'>Little Leaf</span> */}
                     </Link>
                 </div>
 

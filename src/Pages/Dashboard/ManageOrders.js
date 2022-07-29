@@ -16,19 +16,22 @@ const ManageOrders = () => {
 
     return (
         <div>
-            <h2 className='text-2xl text-center'><span className='border-b-2 border-green-200 font-semibold'>Manage Orders</span></h2>
-            <section class="container mx-auto p-6 font-mono  mt-10 mb-64 mx-auto">
-                <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+
+            <div className='' style={{ backgroundImage: 'url(https://htmldemo.net/pronia/pronia/assets/images/breadcrumb/bg/1-1-1919x388.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+                <h2 className='text-2xl lg:text-4xl py-20 text-center my-orders-font'><span className='font-bold md:font-extrabold lg:font-extrabold'>Manage Orders</span></h2>
+            </div>
+            <section class="container p-6 font-mono  mt-10 mb-64 mx-auto">
+                <div class="w-full mb-8 overflow-hidden shadow-lg">
                     <div class="w-full overflow-x-auto">
                         <table class="w-full">
                             <thead>
                                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                                    <th class="px-4 py-3">User Info</th>
-                                    <th class="px-4 py-3">Address</th>
-                                    <th class="px-4 py-3">Price</th>
+                                    <th class="px-4 py-4 border">User Info</th>
+                                    <th class="px-4 py-4 border">Address</th>
+                                    <th class="px-4 py-4 border">Price</th>
                                     <th class="px-4 py-3">Status</th>
-                                    <th class="px-4 py-3">Order Date</th>
-                                    <th class="px-4 py-3">Transaction Id</th>
+                                    <th class="px-4 py-4 border">Order Date</th>
+                                    <th class="px-4 py-4 border">Transaction Id</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">

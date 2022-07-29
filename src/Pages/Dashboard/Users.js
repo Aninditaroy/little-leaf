@@ -15,24 +15,30 @@ const Users = () => {
         return <Loading />
     }
     return (
-        <div className='my-24'>
-            <h2 className='text-2xl text-center'><span className='border-b-2 border-green-200 font-semibold'>All Users</span></h2>
-            <div className="overflow-x-auto container">
-                <table className="table  w-2/3 mt-10 mb-64 mx-auto">
-                    <thead className='bg-white border-b'>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            users?.map((user, index) => <UserRow index={index} key={user._id} user={user} refetch={refetch}></UserRow>)
-                        }
-                    </tbody>
-                </table>
+        <div className=''>
+            <div className='' style={{ backgroundImage: 'url(https://htmldemo.net/pronia/pronia/assets/images/breadcrumb/bg/1-1-1919x388.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+                <h2 className='text-2xl lg:text-4xl py-20 text-center my-orders-font'><span className='font-bold md:font-extrabold lg:font-extrabold'>All Users</span></h2>
             </div>
+            <section class="container mx-auto p-6 font-mono  mt-10 mb-64">
+                <div class="w-full mb-8 overflow-hidden ">
+                    <div class="w-full overflow-x-auto">
+                        <table className=" w-2/3 mt-10 mb-64 mx-auto">
+                            <thead>
+                                <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                                    <th class="px-4 py-6  border text-center">ID</th>
+                                    <th class="px-4 py-6  border text-center">Name</th>
+                                    <th class="px-4 py-6  border text-center">Role</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                {
+                                    users?.map((user, index) => <UserRow index={index} key={user._id} user={user} refetch={refetch}></UserRow>)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
         </div >
     );
 };
