@@ -45,6 +45,7 @@ const Dashboard = () => {
                             <li className='my-2'><NavLink to='/dashboard/addProducts'><i class="uil uil-plus-square text-lg"></i>Add Products</NavLink></li>
                             <li className='my-2'><NavLink to='/dashboard/manageProducts'><i class="uil uil-file-edit-alt text-lg"></i>Manage Products</NavLink></li>
                             <li className='my-2'><NavLink to='/dashboard/manageOrders'><i class="uil uil-file-check text-lg"></i>Manage Orders</NavLink></li>
+                            <li className='my-2'><NavLink to='/dashboard/addBlogs'><i class="uil uil-book-open text-lg"></i>Add Blogs</NavLink></li>
                             {/* <li><Link to='/dashboard/addTool'>Add Tools</Link></li>
                             <li><Link to='/dashboard/manageOrder'>Manage Orders</Link></li>
                             <li><Link to='/dashboard/manageTool'>Manage Tools</Link></li> */}

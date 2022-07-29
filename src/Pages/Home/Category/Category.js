@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Category = () => {
+    const [products, setProducts] = useState([]);
+    const [findCategory, setFindCategory] = useState('')
+    let OfficePlants;
     const navigate = useNavigate();
     const navigateToProducts = () => {
         navigate('/products')
     }
+
+
+    const handleCategory = (text) => {
+        // e.preventDefault()
+        // const categoryText = text;
+        // if (categoryText) {
+
+        //     setCategory(text)
+        //     console.log(category);
+
+        // }
+        // else {
+        //     setCategory('')
+        // }
+
+        // navigate('/products')
+    }
+
+
+
+
     return (
         <div className="mx-auto py-5 px-4 w-full max-w-md sm:max-w-2xl lg:max-w-7xl">
             <div className="grid lg:grid-rows-2 grid-cols-2 lg:grid-cols-6 lg:grid-flow-col gap-5">
@@ -37,7 +61,8 @@ const Category = () => {
                             </h3>
 
                             {/* :::collection */}
-                            <button onClick={navigateToProducts} class="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-[#3c7116a0] hover:bg-[#3c7116] mr-1">
+                            <button onClick={navigateToProducts}
+                                class="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-[#3c7116a0] hover:bg-[#3c7116] mr-1">
                                 <span class="relative text-lg text-white uppercase">Shop Now</span>
                                 <div class="flex items-center -space-x-3 translate-x-3">
                                     <div class="w-2.5 h-[1.6px] rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>

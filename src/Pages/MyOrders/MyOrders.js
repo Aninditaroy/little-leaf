@@ -20,7 +20,7 @@ const MyOrders = () => {
     // }, [myOrders])
 
     // console.log(email);
-    console.log(myOrders);
+    // console.log(myOrders);
     if (isLoading) {
         <Loading></Loading>
     }

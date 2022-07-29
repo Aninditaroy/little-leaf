@@ -59,7 +59,7 @@ const CartScreen = () => {
         <>
             {
                 (cartProducts.length < 1) ?
-                    <p className='my-40 text-center text-lg font-medium'>No Cart Item Avilable, Please product add to cart, <Link to='/products' className=' text-slate-500 underline'>Click here</Link></p>
+                    <p className='my-40 text-center text-lg font-medium'>No Cart Item Available, Please add product to your cart, <Link to='/products' className=' text-slate-500 underline'>Click here</Link></p>
                     :
                     <div className='my-16 '>
                         <div className='container mx-auto'>
