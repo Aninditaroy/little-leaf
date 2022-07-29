@@ -1,8 +1,78 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddBlogs = () => {
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+    const imageStorageKey = '897f17e2399bad4621116b5130fd571a';
+    const onSubmit = (data, e) => {
+        const formData = new FormData();
+        console.log(data)
+        const image1 = data.authorImage[0];
+        const image2 = data.blogDetailsImage[0];
+        const image3 = data.blogThumbnailImage[0];
+        //console.log(image)
+        formData.append('image1', image1);
+        formData.append('image2', image2);
+        formData.append('image3', image3);
+        console.log(image1);
+        console.log(image2);
+        console.log(image3);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        //send to imagebb
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                if (result.success) {
+                    const authorImage = result.data.url;
+                    const blogDetailsImage = result.data.url;
+                    const blogThumbnailImage = result.data.url;
+                    const blog = {
+                        authorName: data.authorName,
+                        authorImage: authorImage,
+                        blogTitle: data.blogTitle,
+                        blogCategory: data.blogCategory,
+                        blogDetailsImage: blogDetailsImage,
+                        blogFirstSectionTitle: data.blogFirstSectionTitle,
+                        blogFirstSectionDescription: data.blogFirstSectionDescription,
+                        blogSecondSectionTitle: data.blogSecondSectionTitle,
+                        blogSecondSectionDescription: data.blogSecondSectionDescription,
+                        blogThirdSectionTitle: data.blogThirdSectionTitle,
+                        blogThirdSectionDescription: data.blogThirdSectionDescription,
+                        blogThumbnailImage: blogThumbnailImage
+                    }
+                    console.log(authorImage)
+                    console.log(blogDetailsImage)
+                    console.log(blogThumbnailImage)
+                    console.log(blog)
+                    //send to my database
+                    // fetch('http://localhost:5000/blogs', {
+                    //     method: "POST",
+                    //     headers: {
+                    //         'content-type': 'application/json',
+                    //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    //     },
+                    //     body: JSON.stringify(blog)
+                    // })
+                    //     .then(res => res.json())
+                    //     .then(added => {
+                    //         // console.log("plant added", added)
+                    //         if (added) {
+                    //             toast.success("New Blog added")
+                    //             reset();
+                    //         }
+                    //         else {
+                    //             toast.error("Failed to add blog!")
+                    //         }
+                    //     })
+                }
+            })
+
+    }
     return (
         <div>
             <div className='' style={{ backgroundImage: 'url(https://htmldemo.net/pronia/pronia/assets/images/breadcrumb/bg/1-1-1919x388.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
@@ -11,13 +81,11 @@ const AddBlogs = () => {
 
             <div className='bg-gray-50 w-4/6 w- w-3/4  xl:w-1/2 my-16 mx-auto  mt-12 rounded-xl '>
                 <div className='w-3/4 w-4/5 w-11/12 w-full mx-auto py-8'>
-                    {/* <div className='mb-3'>
-                        <h1 className='text-2xl font-bold text-center mt-2 text-[#73AB24]'><i class="uil uil-plus pr-1"></i>Add Product</h1>
-                    </div> */}
+
                     <div className='w-full '>
                         <div className='flex flex-col items-center '>
 
-                            <form className='w-full'>
+                            <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
                                 <div class="flex items-center justify-between mt-4">
                                     <div class='w-full md:w-1/2 pr-2'>
                                         <div>
@@ -28,97 +96,165 @@ const AddBlogs = () => {
                                                     message: "Author name is required"
                                                 }
                                             })} />
+                                            <label className="label">
+                                                {errors.authorName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.authorName.message}</span>}
+                                            </label>
                                         </div>
-                                        {/* <label className="label">
-                                            {errors.plantName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.plantName.message}</span>}
-                                        </label> */}
                                     </div>
 
                                     <div class='w-full md:w-1/2 input-bordered'>
-                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' > Categories</label>
-
-
-                                        {/* <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' required /> */}
-                                        <select class=' block  text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 app leading-tight input-bordered focus:outline-none  focus:border-gray-500 select w-full max-w-xs' {...register("categories", {
+                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Author Image</label>
+                                        <input type="file" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"  {...register("authorImage", {
                                             required: {
                                                 value: true,
-                                                message: "Categories is required"
-                                            }
-                                        })}>
-                                            <option value="Indoor plants">Indoor plants</option>
-                                            <option value="Office plants">Office plants</option>
-                                            <option value="Outdoor plants">Outdoor plants</option>
-                                        </select>
-                                        {/* <label className="label">
-                                            {errors.categories?.type === 'required' && <span className="label-text-alt text-red-500">{errors.categories.message}</span>}
-                                        </label> */}
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <label className="label">
-                                        {errors.plantName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.plantName.message}</span>}
-                                    </label>
-                                    <label className="label">
-                                        {errors.categories?.type === 'required' && <span className="label-text-alt text-red-500">{errors.categories.message}</span>}
-                                    </label>
-                                </div>
-                                <div className="form-control w-full ">
-                                    <label className="label">
-                                        <span className="block  tracking-wide text-gray-700 text-xs font-bold mb-2">Description</span>
-                                    </label>
-                                    <textarea
-                                        type="text"
-                                        placeholder="Plant description"
-                                        className="input input-bordered h-32 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
-                                        {...register("description", {
-                                            required: {
-                                                value: true,
-                                                message: "Description is required"
-                                            }
-                                        })}
-                                    />
-                                    <label className="label">
-                                        {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
-                                    </label>
-                                </div>
-                                <div class="flex items-center justify-between mt-4">
-                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
-                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Price</label>
-                                        <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='number'
-                                            {...register("price",
-                                                {
-                                                    required: {
-                                                        value: true,
-                                                        message: "Price is required"
-                                                    },
-                                                    min: {
-                                                        value: 1,
-                                                        message: `Price must be greater than 0`
-                                                    }
-                                                }
-
-                                            )} />
-                                        <label className="label">
-                                            {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
-                                            {errors.price?.type === 'min' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
-                                        </label>
-                                    </div>
-                                    <div class='w-full md:w-1/2 mb-6'>
-                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >In Stock</label>
-                                        <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='number' {...register("inStock", {
-                                            required: {
-                                                value: true,
-                                                message: "Instock is required"
-                                            }
-                                            ,
-                                            min: {
-                                                value: 0,
-                                                message: `Stock quantity cannot be negative`
+                                                message: "Please select an image"
                                             }
                                         })} />
                                         <label className="label">
-                                            {errors.inStock?.type === 'required' && <span className="label-text-alt text-red-500">{errors.inStock.message}</span>}
-                                            {errors.inStock?.type === 'min' && <span className="label-text-alt text-red-500">{errors.inStock.message}</span>}
+                                            {errors.authorImage?.type === 'required' && <span className="label-text-alt text-red-500">{errors.authorImage.message}</span>}
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Title</label>
+                                        <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'
+                                            {...register("blogTitle", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Blog title is required"
+                                                }
+                                            })} />
+                                        <label className="label">
+                                            {errors.blogTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogTitle.message}</span>}
+                                        </label>
+                                    </div>
+                                    <div class='w-full md:w-1/2 mb-6'>
+                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Category</label>
+                                        <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' {...register("blogCategory", {
+                                            required: {
+                                                value: true,
+                                                message: "Blog Category is required"
+                                            }
+                                        })} />
+                                        <label className="label">
+                                            {errors.blogCategory?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogCategory.message}</span>}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog First Section Title</label>
+                                        <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'
+                                            {...register("blogFirstSectionTitle", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Blog title is required"
+                                                }
+                                            })} />
+                                        <label className="label">
+                                            {errors.blogFirstSectionTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogFirstSectionTitle.message}</span>}
+                                        </label>
+                                    </div>
+                                    <div class='w-full md:w-1/2 mb-6'>
+                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Second Section Title</label>
+                                        <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' {...register("blogSecondSectionTitle", {
+                                            required: {
+                                                value: true,
+                                                message: "Blog Category is required"
+                                            }
+                                        })} />
+                                        <label className="label">
+                                            {errors.blogSecondSectionTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogSecondSectionTitle.message}</span>}
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+                                        <label className="label">
+                                            <span className="block tracking-wide text-gray-700 text-xs font-bold mb-2">First Blog Section Description</span>
+                                        </label>
+                                        <textarea
+                                            type="text"
+                                            placeholder="Blog description"
+                                            className="input input-bordered h-32 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
+                                            {...register("blogFirstSectionDescription", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Blog First Section Description is required"
+                                                }
+                                            })} />
+                                        <label className="label">
+                                            {errors.blogFirstSectionDescription?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogFirstSectionDescription.message}</span>}
+                                        </label>
+                                    </div>
+                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+                                        <label className="label">
+                                            <span className="block tracking-wide text-gray-700 text-xs font-bold mb-2">Second Blog Section Description</span>
+                                        </label>
+                                        <textarea
+                                            type="text"
+                                            placeholder="Blog description"
+                                            className="input input-bordered h-32 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
+                                            {...register("blogSecondSectionDescription", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Blog Second Description is required"
+                                                }
+                                            })}
+                                        />
+                                        <label className="label">
+                                            {errors.blogSecondSectionDescription?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogSecondSectionDescription.message}</span>}
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between mt-4">
+                                    <div className='flex-col w-full md:w-1/2  mb-4 pr-2'>
+                                        <div class=''>
+                                            <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Third Section Title</label>
+                                            <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'
+                                                {...register("blogThirdSectionTitle", {
+                                                    required: {
+                                                        value: true,
+                                                        message: "Blog title is required"
+                                                    }
+                                                })} />
+                                            <label className="label">
+                                                {errors.blogThirdSectionTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogThirdSectionTitle.message}</span>}
+                                            </label>
+                                        </div>
+                                        <div class=''>
+                                            <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Details Image</label>
+                                            <input type="file" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"  {...register("blogDetailsImage", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Please select an image"
+                                                }
+                                            })} />
+                                            <label className="label">
+                                                {errors.blogDetailsImage?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogDetailsImage.message}</span>}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+                                        <label className="label">
+                                            <span className="block tracking-wide text-gray-700 text-xs font-bold mb-2">Third Blog Section Description</span>
+                                        </label>
+                                        <textarea
+                                            type="text"
+                                            placeholder="Blog description"
+                                            className="input input-bordered  h-40 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
+                                            {...register("blogThirdSectionDescription", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Blog Third Section Description is required"
+                                                }
+                                            })} />
+                                        <label className="label">
+                                            {errors.blogThirdSectionDescription?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogThirdSectionDescription.message}</span>}
                                         </label>
                                     </div>
                                 </div>
@@ -127,37 +263,17 @@ const AddBlogs = () => {
                                         <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                                         </svg>
-                                        <span class="mt-2 block  tracking-wide text-gray-700 text-xs font-bold mb-2">Select a plant image</span>
+                                        <span class="mt-2 block  tracking-wide text-gray-700 text-xs font-bold mb-2">Blog Thumbnail Image</span>
                                         <input type='file' class="hidden"
-                                            {...register("image", {
+                                            {...register("blogThumbnailImage", {
                                                 required: {
                                                     value: true,
                                                     message: "Please select an image"
                                                 }
                                             })} />
                                         <label className="label">
-                                            {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image.message}</span>}
+                                            {errors.blogThumbnailImage?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogThumbnailImage.message}</span>}
                                         </label>
-                                    </label>
-                                    {/* <input type="file" name="chooseFile" id="chooseFile"></input> */}
-                                </div>
-                                <div className="form-control w-full ">
-                                    <label className="label">
-                                        <span className="block  tracking-wide text-gray-700 text-xs font-bold mb-2">Image Alt</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        placeholder="Plant Image Alt"
-                                        className="input input-bordered appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
-                                        {...register("imageAlt", {
-                                            required: {
-                                                value: true,
-                                                message: "Image alt is required"
-                                            }
-                                        })}
-                                    />
-                                    <label className="label">
-                                        {errors.imageAlt?.type === 'required' && <span className="label-text-alt text-red-500">{errors.imageAlt.message}</span>}
                                     </label>
                                 </div>
                                 <input className='btn w-full flex justify-center items-center mx-auto max-w-xs text-white hover:bg-[#73ab24be]  bg-[#73AB24]  hover:ease-in-out shadow-2xl' type="submit"
@@ -166,8 +282,8 @@ const AddBlogs = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
