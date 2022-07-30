@@ -3,72 +3,59 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const AddBlogs = () => {
+    const blogAddDate = new Date().toLocaleDateString("en-US");
+    const blogAddTime = new Date().toLocaleTimeString();
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const imageStorageKey = '897f17e2399bad4621116b5130fd571a';
     const onSubmit = (data, e) => {
         const formData = new FormData();
-        console.log(data)
-        const image1 = data.authorImage[0];
-        const image2 = data.blogDetailsImage[0];
-        const image3 = data.blogThumbnailImage[0];
-        //console.log(image)
-        formData.append('image1', image1);
-        formData.append('image2', image2);
-        formData.append('image3', image3);
-        console.log(image1);
-        console.log(image2);
-        console.log(image3);
+        console.log(data);
+        const image = data.blogThumbnailImage.image[0];
+        formData.append('image', image);
+        console.log(data);
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
-        //send to imagebb
         fetch(url, {
             method: 'POST',
             body: formData
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
                 if (result.success) {
-                    const authorImage = result.data.url;
-                    const blogDetailsImage = result.data.url;
                     const blogThumbnailImage = result.data.url;
                     const blog = {
                         authorName: data.authorName,
-                        authorImage: authorImage,
                         blogTitle: data.blogTitle,
                         blogCategory: data.blogCategory,
-                        blogDetailsImage: blogDetailsImage,
                         blogFirstSectionTitle: data.blogFirstSectionTitle,
                         blogFirstSectionDescription: data.blogFirstSectionDescription,
                         blogSecondSectionTitle: data.blogSecondSectionTitle,
                         blogSecondSectionDescription: data.blogSecondSectionDescription,
                         blogThirdSectionTitle: data.blogThirdSectionTitle,
                         blogThirdSectionDescription: data.blogThirdSectionDescription,
-                        blogThumbnailImage: blogThumbnailImage
+                        blogThumbnailImage: blogThumbnailImage,
+                        blogAddDate: blogAddDate,
+                        blogAddTime: blogAddTime
                     }
-                    console.log(authorImage)
-                    console.log(blogDetailsImage)
-                    console.log(blogThumbnailImage)
-                    console.log(blog)
-                    //send to my database
-                    // fetch('http://localhost:5000/blogs', {
-                    //     method: "POST",
-                    //     headers: {
-                    //         'content-type': 'application/json',
-                    //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                    //     },
-                    //     body: JSON.stringify(blog)
-                    // })
-                    //     .then(res => res.json())
-                    //     .then(added => {
-                    //         // console.log("plant added", added)
-                    //         if (added) {
-                    //             toast.success("New Blog added")
-                    //             reset();
-                    //         }
-                    //         else {
-                    //             toast.error("Failed to add blog!")
-                    //         }
-                    //     })
+                    // send to my database
+                    fetch('http://localhost:5000/blogs', {
+                        method: "POST",
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(blog)
+                    })
+                        .then(res => res.json())
+                        .then(added => {
+                            // console.log("plant added", added)
+                            if (added) {
+                                toast.success("New Blog added")
+                                reset();
+                            }
+                            else {
+                                toast.error("Failed to add blog!")
+                            }
+                        })
                 }
             })
 
@@ -86,8 +73,8 @@ const AddBlogs = () => {
                         <div className='flex flex-col items-center '>
 
                             <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
-                                <div class="flex items-center justify-between mt-4">
-                                    <div class='w-full md:w-1/2 pr-2'>
+                                <div class=" mt-4">
+                                    <div class='w-full  pr-2'>
                                         <div>
                                             <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Author Name</label>
                                             <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' {...register("authorName", {
@@ -102,22 +89,11 @@ const AddBlogs = () => {
                                         </div>
                                     </div>
 
-                                    <div class='w-full md:w-1/2 input-bordered'>
-                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Author Image</label>
-                                        <input type="file" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"  {...register("authorImage", {
-                                            required: {
-                                                value: true,
-                                                message: "Please select an image"
-                                            }
-                                        })} />
-                                        <label className="label">
-                                            {errors.authorImage?.type === 'required' && <span className="label-text-alt text-red-500">{errors.authorImage.message}</span>}
-                                        </label>
-                                    </div>
+
                                 </div>
 
-                                <div class="flex items-center justify-between mt-4">
-                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+                                <div class="flex items-center justify-between ">
+                                    <div class='w-full md:w-1/2  pr-2'>
                                         <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Title</label>
                                         <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'
                                             {...register("blogTitle", {
@@ -130,7 +106,7 @@ const AddBlogs = () => {
                                             {errors.blogTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogTitle.message}</span>}
                                         </label>
                                     </div>
-                                    <div class='w-full md:w-1/2 mb-6'>
+                                    <div class='w-full md:w-1/2 '>
                                         <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Category</label>
                                         <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' {...register("blogCategory", {
                                             required: {
@@ -143,8 +119,8 @@ const AddBlogs = () => {
                                         </label>
                                     </div>
                                 </div>
-                                <div class="flex items-center justify-between mt-4">
-                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+                                <div class="flex items-center">
+                                    <div class='w-full '>
                                         <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog First Section Title</label>
                                         <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'
                                             {...register("blogFirstSectionTitle", {
@@ -157,7 +133,9 @@ const AddBlogs = () => {
                                             {errors.blogFirstSectionTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogFirstSectionTitle.message}</span>}
                                         </label>
                                     </div>
-                                    <div class='w-full md:w-1/2 mb-6'>
+
+
+                                    {/* <div class='w-full md:w-1/2 mb-6'>
                                         <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Second Section Title</label>
                                         <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' {...register("blogSecondSectionTitle", {
                                             required: {
@@ -168,18 +146,21 @@ const AddBlogs = () => {
                                         <label className="label">
                                             {errors.blogSecondSectionTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogSecondSectionTitle.message}</span>}
                                         </label>
-                                    </div>
+                                    </div> */}
+
+
                                 </div>
 
-                                <div class="flex items-center justify-between mt-4">
-                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+                                <div class="flex items-center ">
+
+                                    <div class='w-full '>
                                         <label className="label">
                                             <span className="block tracking-wide text-gray-700 text-xs font-bold mb-2">First Blog Section Description</span>
                                         </label>
                                         <textarea
                                             type="text"
                                             placeholder="Blog description"
-                                            className="input input-bordered h-32 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
+                                            className="input input-bordered h-24  appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
                                             {...register("blogFirstSectionDescription", {
                                                 required: {
                                                     value: true,
@@ -190,14 +171,40 @@ const AddBlogs = () => {
                                             {errors.blogFirstSectionDescription?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogFirstSectionDescription.message}</span>}
                                         </label>
                                     </div>
-                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+
+
+
+
+                                </div>
+
+
+                                <div class="flex items-center">
+                                    <div class='w-full '>
+                                        <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Second Section Title</label>
+                                        <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'
+                                            {...register("blogSecondSectionTitle", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Blog title is required"
+                                                }
+                                            })} />
+                                        <label className="label">
+                                            {errors.blogSecondSectionTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogSecondSectionTitle.message}</span>}
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                                <div class="flex items-center ">
+
+                                    <div class='w-full'>
                                         <label className="label">
                                             <span className="block tracking-wide text-gray-700 text-xs font-bold mb-2">Second Blog Section Description</span>
                                         </label>
                                         <textarea
                                             type="text"
                                             placeholder="Blog description"
-                                            className="input input-bordered h-32 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
+                                            className="input input-bordered h-24 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
                                             {...register("blogSecondSectionDescription", {
                                                 required: {
                                                     value: true,
@@ -211,8 +218,8 @@ const AddBlogs = () => {
                                     </div>
                                 </div>
 
-                                <div class="flex items-center justify-between mt-4">
-                                    <div className='flex-col w-full md:w-1/2  mb-4 pr-2'>
+                                <div class="flex items-center">
+                                    <div className='w-full '>
                                         <div class=''>
                                             <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Third Section Title</label>
                                             <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'
@@ -226,27 +233,23 @@ const AddBlogs = () => {
                                                 {errors.blogThirdSectionTitle?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogThirdSectionTitle.message}</span>}
                                             </label>
                                         </div>
-                                        <div class=''>
-                                            <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Details Image</label>
-                                            <input type="file" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"  {...register("blogDetailsImage", {
-                                                required: {
-                                                    value: true,
-                                                    message: "Please select an image"
-                                                }
-                                            })} />
-                                            <label className="label">
-                                                {errors.blogDetailsImage?.type === 'required' && <span className="label-text-alt text-red-500">{errors.blogDetailsImage.message}</span>}
-                                            </label>
-                                        </div>
+
+
                                     </div>
-                                    <div class='w-full md:w-1/2  mb-6 pr-2'>
+
+                                </div>
+
+                                <div class="flex items-center">
+
+                                    <div class='w-full'>
                                         <label className="label">
                                             <span className="block tracking-wide text-gray-700 text-xs font-bold mb-2">Third Blog Section Description</span>
                                         </label>
+
                                         <textarea
                                             type="text"
                                             placeholder="Blog description"
-                                            className="input input-bordered  h-40 appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
+                                            className="input input-bordered  h-24  appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
                                             {...register("blogThirdSectionDescription", {
                                                 required: {
                                                     value: true,
@@ -258,6 +261,9 @@ const AddBlogs = () => {
                                         </label>
                                     </div>
                                 </div>
+
+
+
                                 <div class="w-full mb-5">
                                     <label class="block flex flex-col items-center px-4 py-2 border-2 border-dashed text-blue rounded-lg shadow-lg bg-gray-200 border-black/30 tracking-wide uppercase border-blue cursor-pointer">
                                         <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -277,7 +283,7 @@ const AddBlogs = () => {
                                     </label>
                                 </div>
                                 <input className='btn w-full flex justify-center items-center mx-auto max-w-xs text-white hover:bg-[#73ab24be]  bg-[#73AB24]  hover:ease-in-out shadow-2xl' type="submit"
-                                    value='Save Changes' />
+                                    value='Add Blogs' />
                             </form>
                         </div>
                     </div>

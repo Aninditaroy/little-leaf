@@ -41,7 +41,8 @@ function App() {
             <Route path='/' element={<Home />}></Route>
             <Route path='/home' element={<Home />}></Route>
             <Route path='/blogs' element={<Blogs />}></Route>
-            <Route path='/blogDetails' element={<BlogDetails />}></Route>
+            <Route path='/blog/:blogId' element={<BlogDetails />}></Route>
+            {/* <Route path='/blogDetails' element={<BlogDetails />}></Route> */}
             <Route path='/products' element={<Products />}></Route>
             <Route path='/product/:productId' element={
               <RequireAuth>

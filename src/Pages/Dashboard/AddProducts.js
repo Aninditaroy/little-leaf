@@ -8,11 +8,8 @@ const AddProducts = () => {
     const imageStorageKey = '897f17e2399bad4621116b5130fd571a';
     const onSubmit = (data, e) => {
         const formData = new FormData();
-        console.log(data)
         const image = data.image[0];
-        console.log(image)
         formData.append('image', image);
-        console.log(image);
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
         //send to imagebb
         fetch(url, {
