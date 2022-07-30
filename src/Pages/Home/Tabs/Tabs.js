@@ -9,8 +9,8 @@ const Tabs = () => {
         <div>
             <ul class="nav nav-tabs flex flex-row md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4 justify-center" id="tabs-tab"
                 role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a href="#tabs-products" class=" nav-link block font-medium text-md leading-tight uppercase border-b-2 px-6 py-3 my-2   focus:border-transparent" id="tabs-products-tab" data-bs-toggle="pill" data-bs-target="#tabs-products" role="tab" aria-controls="tabs-products"
+                <li class="nav-item active" role="presentation">
+                    <a href="#tabs-products" class="active nav-link block font-medium text-md leading-tight uppercase border-b-2 px-6 py-3 my-2   focus:border-transparent" id="tabs-products-tab" data-bs-toggle="pill" data-bs-target="#tabs-products" role="tab" aria-controls="tabs-products"
                         aria-selected="true">Products</a>
                 </li>
                 <li class="nav-item" role="presentation">

@@ -6,7 +6,8 @@ import { toast } from 'react-toastify';
 import useCart from './../../Hooks/useCart';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
-import Review from './Review';
+import Reviews from '../Reviews/Reviews';
+import useAllReview from '../../Hooks/useAllReview';
 
 const ProductDetails = () => {
     const { productId } = useParams();
@@ -16,6 +17,8 @@ const ProductDetails = () => {
     const [cart, setCart] = useState({});
     const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
+    const [allReviews] = useAllReview(_id);
+    // console.log(allReviews)
     const navigate = useNavigate();
 
     const increaseQuantity = () => {
@@ -232,8 +235,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-
-            <Review></Review>
+            <Reviews productId={_id} allReviews={allReviews} />
         </div >
 
     );

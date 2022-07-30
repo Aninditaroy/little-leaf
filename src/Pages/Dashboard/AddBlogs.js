@@ -10,7 +10,7 @@ const AddBlogs = () => {
     const onSubmit = (data, e) => {
         const formData = new FormData();
         console.log(data);
-        const image = data.blogThumbnailImage.image[0];
+        const image = data?.blogThumbnailImage[0];
         formData.append('image', image);
         console.log(data);
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
