@@ -18,6 +18,8 @@ const ProductDetails = () => {
     const [cartProducts, setCartProducts] = useCart();
     const { _id, plantName, price, inStock, description, imageUrl, imageAlt, categories, quantity } = productDetails;
     const [allReviews] = useAllReview(_id);
+    const allReviewsShow = allReviews?.filter(review => review.productId === productId)
+
     // console.log(allReviews)
     const navigate = useNavigate();
 
@@ -143,30 +145,7 @@ const ProductDetails = () => {
                             }
                         })
                 }
-                // console.log("prevQuantity : ", prevQuantity, " quantityFinal : ", quantityFinal, " inStock : ", inStock);
 
-                // const cart = {
-                //     quantity: quantityFinal,
-                // }
-
-                // // //send to cart api
-                // const url = `https://rocky-anchorage-54101.herokuapp.com/carts/${cartItems._id}`
-                // fetch(url, {
-                //     method: "PATCH",
-                //     headers: {
-                //         "content-type": "application/json"
-                //     },
-                //     body: JSON.stringify(cart),
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         if (data) {
-                //             toast.success("Quantity Updated")
-                //         }
-                //         else {
-                //             toast.error("Failed to update quantity!")
-                //         }
-                //     })
             }
         }
     }
@@ -235,7 +214,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-            <Reviews productId={_id} allReviews={allReviews} />
+            <Reviews productId={_id} allReviewsShow={allReviewsShow} />
         </div >
 
     );
