@@ -37,7 +37,7 @@ const AddBlogs = () => {
                         blogAddTime: blogAddTime
                     }
                     // send to my database
-                    fetch('http://localhost:5000/blogs', {
+                    fetch('https://rocky-anchorage-54101.herokuapp.com/blogs', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

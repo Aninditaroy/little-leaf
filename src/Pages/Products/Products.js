@@ -15,7 +15,7 @@ const Products = () => {
     const [pro] = useProducts();
     useEffect(() => {
         // fetch('https://rocky-anchorage-54101.herokuapp.com/product')
-        fetch(`http://localhost:5000/product?page=${page}&size=${size}`)
+        fetch(`https://rocky-anchorage-54101.herokuapp.com/product?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
@@ -26,7 +26,7 @@ const Products = () => {
 
     useEffect(() => {
         // fetch('https://rocky-anchorage-54101.herokuapp.com/product')
-        fetch('http://localhost:5000/productCount')
+        fetch('https://rocky-anchorage-54101.herokuapp.com/productCount')
             .then(res => res.json())
             .then(data => {
                 const count = data.count;

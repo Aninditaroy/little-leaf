@@ -26,18 +26,12 @@ const Dashboard = () => {
 
 
             </div>
-            <div className="drawer-side">
-                <label htmlFor="dashboard-sidebar" className="drawer-overlay "></label>
-                <ul className="menu p-0 overflow-y-auto w-48 bg-base-100 text-base-content   shadow-xl bg-slate-100 m-0 lg:m-8">
+            <div className="drawer-side ">
+                <label htmlFor="dashboard-sidebar " className="drawer-overlay"></label>
+                <ul className="menu p-0 overflow-y-auto w-48 bg-base-100 text-base-content shadow-xl lg:m-3">
+                    <span className='text-right flex items-center my-2 px-5 uppercase font-bold'>Dashboard<i class="uil uil-info-circle text-lg ml-1"></i></span>
                     {/* <!-- Sidebar content here --> */}
                     <li className='my-2'><Link to='/dashboard'><i class="uil uil-users-alt text-lg"></i>All Users</Link></li>
-                    {/* {
-                        (user && !admin) && <>
-                            <li><Link to='/dashboard/orders'>My Orders</Link></li>
-                            <li><Link to='/dashboard/reviews'>My Reviews</Link></li>
-                        </>
-
-                    } */}
 
 
                     {
@@ -46,9 +40,6 @@ const Dashboard = () => {
                             <li className='my-2'><NavLink to='/dashboard/manageProducts'><i class="uil uil-file-edit-alt text-lg"></i>Manage Products</NavLink></li>
                             <li className='my-2'><NavLink to='/dashboard/manageOrders'><i class="uil uil-file-check text-lg"></i>Manage Orders</NavLink></li>
                             <li className='my-2'><NavLink to='/dashboard/addBlogs'><i class="uil uil-book-open text-lg"></i>Add Blogs</NavLink></li>
-                            {/* <li><Link to='/dashboard/addTool'>Add Tools</Link></li>
-                            <li><Link to='/dashboard/manageOrder'>Manage Orders</Link></li>
-                            <li><Link to='/dashboard/manageTool'>Manage Tools</Link></li> */}
                         </>
                     }
                 </ul>

@@ -1,25 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80    --hishab
-//https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1217&q=80   --hishab
 
-// https://images.unsplash.com/photo-1551893665-f843f600794e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80               --hishab
-
-// https://images.unsplash.com/photo-1493957988430-a5f2e15f39a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80           --hishab
-//  style={{
-// backgroundImage: 'url(https://htmldemo.net/pronia/pronia/assets/images/breadcrumb/bg/1-1-1919x388.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundColor: '#0000005d',
-//     backgroundBlendMode: 'overlay'
-
-//             }}
-// 
 const Footer = () => {
     return (
-        <div>
+        <>
             <footer className="p-4 sm:p-6 bg-[#edf6ee8f] text-black" >
                 {/* <ScrollToTop smooth component={<ScrollTop />} /> */}
 
                 <div className='container mx-auto '>
-                    <div className="max-w-screen-xl mx-auto mb-12 lg:mb-16   ">
+                    <div className="max-w-screen-xl mx-auto lg:mb-16   ">
                         <Link to='/' className="btn btn-ghost normal-case text-xl hover:bg-transparent">
                             <img src="https://i.ibb.co/1JRs2mf/Beige-Simple-Aesthetic-Cactus-Logo-removebg-preview.png" alt="" className='' />
                             {/* <span className='text-4xl font-md text-[#1d3923] ml-2'>Little Leaf</span> */}
@@ -73,14 +62,14 @@ const Footer = () => {
                                     </ul>
                                 </nav>
                             </div>
-                            <div className=" md:px-8 py-4 md:py-0">
+                            <div className="md:px-8 py-4 md:py-0">
                                 <h5 className="text-xl font-bold text-[#1d3923]">Contact Us</h5>
                                 <nav className="mt-4">
                                     <ul className="text-gray-600 dark:text-gray-400">
                                         <li className='flex  items-center'>
                                             {/* <img src={home} alt="" className='w-50 mr-2' /> */}
                                             <i class="uil uil-map-marker text-2xl  text-[#1d3923]"></i>
-                                            <p className='pl-1 text-black'>100,Mohammadpur,Dhaka</p>
+                                            <p className='pl-1 text-black'>100,Amberkhana,Sylhet</p>
                                         </li>
                                         <li className="my-2 flex items-center">
                                             <span className='mr-2'>
@@ -107,7 +96,7 @@ const Footer = () => {
 
                     </div>
                     <hr className="my-6 border-gray-400 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                    <div className="sm:flex sm:items-center sm:justify-between pb-4 ">
+                    <div className="sm:flex sm:items-center sm:justify-between">
                         <span className="text-blacksm:text-center text-md dark:text-gray-400"> copyright @ {new Date().getFullYear()} All Rights Reserved to <span className='font-bold text-[#1d3923] text-md'>Anindita & Sajeda</span>
                         </span>
                         <div className="flex items-center gap-x-4 ">
@@ -139,7 +128,7 @@ const Footer = () => {
 
                 </div>
             </footer >
-        </div >
+        </ >
     );
 };
 

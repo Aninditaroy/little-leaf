@@ -30,7 +30,7 @@ const AddReview = ({ productId }) => {
         }
         console.log(reviews)
         //send to my database
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://rocky-anchorage-54101.herokuapp.com/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

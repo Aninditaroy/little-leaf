@@ -56,8 +56,7 @@ const AddProducts = () => {
     return (
         <div className=''>
             <div className='bg-[#224229b1] py-28' style={{ backgroundImage: 'url(https://htmldemo.net/pronia/pronia/assets/images/breadcrumb/bg/1-1-1919x388.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                {/* <p className='text-center text-4xl font-extrabold'>Add Products</p> */}
-                <h1 className='text-5xl font-bold text-center my-4'>Add Product</h1>
+                <h2 className='text-2xl lg:text-4xl text-center my-orders-font'><span className='font-bold md:font-extrabold lg:font-extrabold'>Add Product</span></h2>
             </div>
             <div className='bg-white w-4/6 w- w-3/4  xl:w-1/2 py-16 mx-auto -my-20  mb-24 rounded-xl shadow-xl'>
                 <div className='w-3/4 mx-auto'>
