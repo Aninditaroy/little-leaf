@@ -108,6 +108,8 @@ const AddBlogs = () => {
                                     </div>
                                     <div class='w-full md:w-1/2 '>
                                         <label class='block  tracking-wide text-gray-700 text-xs font-bold mb-2' >Blog Category</label>
+
+
                                         <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' {...register("blogCategory", {
                                             required: {
                                                 value: true,
