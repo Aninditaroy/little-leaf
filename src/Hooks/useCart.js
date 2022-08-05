@@ -7,7 +7,7 @@ const useCart = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
     useEffect(() => {
-        fetch(`https://rocky-anchorage-54101.herokuapp.com/carts/${email}`)
+        fetch(`http://localhost:5000/carts/${email}`)
             .then(res => res.json())
             .then(data => setCartProducts(data))
     }, [cartProducts])

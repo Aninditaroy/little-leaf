@@ -8,7 +8,7 @@ import ManageOrdersRow from './ManageOrdersRow';
 
 const ManageOrders = () => {
 
-    const { data: manageOrders, isLoading, refetch } = useQuery('manageOrders', () => fetch('https://rocky-anchorage-54101.herokuapp.com/orders').then(res => res.json()));
+    const { data: manageOrders, isLoading, refetch } = useQuery('manageOrders', () => fetch('http://localhost:5000/orders').then(res => res.json()));
     // console.log(manageOrders);
     if (isLoading) {
         <Loading></Loading>
