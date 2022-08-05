@@ -14,6 +14,7 @@ const Users = () => {
     if (isLoading) {
         return <Loading />
     }
+
     return (
         <div className=''>
             <div className='' style={{ backgroundImage: 'url(https://htmldemo.net/pronia/pronia/assets/images/breadcrumb/bg/1-1-1919x388.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>

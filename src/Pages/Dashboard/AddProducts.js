@@ -29,6 +29,8 @@ const AddProducts = () => {
                         price: data.price,
                         description: data.description
                     }
+
+
                     //send to my database
                     fetch('http://localhost:5000/product', {
                         method: "POST",
