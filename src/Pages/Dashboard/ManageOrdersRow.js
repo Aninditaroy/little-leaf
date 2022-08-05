@@ -5,7 +5,7 @@ const ManageOrdersRow = ({ singleOrder, refetch }) => {
     const { userName, userEmail, transectionId, address, city, country, zipcode, total, _id, orderDate, orderTime } = singleOrder;
 
     const handleShipping = () => {
-        fetch(`https://rocky-anchorage-54101.herokuapp.com/manageorder/${_id}`, {
+        fetch(`http://localhost:5000/manageorder/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

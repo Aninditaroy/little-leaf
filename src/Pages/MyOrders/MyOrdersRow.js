@@ -5,7 +5,7 @@ import { useState } from 'react';
 const MyOrdersRow = ({ order, refetch }) => {
     const { userName, userEmail, transectionId, address, city, country, zipcode, total, _id, orderDate, orderTime } = order;
     const [orderItems, setOrderItems] = useState([]);
-    fetch(`https://rocky-anchorage-54101.herokuapp.com/myorderitems/${transectionId}`, {
+    fetch(`http://localhost:5000/myorderitems/${transectionId}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
