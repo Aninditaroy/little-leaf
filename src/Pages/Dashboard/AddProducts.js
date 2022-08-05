@@ -29,6 +29,8 @@ const AddProducts = () => {
                         price: data.price,
                         description: data.description
                     }
+
+
                     //send to my database
                     fetch('https://rocky-anchorage-54101.herokuapp.com/product', {
                         method: "POST",
