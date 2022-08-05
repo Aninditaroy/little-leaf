@@ -29,6 +29,7 @@ import MyOrders from './Pages/MyOrders/MyOrders';
 import Blogs from './Pages/Blogs/Blogs';
 import BlogDetails from './Pages/Blogs/BlogDetails';
 import AddBlogs from './Pages/Dashboard/AddBlogs';
+import AboutUs from './Pages/AboutUs/AboutUs';
 export const InputContext = createContext(0);
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path='/home' element={<Home />}></Route>
             <Route path='/blogs' element={<Blogs />}></Route>
             <Route path='/blog/:blogId' element={<BlogDetails />}></Route>
+            <Route path='/aboutUs' element={<AboutUs />}></Route>
             {/* <Route path='/blogDetails' element={<BlogDetails />}></Route> */}
             <Route path='/products' element={<Products />}></Route>
             <Route path='/product/:productId' element={

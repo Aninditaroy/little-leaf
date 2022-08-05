@@ -126,8 +126,13 @@ font-family: 'Lato', sans-serif;
   display: flex;
 }
 
-
-
+.accordion-item:first-of-type {
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+}
+.accordion-button:not(.collapsed) {
+  color: #15803D  !important;
+}
 
 /* .v {
   -webkit-animation: tw-bounce 1s infinite; 
