@@ -10,7 +10,7 @@ const Blogs = () => {
         navigate('/blogDetails')
     }
 
-    const { data: blogs, isLoading, refetch } = useQuery('blogs', () => fetch('https://rocky-anchorage-54101.herokuapp.com/blogs').then(res => res.json()));
+    const { data: blogs, isLoading, refetch } = useQuery('blogs', () => fetch('http://localhost:5000/blogs').then(res => res.json()));
     // console.log(manageOrders);
     if (isLoading) {
         <Loading></Loading>

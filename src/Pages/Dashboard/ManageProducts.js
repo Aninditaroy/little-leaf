@@ -6,7 +6,7 @@ import DeleteProductModal from './DeleteProductModal';
 import EditProductModal from './EditProductModal';
 
 const ManageProducts = () => {
-    const { data: manageProducts, isLoading, refetch } = useQuery('manageProducts', () => fetch('https://rocky-anchorage-54101.herokuapp.com/product').then(res => res.json()));
+    const { data: manageProducts, isLoading, refetch } = useQuery('manageProducts', () => fetch('http://localhost:5000/product').then(res => res.json()));
 
     // console.log(manageProducts);
     const [deletingProduct, setDeletingProduct] = useState(null);

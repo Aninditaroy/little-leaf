@@ -34,7 +34,7 @@ const Payment = () => {
 
 
 
-    const url = `https://rocky-anchorage-54101.herokuapp.com/cart/${id}`;
+    const url = `http://localhost:5000/cart/${id}`;
     const { data: cart, isLoading } = useQuery(['cart', id], () => fetch(url, {
         method: 'GET',
         headers: {
@@ -45,9 +45,9 @@ const Payment = () => {
 
     // post all orders
 
-    // const orderurl = `https://rocky-anchorage-54101.herokuapp.com/orders`;
+    // const orderurl = `http://localhost:5000/orders`;
     // useEffect(() => {
-    //     fetch(`https://rocky-anchorage-54101.herokuapp.com/orders`)
+    //     fetch(`http://localhost:5000/orders`)
     //         .then(res => res.json())
     //         .then(data => setCartProducts(data))
     // }, [cartProducts])

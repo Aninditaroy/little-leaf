@@ -5,7 +5,7 @@ const AllReviews = ({ allReviewsShow }) => {
     return (
         <>
             {
-                allReviewsShow.length > 1 ? <>
+                allReviewsShow.length > 0 ? <>
                     <h2 class="text-3xl font-bold  text-center">Reviews</h2>
                     <div class="p-12 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
                         {

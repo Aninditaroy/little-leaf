@@ -30,7 +30,7 @@ const AddProducts = () => {
                         description: data.description
                     }
                     //send to my database
-                    fetch('https://rocky-anchorage-54101.herokuapp.com/product', {
+                    fetch('http://localhost:5000/product', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',
