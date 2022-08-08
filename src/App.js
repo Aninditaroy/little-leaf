@@ -30,6 +30,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import BlogDetails from './Pages/Blogs/BlogDetails';
 import AddBlogs from './Pages/Dashboard/AddBlogs';
 import AboutUs from './Pages/AboutUs/AboutUs';
+import NotFound from './Pages/NotFound/NotFound';
 export const InputContext = createContext(0);
 function App() {
   return (
@@ -58,7 +59,6 @@ function App() {
             }></Route>
             <Route path='/login' element={<Login />}></Route>
             <Route path='/signup' element={<Signup />}></Route>
-            {/* <Route path='/payment' element={<Payment />}></Route> */}
             <Route path="payment/:id" element={<Payment />}></Route>
             <Route path="myorders" element={<RequireAuth>
               <MyOrders />
@@ -78,7 +78,7 @@ function App() {
               <Route path='/dashboard/manageOrders' element={<ManageOrders />}></Route>
               <Route path='/dashboard/addBlogs' element={<AddBlogs />}></Route>
             </Route>
-
+            <Route path='*' element={<NotFound />}></Route>
           </Routes>
         </InputContext.Provider>
         <ToastContainer />

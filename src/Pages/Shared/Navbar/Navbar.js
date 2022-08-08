@@ -22,9 +22,9 @@ const Navbar = () => {
         signOut(auth);
         localStorage.removeItem('accessToken')
     };
-    if (loading) {
-        return <Loading></Loading>
-    }
+    // if (loading) {
+    //     return <Loading />
+    // }
 
     const menuItems = <>
         <li tabindex="0" className='p-0 h-1/4 mx-1.5 hover:bg[#81B441]'>

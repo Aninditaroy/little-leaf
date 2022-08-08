@@ -10,14 +10,7 @@ import { useState } from 'react';
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
-    // const[myOrders, setMyOrders] = useState([]);
     const { data: myOrders, isLoading, refetch } = useQuery('myOrders', () => fetch(`http://localhost:5000/myorders/${email}`).then(res => res.json()));
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/orders/${email}`)
-    //         .then(res => res.json())
-    //         .then(data => setMyOrders(data))
-    // }, [myOrders])
 
     // console.log(email);
     // console.log(myOrders);
@@ -58,8 +51,6 @@ const MyOrders = () => {
                                         ></MyOrdersRow>
                                     )
                                 }
-
-
 
                             </tbody>
                         </table>
