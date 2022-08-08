@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const ManageOrdersRow = ({ singleOrder, refetch }) => {
+const ManageOrdersRow = ({ singleOrder, refetch, page }) => {
     const { userName, userEmail, transectionId, address, city, country, zipcode, total, _id, orderDate, orderTime } = singleOrder;
 
     const handleShipping = () => {

@@ -7,8 +7,26 @@ import ManageOrdersRow from './ManageOrdersRow';
 
 
 const ManageOrders = () => {
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0)
 
-    const { data: manageOrders, isLoading, refetch } = useQuery('manageOrders', () => fetch('http://localhost:5000/orders').then(res => res.json()));
+    const size = 10;
+    // const { data: manageOrders, isLoading, refetch } = useQuery('manageOrders', () => fetch('http://localhost:5000/orders').then(res => res.json()));
+
+    const { data: manageOrders, isLoading, refetch } = useQuery(['manageOrders', page, size], () => fetch(`http://localhost:5000/orders?page=${page}&size=${size}`).then(res => res.json()));
+
+
+    useEffect(() => {
+        // fetch('http://localhost:5000/product')
+        fetch('http://localhost:5000/productCountOrder')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count;
+                const pages = Math.ceil(count / 10);
+                setPageCount(pages)
+            })
+    }, [])
+
     // console.log(manageOrders);
     if (isLoading) {
         <Loading></Loading>
@@ -40,6 +58,7 @@ const ManageOrders = () => {
                                 {
                                     manageOrders?.map(singleOrder =>
                                         <ManageOrdersRow
+
                                             singleOrder={singleOrder}
                                             key={singleOrder._id}
                                             refetch={refetch}
@@ -52,6 +71,16 @@ const ManageOrders = () => {
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="btn-group mx-auto justify-center">
+                    {/* <button class="btn">1</button>
+                    <button class="btn btn-active">2</button>
+                    <button class="btn">3</button>
+                    <button class="btn">4</button> */}
+                    {
+                        [...Array(pageCount).keys()].map(number => <button onClick={() => setPage(number)} className={page === number ? "btn btn-active" : 'btn '}
+                        >{number + 1}</button>)
+                    }
                 </div>
             </section>
         </div>

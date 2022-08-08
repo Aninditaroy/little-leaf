@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from './../Shared/Loading/Loading';
 import ManageProductsRow from './ManageProductsRow';
@@ -6,7 +6,28 @@ import DeleteProductModal from './DeleteProductModal';
 import EditProductModal from './EditProductModal';
 
 const ManageProducts = () => {
-    const { data: manageProducts, isLoading, refetch } = useQuery('manageProducts', () => fetch('http://localhost:5000/product').then(res => res.json()));
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0)
+
+    const size = 10;
+    // const { data: manageProducts, isLoading, refetch } = useQuery('manageProducts', () => fetch('http://localhost:5000/product').then(res => res.json()));
+    const { data: manageProducts, isLoading, refetch } = useQuery(['manageProducts', page, size], () => fetch(`http://localhost:5000/product?page=${page}&size=${size}`).then(res => res.json()));
+
+
+
+
+    useEffect(() => {
+        // fetch('http://localhost:5000/product')
+        fetch('http://localhost:5000/productCount')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count;
+                const pages = Math.ceil(count / 10);
+                setPageCount(pages)
+            })
+    }, [])
+
+
 
     // console.log(manageProducts);
     const [deletingProduct, setDeletingProduct] = useState(null);
@@ -38,8 +59,10 @@ const ManageProducts = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            manageProducts.map((manageProduct, index) => <ManageProductsRow
+                                            manageProducts?.map((manageProduct, index) => <ManageProductsRow
                                                 key={manageProduct._id}
+                                                page={page}
+                                                size={size}
                                                 manageProduct={manageProduct}
                                                 refetch={refetch}
                                                 setDeletingProduct={setDeletingProduct}
@@ -68,6 +91,17 @@ const ManageProducts = () => {
                         </ div>
 
 
+                    </div>
+
+                    <div class="btn-group mx-auto justify-center">
+                        {/* <button class="btn">1</button>
+                    <button class="btn btn-active">2</button>
+                    <button class="btn">3</button>
+                    <button class="btn">4</button> */}
+                        {
+                            [...Array(pageCount).keys()].map(number => <button onClick={() => setPage(number)} className={page === number ? "btn btn-active" : 'btn '}
+                            >{number + 1}</button>)
+                        }
                     </div>
                 </section>
 

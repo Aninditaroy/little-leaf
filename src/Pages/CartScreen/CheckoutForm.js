@@ -234,7 +234,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
                         },
                     }}
                 />
-                <button className='btn bg-[#368246] text-white btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
+                <button className='btn bg-[#368246] text-white btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess || !address || !city || !country || !zipcode}>
                     Pay
                 </button>
 

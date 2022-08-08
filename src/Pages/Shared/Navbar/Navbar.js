@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 import Marquee from "react-fast-marquee";
 import auth from './../../../firebase.init';
@@ -28,18 +28,19 @@ const Navbar = () => {
 
     const menuItems = <>
         <li tabindex="0" className='p-0 h-1/4 mx-1.5 hover:bg[#81B441]'>
-            <Link to='/home'>
+
+            <NavLink to='/home'>
                 Home
 
-            </Link>
+            </NavLink>
 
         </li>
-        <li className='p-0 h-1/4 mx-1.5'><Link to='/products'>Products</Link></li>
-        <li className='p-0 h-1/4 mx-1.5'><Link to='/blogs'>Blog</Link></li>
-        <li className='p-0 h-1/4 mx-1.5'><Link to='/aboutUs'>About Us</Link></li>
+        <li className='p-0 h-1/4 mx-1.5'><NavLink to='/products'>Products</NavLink></li>
+        <li className='p-0 h-1/4 mx-1.5'><NavLink to='/blogs'>Blog</NavLink></li>
+        <li className='p-0 h-1/4 mx-1.5'><NavLink to='/aboutUs'>About Us</NavLink></li>
         <div class="indicator ml-3 mt-2 lg:mr-2">
             <span class="indicator-item badge  bg-[#224229] mr-1.5 text-white rounded-full">{cartProducts?.length}</span>
-            <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><Link to='/cart' className='cart-icon p-0'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></Link>
+            <li className='p-0 h-1/4 mx-1.5 list-none cart-icon'><NavLink to='/cart' className='cart-icon p-0'><i class="uil uil-shopping-bag text-2xl cart-icon"></i></NavLink>
             </li>
         </div>
 
@@ -49,12 +50,12 @@ const Navbar = () => {
 
             {
                 ((user?.emailVerified) && admin) && <>
-                    <li className='p-0 h-1/4'><Link to='/dashboard'>Dashboard</Link></li>
-                    <li className='p-0 h-1/4 hidden'><Link to='/myorders'>My Orders</Link></li>
+                    <li className='p-0 h-1/4'><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                    <li className='p-0 h-1/4 hidden'><NavLink to='/myorders'>My Orders</NavLink></li>
                 </>
             }
             {
-                ((user?.emailVerified) && !admin) && <li className='p-0 h-1/4'><Link to='/myorders'>My Orders</Link></li>
+                ((user?.emailVerified) && !admin) && <li className='p-0 h-1/4'><NavLink to='/myorders'>My Orders</NavLink></li>
             }
 
 
@@ -103,9 +104,9 @@ const Navbar = () => {
 
                             <div className='flex justify-center items-center'>
 
-                                <Link to='/login' className='p-0 h-1/4 '><button className="btn btn-ghost hover:bg-primary">Login</button> </Link>
+                                <NavLink to='/login' className='p-0 h-1/4 '><button className="btn btn-ghost hover:bg-primary">Login</button> </NavLink>
                                 <>/</>
-                                <Link to='/signup' className='p-0 h-1/4 '><button className="btn btn-ghost hover:bg-primary">Signup</button></Link>
+                                <NavLink to='/signup' className='p-0 h-1/4 '><button className="btn btn-ghost hover:bg-primary">Signup</button></NavLink>
 
                             </div>
 

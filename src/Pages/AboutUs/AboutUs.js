@@ -17,7 +17,7 @@ const AboutUs = () => {
                             <div class="rounded overflow-hidden shadow-md bg-white dark:bg-gray-900">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://i.ibb.co/c2x9ynJ/anindita-linked-in.png" alt="Display Picture of Andres Berlin" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src="https://i.ibb.co/c2x9ynJ/anindita-linked-in.png" alt="Display Picture of Anindita Roy" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">
@@ -48,7 +48,7 @@ const AboutUs = () => {
                             <div class="rounded overflow-hidden shadow-md bg-white dark:bg-gray-900">
                                 <div class="absolute -mt-20 w-full flex justify-center">
                                     <div class="h-32 w-32">
-                                        <img src="https://i.ibb.co/JpZg266/sajeda-linked-in.png" alt="Display Picture of Silene Tokyo" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
+                                        <img src="https://i.ibb.co/JpZg266/sajeda-linked-in.png" alt="Display Picture of Sajeda Akhter" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                                     </div>
                                 </div>
                                 <div class="px-6 mt-16">

@@ -1,11 +1,20 @@
 import React from 'react';
 
-const ManageProductsRow = ({ manageProduct, index, setDeletingProduct, setEditingProduct, refetch }) => {
+const ManageProductsRow = ({ manageProduct, index, setDeletingProduct, setEditingProduct, refetch, page }) => {
     const { price, categories, description, imageAlt, imageUrl, plantName, inStock, _id } = manageProduct;
+
+    let size = 0;
+    let editIndex = index;
+    let editPage = page;
+    if (editPage !== 0) {
+        size = editPage * 10
+        editIndex = index;
+    }
+    // console.log(editIndex, editPage);
     return (
         <>
             <tr>
-                <td className='bg-gray-100/50 text-center font-bold border'>{index + 1}</td>
+                <td className='bg-gray-100/50 text-center font-bold border'>{editIndex + size}</td>
                 <td className='border px-3'>
                     <div class="flex items-center">
                         <img src={imageUrl} alt={imageAlt} className='w-20 h-20 px-4' />
