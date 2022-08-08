@@ -9,6 +9,7 @@ import Loading from './../../Shared/Loading/Loading';
 import useToken from './../../../Hooks/useToken';
 import { signOut } from 'firebase/auth';
 import { async } from '@firebase/util';
+import SocialLogin from './../SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -189,8 +190,8 @@ const Login = () => {
                         <p className="text-sm text-red-500 text-center pt-10"> {verifyError}</p>
                     }
 
-                    <form onSubmit={handleSubmit(onSubmit)} className="p-6  pt-16 pb-0">
-                        <div className='mb-6 '>
+                    <form onSubmit={handleSubmit(onSubmit)} className="p-6  pt-8 pb-0">
+                        <div className='mb-6'>
                             <div className="flex items-center text-lg ">
                                 <span className=' absolute ml-3'><i class="uil uil-envelope-edit"></i></span>
                                 <input
@@ -279,22 +280,6 @@ border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
                             </>
                         }
 
-                        {/* <input onclick="location.href='/'" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
-border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
-                            value='Login'>
-
-                        </input> */}
-
-                        {/* <a href="/" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
-border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit">Login</a> */}
-
-                        {/* <input onclick="location.href='/'" className='btn w-full max-w-xs  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 
-border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
-                            value='Login'>
-
-                        </input> */}
-
-
 
                         <p className='flex justify-between'>
                             <span className='text-[#79A206] text-sm font-bold '>New to Little Leaf?</span>
@@ -305,9 +290,8 @@ border-none bg-[#79A206] hover:bg-[#56720b] ' type="submit"
 
 
                     </form>
-                    <div className="divider">OR</div>
 
-                    {/* <Sociallogin></Sociallogin> */}
+                    <SocialLogin />
                 </div>
             </div>
             {/* } */}

@@ -8,6 +8,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSendEmailVerifi
 import useToken from './../../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
 import { signOut } from 'firebase/auth';
+import SocialLogin from './../SocialLogin/SocialLogin';
 
 
 const Signup = () => {
@@ -193,18 +194,9 @@ const Signup = () => {
 
                                     </label>
                                 </div>
-                                {/* <input className='btn w-full max-w-xs text-white font-medium p-2 md:p-4 uppercase  rounded-2xl mb-6 border-none  bg-[#79A206] hover:bg-[#56720b] hover:text-black' type="submit"
-                        value='SIGNUP' /> */}
-                                {/* 
-                    <button onClick={async () => {
-                        await sendEmailVerification();
-                        toast.success('Verification Email Sent');
-                    }} className='btn w-full max-w-xs text-white font-medium p-2 md:p-4 uppercase  rounded-2xl mb-6 border-none  bg-[#79A206] hover:bg-[#56720b] hover:text-black' type="submit">SIGNUP</button> */}
+
                                 <input className='btn w-full max-w-xs text-white font-medium p-2 md:p-4 uppercase  rounded-2xl mb-6 border-none  bg-[#79A206] hover:bg-[#56720b] hover:text-black' type="submit"
                                     value='SIGNUP' />
-
-
-
 
                                 <p className='flex justify-between items-center'>
                                     <small>Already have an account?
@@ -216,25 +208,18 @@ const Signup = () => {
 
 
                             </form>
-                            <div className="divider">OR</div>
                             {signInError}
-                            {/* <Sociallogin></Sociallogin> */}
+                            <SocialLogin />
                         </div>
                     </div>
                     :
-                    // <div className='flex flex-col justify-center mx-auto'>
-                    //     <p>Please verify your email.</p>
-                    //     <button onClick={() => { navigate('/login') }} className='btn'>Please Sign in</button>
-                    // </div>
                     <div class="card w-96 bg-base-100 shadow-lg my-24 mx-auto">
                         <div class="card-body">
                             <h2 class="text-xl font-semibold text-center">Please verify your email!</h2>
                             <div class="card-actions justify-center">
                                 <button onClick={() => { navigate('/login') }} className='btn btn-primary'>Please Sign in</button>
                             </div>
-                            {/* <div class="card-actions justify-center">
-                                <a href='/login' className='btn btn-primary'>Please Sign in</a>
-                            </div> */}
+
                         </div>
                     </div>
             }
