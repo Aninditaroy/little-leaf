@@ -37,6 +37,7 @@ const Dashboard = () => {
                     {
                         admin && <>
                             <li className='my-2'><NavLink to='/dashboard/addProducts'><i class="uil uil-plus-square text-lg"></i>Add Products</NavLink></li>
+                            <li className='my-2'><NavLink to='/dashboard/charts'><i class="uil uil-chart-growth text-lg"></i>Charts</NavLink></li>
                             <li className='my-2'><NavLink to='/dashboard/manageProducts'><i class="uil uil-file-edit-alt text-lg"></i>Manage Products</NavLink></li>
                             <li className='my-2'><NavLink to='/dashboard/manageOrders'><i class="uil uil-file-check text-lg"></i>Manage Orders</NavLink></li>
                             <li className='my-2'><NavLink to='/dashboard/addBlogs'><i class="uil uil-book-open text-lg"></i>Add Blogs</NavLink></li>

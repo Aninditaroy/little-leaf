@@ -31,6 +31,7 @@ import BlogDetails from './Pages/Blogs/BlogDetails';
 import AddBlogs from './Pages/Dashboard/AddBlogs';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import NotFound from './Pages/NotFound/NotFound';
+import Charts from './Pages/Dashboard/Charts';
 export const InputContext = createContext(0);
 function App() {
   return (
@@ -74,6 +75,7 @@ function App() {
             }>
               <Route index element={<Users></Users>}></Route>
               <Route path='/dashboard/addProducts' element={<AddProducts></AddProducts>}></Route>
+              <Route path='/dashboard/charts' element={<Charts></Charts>}></Route>
               <Route path='/dashboard/manageProducts' element={<ManageProducts></ManageProducts>}></Route>
               <Route path='/dashboard/manageOrders' element={<ManageOrders />}></Route>
               <Route path='/dashboard/addBlogs' element={<AddBlogs />}></Route>
