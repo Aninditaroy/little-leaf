@@ -10,15 +10,15 @@ const ManageProducts = () => {
     const [page, setPage] = useState(0)
 
     const size = 10;
-    // const { data: manageProducts, isLoading, refetch } = useQuery('manageProducts', () => fetch('http://localhost:5000/product').then(res => res.json()));
-    const { data: manageProducts, isLoading, refetch } = useQuery(['manageProducts', page, size], () => fetch(`http://localhost:5000/product?page=${page}&size=${size}`).then(res => res.json()));
+    // const { data: manageProducts, isLoading, refetch } = useQuery('manageProducts', () => fetch('https://rocky-anchorage-54101.herokuapp.com/product').then(res => res.json()));
+    const { data: manageProducts, isLoading, refetch } = useQuery(['manageProducts', page, size], () => fetch(`https://rocky-anchorage-54101.herokuapp.com/product?page=${page}&size=${size}`).then(res => res.json()));
 
 
 
 
     useEffect(() => {
-        // fetch('http://localhost:5000/product')
-        fetch('http://localhost:5000/productCount')
+        // fetch('https://rocky-anchorage-54101.herokuapp.com/product')
+        fetch('https://rocky-anchorage-54101.herokuapp.com/productCount')
             .then(res => res.json())
             .then(data => {
                 const count = data.count;

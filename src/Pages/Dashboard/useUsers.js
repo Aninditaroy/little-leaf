@@ -2,7 +2,7 @@
 import { useQuery } from 'react-query';
 
 const useUsers = () => {
-    const { data: users } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users } = useQuery('users', () => fetch('https://rocky-anchorage-54101.herokuapp.com/users', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

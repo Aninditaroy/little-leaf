@@ -20,7 +20,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
     const { _id, price, name } = cart;
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://rocky-anchorage-54101.herokuapp.com/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -109,7 +109,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
 
             }
             // update backend after payment successfull
-            const url = `http://localhost:5000/orders`
+            const url = `https://rocky-anchorage-54101.herokuapp.com/orders`
             fetch(url, {
                 method: "POST",
                 headers: {
@@ -127,7 +127,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
 
 
 
-            const url1 = `http://localhost:5000/carts`
+            const url1 = `https://rocky-anchorage-54101.herokuapp.com/carts`
             fetch(url1, {
                 method: 'delete',
                 headers: {
@@ -144,7 +144,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
 
 
             // const clearCart = () => {
-            //     const url1 = `http://localhost:5000/carts`
+            //     const url1 = `https://rocky-anchorage-54101.herokuapp.com/carts`
             //     fetch(url1, {
             //         method: 'delete',
             //         headers: {
@@ -172,7 +172,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
 
                 }
                 // console.log(cartProduct)
-                const url = 'http://localhost:5000/orderItem'
+                const url = 'https://rocky-anchorage-54101.herokuapp.com/orderItem'
                 fetch(url, {
                     method: "POST",
                     headers: {
@@ -196,7 +196,7 @@ const CheckoutForm = ({ cart, setCartProducts, cartProducts, total, address, cit
                     inStock: newInStock
                 }
                 console.log('new stock from checkout', newInStock)
-                const url = `http://localhost:5000/products/${cartProduct?.cartId}`
+                const url = `https://rocky-anchorage-54101.herokuapp.com/products/${cartProduct?.cartId}`
                 fetch(url, {
                     method: "PATCH",
                     headers: {

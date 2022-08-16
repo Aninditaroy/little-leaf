@@ -7,7 +7,7 @@ const useAdmin = (user) => {
     useEffect(() => {
         const email = user?.email;
         if (email) {
-            fetch(`http://localhost:5000/admin/${email}`, {
+            fetch(`https://rocky-anchorage-54101.herokuapp.com/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',
@@ -53,7 +53,7 @@ export default useAdmin;
 //     useEffect(() => {
 //         const email = user?.email;
 //         if (email) {
-//             fetch(`http://localhost:5000/admin/${email}`, {
+//             fetch(`https://rocky-anchorage-54101.herokuapp.com/admin/${email}`, {
 //                 method: 'GET',
 //                 headers: {
 //                     'content-type': 'application/json',
@@ -89,7 +89,7 @@ export default useAdmin;
 // //         const email = user?.email;
 
 // //         if (email) {
-// //             fetch(`http://localhost:5000/admin/${email}`, {
+// //             fetch(`https://rocky-anchorage-54101.herokuapp.com/admin/${email}`, {
 // //                 method: 'GET',
 // //                 headers: {
 // //                     'content-type': 'application/json',

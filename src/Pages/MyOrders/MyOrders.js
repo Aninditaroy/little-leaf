@@ -10,7 +10,7 @@ import { useState } from 'react';
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
-    const { data: myOrders, isLoading, refetch } = useQuery('myOrders', () => fetch(`http://localhost:5000/myorders/${email}`).then(res => res.json()));
+    const { data: myOrders, isLoading, refetch } = useQuery('myOrders', () => fetch(`https://rocky-anchorage-54101.herokuapp.com/myorders/${email}`).then(res => res.json()));
 
     // console.log(email);
     // console.log(myOrders);
